@@ -124,6 +124,16 @@ details.q p{margin:0;padding:0 14px 14px;color:var(--mu);font-size:14px}
 .tl{width:48px;height:48px;border-radius:50%;object-fit:cover;flex:none;box-shadow:0 0 24px -6px var(--mint);animation:up .6s both}
 .cl{width:16px;height:16px;border-radius:50%;vertical-align:middle;margin-right:6px}
 footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--bd);color:var(--mu);font-size:12px;text-align:center}
+.pool{background:var(--bg);border:1px solid var(--bd);border-radius:12px;padding:10px 12px;margin-top:8px;transition:.2s}.pool:hover{border-color:rgba(139,124,255,.55)}
+.pool .ph{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.pool .pn{font-weight:700}.pool .pl{margin-left:auto;font-weight:700;font-variant-numeric:tabular-nums}
+.pb{height:6px;background:var(--bd);border-radius:9px;overflow:hidden;margin:7px 0}.pb i{display:block;height:100%;background:linear-gradient(90deg,var(--vio),var(--mint));animation:grow 1s both}
+.pool .chips{margin-top:0}.pool .chip{background:var(--card)}.pool .pa{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;font-size:12px}.pool .pa a,.pool .pa button{color:var(--vio);text-decoration:none;background:none;border:0;padding:0;font:inherit;cursor:pointer}
+.tag.bad{color:var(--red);border-color:var(--red)}.tag.good{color:var(--mint);border-color:var(--mint)}.tag{white-space:nowrap}
+.ctl{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:10px;font-size:12px;color:var(--mu)}.ctl button{background:var(--bg);border:1px solid var(--bd);color:var(--tx);border-radius:99px;padding:4px 12px;font-size:12px}.ctl button.on{border-color:var(--mint);color:var(--mint)}
+.cv .vd{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:6px 0 10px}.cv .vd b{font-size:20px}
+.cv .sp{position:relative;height:12px;border-radius:99px;background:linear-gradient(90deg,var(--red),var(--amb) 50%,var(--mint));margin:14px 0 4px}.cv .sp i{position:absolute;top:-4px;width:6px;height:20px;border-radius:4px;background:var(--tx);box-shadow:0 0 0 2px var(--card);transition:left 1s cubic-bezier(.2,.8,.2,1)}
+.cv .ends{display:flex;justify-content:space-between;font-size:11px;color:var(--mu)}.cv .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin-top:12px}
+.cv .col{background:var(--bg);border-radius:12px;padding:10px 12px}.cv .col h4{margin:0 0 6px;font-size:13px}.cv .col div{font-size:13px;color:var(--mu);padding:3px 0}.cv .col div b{color:var(--tx);font-weight:600}
 </style></head><body><div class="w">
 <nav><div class="logo">TOKEN<b>SCOPE</b></div><div class="links"><a href="#how">How it works</a><a href="#checks">Checks</a><a href="#chains">Chains</a><a href="#learn">Learn</a><a href="#faq">FAQ</a><button class="ghost" id="th">Theme</button></div></nav>
 <h1>Don’t buy blind. Scan before you invest.</h1>
@@ -137,10 +147,10 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--bd);color:var
 <select id="c" class="ghost" aria-label="Chain"><option value="">Auto-detect chain</option><option>ethereum</option><option>bsc</option><option>base</option><option>arbitrum</option><option>optimism</option><option>polygon</option><option>avalanche</option><option>robinhood</option><option>solana</option></select>
 <button class="ghost" id="p">Paste</button>
 <button class="go" id="s">Scan token</button></div></div>
-<p class="note">Read-only. Data: DexScreener (market) and GoPlus (security). Missing data is shown as inconclusive, never as a pass.</p>
+<p class="note">Read-only. Data: DexScreener (market), GoPlus (security), Jupiter (Solana verification) and CoinGecko (listings). Missing data is shown as inconclusive, never as a pass.</p>
 <div id="o"></div>
 <div class="mq rv"><div><span><b>◆</b> Ethereum</span><span><b>◆</b> Solana</span><span><b>◆</b> BNB Chain</span><span><b>◆</b> Base</span><span><b>◆</b> Arbitrum</span><span><b>◆</b> Optimism</span><span><b>◆</b> Polygon</span><span><b>◆</b> Avalanche</span><span><b>◆</b> Robinhood Chain</span><span><b>◆</b> Ethereum</span><span><b>◆</b> Solana</span><span><b>◆</b> BNB Chain</span><span><b>◆</b> Base</span><span><b>◆</b> Arbitrum</span><span><b>◆</b> Optimism</span><span><b>◆</b> Polygon</span><span><b>◆</b> Avalanche</span><span><b>◆</b> Robinhood Chain</span></div></div>
-<section class="rv"><div class="stats"><div><b data-n="9">0</b><span>chains supported</span></div><div><b data-n="10">0</b><span>risk categories</span></div><div><b data-n="0">0</b><span>wallets to connect</span></div></div></section>
+<section class="rv"><div class="stats"><div><b data-n="9">0</b><span>chains supported</span></div><div><b data-n="11">0</b><span>risk categories</span></div><div><b data-n="0">0</b><span>wallets to connect</span></div></div></section>
 <section id="how" class="rv"><h2>How it works</h2><p>Three steps, a few seconds.</p>
 <div class="g3"><div class="fc"><div class="n">1</div><h3>Paste an address</h3><p>Add an EVM contract or a Solana mint. The chain is detected for you.</p></div>
 <div class="fc"><div class="n">2</div><h3>We pull public data</h3><p>Market data from DexScreener and security flags from GoPlus, plus holders and trade counts.</p></div>
@@ -151,7 +161,10 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--bd);color:var
 <div class="fc"><div class="n">≋</div><h3>Liquidity</h3><p>Depth of the main pool and reported LP locks.</p></div>
 <div class="fc"><div class="n">▤</div><h3>Holder concentration</h3><p>Top-10 share of supply for EVM tokens, from GoPlus.</p></div>
 <div class="fc"><div class="n">⇅</div><h3>Transaction pressure</h3><p>Buys versus sells across 5 minutes to 24 hours.</p></div>
-<div class="fc"><div class="n">⏱</div><h3>Token age</h3><p>Very new pairs carry extra risk.</p></div></div></section>
+<div class="fc"><div class="n">⏱</div><h3>Token age</h3><p>Very new pairs carry extra risk.</p></div>
+<div class="fc"><div class="n">✓</div><h3>Listings &amp; verification</h3><p>Jupiter verified status (Solana, a strong weight in Community vs scam) and CoinGecko listing by contract.</p></div>
+<div class="fc"><div class="n">⚖</div><h3>Community vs scam</h3><p>A weighted read of all checks: community-like, scam-like or unclear, with reasons.</p></div>
+<div class="fc"><div class="n">⛁</div><h3>Liquidity markets</h3><p>Every DEX pool and CoinGecko-tracked market, with each one's share.</p></div></div></section>
 <section id="chains" class="rv"><h2>Pick a chain</h2><p>Tap one to filter your next scan.</p><div class="chs"><button data-ch="ethereum">Ethereum</button><button data-ch="solana">Solana</button><button data-ch="bsc">BNB Chain</button><button data-ch="base">Base</button><button data-ch="arbitrum">Arbitrum</button><button data-ch="optimism">Optimism</button><button data-ch="polygon">Polygon</button><button data-ch="avalanche">Avalanche</button><button data-ch="robinhood">Robinhood Chain</button></div>
 <p style="margin-top:14px">Not sure what to scan? Try a well-known token:</p><div class="chs"><button data-ex="0x6982508145454Ce325dDbE47a25d4ec3d2311933">PEPE (Ethereum)</button><button data-ex="DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263">BONK (Solana)</button><button data-ex="0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913">USDC (Base)</button></div></section>
 <section id="learn" class="rv"><h2>Red flag glossary</h2><p>Plain-English meanings. A flag is a warning, not proof of fraud.</p>
@@ -163,14 +176,16 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--bd);color:var
 <details class="q"><summary>Bundled buying</summary><p>Several wallets buying in the same launch moment, sometimes funded by one source. Not analyzed in this version.</p></details></section>
 <section id="faq" class="rv"><h2>FAQ</h2>
 <details class="q"><summary>Does a low score mean a token is safe?</summary><p>No. It only means fewer risks were detected from the data available. Always check confidence and inconclusive items.</p></details>
+<details class="q"><summary>How does "Community vs scam" work?</summary><p>It weighs the checks (honeypot, taxes, holders, LP locks, listings, age and more) into a position between scam-like and community-like. Hard red flags override it, young tokens are never called community-like, and unchecked items such as creator history are listed. It is a read of the evidence, not a guarantee.</p></details>
 <details class="q"><summary>Do I need to connect a wallet?</summary><p>Never. This tool is read-only and never asks for a seed phrase or private key.</p></details>
-<details class="q"><summary>Where does the data come from?</summary><p>DexScreener, GoPlus and the public Solana RPC. Each check names its source.</p></details>
+<details class="q"><summary>Where does the data come from?</summary><p>DexScreener, GoPlus, Jupiter, CoinGecko and the public Solana RPC. Each check names its source.</p></details>
 <details class="q"><summary>Is this financial advice?</summary><p>No. It is information only and cannot predict future behavior.</p></details></section>
 <footer>TOKENSCOPE · Read-only token risk scanner · Not financial advice · Data may be delayed or incomplete.</footer></div>
 <script>
 const $=id=>document.getElementById(id);
 const GP={ethereum:1,bsc:56,base:8453,arbitrum:42161,optimism:10,polygon:137,avalanche:43114,robinhood:4663};
-const W={honeypot:.9,tax:.6,contract:.5,permissions:.4,holders:.4,liquidity:.6,manipulation:.3,market:.2,bundle:.5,deployer:.4};
+const W={honeypot:.9,tax:.6,contract:.5,permissions:.4,holders:.4,liquidity:.6,manipulation:.3,market:.2,bundle:.5,deployer:.4,listing:.2};
+const CGP={ethereum:'ethereum',bsc:'binance-smart-chain',base:'base',arbitrum:'arbitrum-one',optimism:'optimistic-ethereum',polygon:'polygon-pos',avalanche:'avalanche',solana:'solana'};
 const SEV={pass:0,warning:.5,high:.8,critical:1};
 const el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
 const n=v=>v==null||v===''||isNaN(+v)?null:+v;
@@ -224,14 +239,141 @@ function sol(g){const S='GoPlus Solana (third-party flag)';
  const f=[];if(m==='1')f.push('mint authority active');if(fz==='1')f.push('freeze authority active');
  return[F('auth','permissions',f.length===2?'high':f.length?'warning':'pass','Mint & freeze authority',f.length?'Detected: '+f.join(', ')+'. Authorities let the creator issue more tokens or freeze holders.':'No active mint or freeze authority reported.',S,.8)]}
 
+const jupVerified=x=>!!x&&(x.isVerified===true||(Array.isArray(x.tags)&&x.tags.includes('verified')));
+const safeId=s=>typeof s==='string'&&/^[A-Za-z0-9._-]{1,80}$/.test(s);
+function listing(ext,chain){const f=[],{pairs,jd,cg,cgErr,jupErr}=ext;
+ if(chain==='solana'){
+  if(jupErr)f.push(unk('jup','listing','Jupiter verification','Jupiter lookup failed ('+jupErr+').'));
+  else if(!jd)f.push(F('jup','listing','warning','Jupiter verification','Jupiter has no record of this mint. Tokens that are not indexed often cannot be swapped on Jupiter at all.','Jupiter (third-party)',.5));
+  else{const v=jupVerified(jd),os=n(jd.organicScore),ol=jd.organicScoreLabel?String(jd.organicScoreLabel).slice(0,20):'';
+   f.push(F('jup','listing',v?'pass':'warning','Jupiter verification',(v?'Jupiter marks this token as verified. That reduces impersonation risk but is not a safety guarantee.':'Jupiter lists this token but it is not marked verified, so it has not passed Jupiter’s community review. Check the mint address matches the official project.')+(os!=null?' Organic score '+os.toFixed(0)+(ol?' ('+ol+')':'')+'.':''),'Jupiter (third-party)',.6))}}
+ if(cg){const rk=n(cg.market_cap_rank),tk=Array.isArray(cg.tickers)?cg.tickers.length:0;
+  f.push(F('cg','listing','pass','CoinGecko listing','Listed on CoinGecko as '+String(cg.name||'?').slice(0,40)+' ('+String(cg.symbol||'?').toUpperCase().slice(0,12)+')'+(rk!=null?', market cap rank #'+rk:'')+(tk?', '+tk+' tracked market(s)':'')+'. A listing means CoinGecko reviewed the contract; it is not an audit.','CoinGecko (third-party)',.6))}
+ else if(cgErr==='unsupported')f.push(unk('cg','listing','CoinGecko listing','CoinGecko lookup by contract is not available for this chain.'));
+ else if(/HTTP 404/.test(cgErr||''))f.push(F('cg','listing','warning','CoinGecko listing','Not listed on CoinGecko under this contract address. This is normal for brand-new tokens, but it also means less public vetting.','CoinGecko (third-party)',.5));
+ else f.push(unk('cg','listing','CoinGecko listing',/429/.test(cgErr||'')?'CoinGecko rate-limited this request. Try again in a minute.':'CoinGecko lookup failed ('+cgErr+').'));
+ if(pairs&&pairs.length){const L=pairs.map(x=>n(x.liquidity&&x.liquidity.usd)||0),tot=L.reduce((s,x)=>s+x,0);
+  if(tot>0){const sh=L[0]/tot*100,cnt=pairs.length,weak=(cnt===1||sh>90)&&tot<1e6;
+   f.push(F('mkts','liquidity',weak?'warning':'pass','Liquidity markets',cnt+' pool(s) found on this chain, '+usd(tot)+' reported in total; the largest holds '+sh.toFixed(0)+'%. '+(weak?'Liquidity depends on one pool, so a single pool pull or drain would remove most exits.':'Liquidity is spread across pools or deep enough that one pool is not the only exit.')+' Heuristic: warns when one pool carries over 90% and total is under $1M.','DexScreener (reported)',.6))}}
+ else f.push(unk('mkts','liquidity','Liquidity markets','No pools were returned to compare.'));
+ return f}
+const QK=new Set(['SOL','WSOL','USDC','USDT','WETH','ETH','WBNB','BNB','WBTC','CBBTC','DAI','USDS','WAVAX','AVAX','WMATIC','WPOL','POL','USD1','PYUSD','FDUSD','USDC.E','USDBC']);
+const ageTxt=ms=>{const h=(Date.now()-ms)/36e5;return h<1?Math.max(1,Math.round(h*60))+'m':h<48?h.toFixed(0)+'h':h<24*60?(h/24).toFixed(0)+'d':(h/24/30).toFixed(0)+'mo'};
+function poolsBlock(pairs){const w=el('div'),liq=p=>n(p.liquidity&&p.liquidity.usd)||0,vol=p=>n(p.volume&&p.volume.h24)||0;
+ const tot=pairs.reduce((s,p)=>s+liq(p),0),tv=pairs.reduce((s,p)=>s+vol(p),0),main=pairs[0],mpx=n(main&&main.priceUsd);
+ const dexes=new Set(pairs.map(p=>String(p.dexId||'?')));
+ w.append((()=>{const h=el('div',null,'DEX pools (DexScreener)');h.style.cssText='font-weight:700;margin-top:14px;font-size:13px';return h})());
+ const ch=el('div','chips');ch.style.marginTop='6px';
+ [pairs.length+' pool'+(pairs.length>1?'s':''),dexes.size+' DEX'+(dexes.size>1?'es':''),'Total liquidity '+usd(tot),'24h volume '+usd(tv),'Top pool '+(tot?(liq(main)/tot*100).toFixed(0):'0')+'% of liquidity'].forEach(t=>ch.append(el('span','chip',t)));w.append(ch);
+ let sort='liq',dust=true,all=false;const ctl=el('div','ctl'),list=el('div');
+ const mkb=(t,on,fn)=>{const b=el('button',on?'on':'',t);b.onclick=()=>fn(b);return b};
+ const sb={};ctl.append(el('span',null,'Sort:'));
+ [['liq','Liquidity'],['vol','Volume'],['new','Newest']].forEach(([k,t])=>{sb[k]=mkb(t,k===sort,()=>{sort=k;Object.entries(sb).forEach(([z,b])=>b.classList.toggle('on',z===k));draw()});ctl.append(sb[k])});
+ const db=mkb('Hide dust (<$1K)',true,b=>{dust=!dust;b.classList.toggle('on',dust);draw()});ctl.append(db);
+ const draw=()=>{list.replaceChildren();let L=pairs.slice();const nd=L.filter(p=>liq(p)>=1000);if(dust&&nd.length)L=nd;
+  L.sort(sort==='vol'?(x,y)=>vol(y)-vol(x):sort==='new'?(x,y)=>(y.pairCreatedAt||0)-(x.pairCreatedAt||0):(x,y)=>liq(y)-liq(x));
+  const hidden=pairs.length-L.length,shown=all?L:L.slice(0,6);
+  shown.forEach(p=>{const d=el('div','pool'),h=el('div','ph'),l=liq(p),bs=String(p.baseToken&&p.baseToken.symbol||'?').slice(0,12),qs=String(p.quoteToken&&p.quoteToken.symbol||'?').slice(0,12);
+   h.append(el('span','pn',bs+'/'+qs),el('span','chip',String(p.dexId||'dex').slice(0,24)));
+   if(p.labels&&Array.isArray(p.labels))p.labels.slice(0,2).forEach(x=>h.append(el('span','chip',String(x).slice(0,10))));
+   if(p===main)h.append(el('span','tag good','main pool'));
+   const age=p.pairCreatedAt?(Date.now()-p.pairCreatedAt)/36e5:null,t=(p.txns&&p.txns.h24)||{},B=+t.buys||0,S=+t.sells||0,px=n(p.priceUsd),dev=mpx&&px&&p!==main?(px/mpx-1)*100:null;
+   if(age!=null&&age<24)h.append(el('span','tag','new '+ageTxt(p.pairCreatedAt)));
+   if(l<1000)h.append(el('span','tag','dust'));
+   if(!QK.has(qs.toUpperCase()))h.append(el('span','tag','unusual quote token'));
+   if(dev!=null&&Math.abs(dev)>5&&l>=1000)h.append(el('span','tag bad','price '+(dev>0?'+':'')+dev.toFixed(1)+'% vs main'));
+   if(B>=20&&S===0)h.append(el('span','tag bad','no sells in 24h'));
+   h.append(el('span','pl',usd(l)));d.append(h);
+   const bar=el('div','pb'),i=el('i');i.style.width=Math.max(2,tot?l/tot*100:0)+'%';bar.append(i);d.append(bar);
+   const st=el('div','chips'),pc=n(p.priceChange&&p.priceChange.h24);
+   [(tot?(l/tot*100).toFixed(1):'0')+'% of liquidity','Vol 24h '+usd(vol(p)),B+S?B+' buys / '+S+' sells':'no trades 24h',l?'Vol/Liq '+(vol(p)/l).toFixed(1)+'x':null,age!=null?'Age '+ageTxt(p.pairCreatedAt):null].filter(Boolean).forEach(x=>st.append(el('span','chip',x)));
+   if(pc!=null){const e=el('span','chip',(pc>0?'+':'')+pc+'% 24h');e.classList.add(pc>=0?'up':'dn');st.append(e)}
+   d.append(st);const ac=el('div','pa');
+   if(typeof p.url==='string'&&/^https:\/\/dexscreener\.com\//.test(p.url)){const x=document.createElement('a');x.href=p.url;x.target='_blank';x.rel='noopener noreferrer';x.textContent='Chart ↗';ac.append(x)}
+   if(typeof p.pairAddress==='string'&&/^[A-Za-z0-9]+$/.test(p.pairAddress)){const b=el('button',null,'Copy pool address');b.onclick=()=>navigator.clipboard.writeText(p.pairAddress).then(()=>{b.textContent='Copied'});ac.append(b)}
+   d.append(ac);list.append(d)});
+  if(L.length>6){const m=el('button','ghost',all?'Show fewer':'Show all '+L.length+' pools');m.style.marginTop='10px';m.onclick=()=>{all=!all;draw()};list.append(m)}
+  if(hidden>0&&dust)list.append(el('p','ev',hidden+' dust pool(s) under $1K hidden.'))};
+ draw();w.append(ctl,list);
+ w.append(el('p','ev','Price flags compare each pool with the main (deepest) pool: a gap over 5% on a funded pool can mean a stale or fake pool, or a real arbitrage gap. "Unusual quote token" means it is not paired with a major coin or stablecoin. Flags are heuristics, not proof.'));
+ return w}
+function classify(fs,p,ext){const by={};fs.forEach(f=>by[f.id]=f);const sg=[],un=[];let hard=null;
+ const add=(id,dir,w,name,why)=>sg.push({dir,w,name,why});
+ const st=id=>by[id]&&by[id].status;
+ const vote=(id,name,map)=>{const s=st(id);if(!by[id]||s==='inconclusive'||s==='na'){if(by[id])un.push(name+' (no data)');return}const m=map[s];if(m)add(id,m[0],m[1],name,m[2])};
+ const hp=st('hp');if(hp==='critical'){hard='Flagged as a honeypot by GoPlus';add('hp',-1,3,'Honeypot check','Flagged as a honeypot, so sells may be blocked.')}else if(hp==='pass')add('hp',1,1,'Honeypot check','Not flagged as a honeypot.');else if(by.hp)un.push('Honeypot check (no data)');
+ vote('tax','Buy/sell tax',{pass:[1,.5,'Taxes are low.'],warning:[-1,1,'Taxes are noticeable.'],high:[-1,2,'Very high sell tax.']});if(st('tax')==='high'&&!hard)hard='Sell tax of 30% or more';
+ vote('src','Verified source code',{pass:[1,1,'Source is public, so it can be reviewed.'],warning:[-1,1,'Source is not verified.']});
+ vote('perm','Contract powers',{pass:[1,1.5,'No risky powers flagged.'],warning:[-1,1,'Some creator powers remain.'],high:[-1,2,'Several creator powers remain.']});
+ vote('auth','Mint & freeze authority',{pass:[1,1.5,'Mint and freeze are not active.'],warning:[-1,1,'One authority is still active.'],high:[-1,2,'Mint and freeze are both active.']});
+ vote('hold','Holder spread',{pass:[1,1.5,'Supply is not dominated by a few wallets.'],warning:[-1,1.5,'A few wallets hold a large share.'],high:[-1,2.5,'A few wallets hold most of the supply.']});
+ vote('dep','Creator holdings',{pass:[1,1.5,'Creator holds a small share.'],warning:[-1,1,'Creator holds a notable share.'],high:[-1,2.5,'Creator holds a large share.']});
+ vote('lp','LP locked or burned',{pass:[1,2,'A good share of LP tokens is locked or burned.'],warning:[-1,1.5,'Little LP is locked, so the pool could be pulled.']});
+ vote('liq','Liquidity depth',{pass:[1,1.5,'Meaningful liquidity in the main pool.'],warning:[-1,.5,'Liquidity is modest.'],high:[-1,2,'Liquidity is very thin.']});
+ vote('mkts','Liquidity spread',{pass:[1,1,'Liquidity is not tied to one pool.'],warning:[-1,1.5,'Liquidity depends on one pool.']});
+ vote('vol','Trading pattern',{pass:[1,.5,'Volume is in a normal range for the liquidity.'],warning:[-1,1,'Volume is extreme versus liquidity (possible wash trading).']});
+ vote('jup','Jupiter verification',{pass:[1,3,'Verified by Jupiter, a strong sign the token is the real project and not an impersonator.'],warning:[-1,1.5,'Not verified by Jupiter, so it has not passed Jupiter\u2019s community review.']});
+ const ol=ext&&ext.jd&&String(ext.jd.organicScoreLabel||'').toLowerCase();if(ol==='high')add('org',1,1,'Jupiter organic score','High organic score: trading looks driven by real users.');else if(ol==='low')add('org',-1,1,'Jupiter organic score','Low organic score: activity looks bot-driven or artificial.');
+ vote('cg','CoinGecko listing',{pass:[1,2.5,'Listed on CoinGecko.'],warning:[-1,.5,'Not listed on CoinGecko (normal for new tokens).']});
+ if(p&&p.pairCreatedAt){const h=(Date.now()-p.pairCreatedAt)/36e5;
+  if(h>=24*7)add('surv',1,1.5,'Track record','Trading for '+Math.floor(h/24)+' days, so it has lived through some market cycles.');
+  else if(h<24)add('surv',-1,1,'Track record','Under 24 hours old. There is no history to judge.')}
+ const hc=n(ext&&ext.jd&&ext.jd.holderCount);if(hc!=null){if(hc>=1000)add('hc',1,1,'Holder count',hc.toLocaleString()+' holders (Jupiter).');else if(hc<100)add('hc',-1,1,'Holder count','Only '+hc+' holders (Jupiter).')}
+ if(p){const t=(p.txns&&p.txns.h24)||{},B=+t.buys||0,S=+t.sells||0;if(B>=20&&S===0){if(!hard)hard='Many buys and zero sells in 24h on the main pool';add('ns',-1,3,'Sell activity','No sells in 24h despite '+B+' buys.')}else if(B+S>=50&&S>0)add('ns',1,.5,'Sell activity','Both buys and sells are happening.')}
+ un.push('Creator history (past launches and rugs)','Bundled buying and linked wallets','Social authenticity (real followers vs bots)');
+ const tw=sg.reduce((a,x)=>a+x.w,0),net=tw?sg.reduce((a,x)=>a+x.dir*x.w,0)/tw:0,old=p&&p.pairCreatedAt?(Date.now()-p.pairCreatedAt)/36e5>=24:false;
+ let v='unclear';if(hard||net<=-.25)v='scam';else if(net>=.4&&sg.length>=5&&old&&!(ext&&ext.chain==='solana'&&!ext.jupErr&&!ext.jd))v='community';
+ return{v,net,sg,un,hard,n:sg.length}}
+function cvCard(fs,p,ext){const r=classify(fs,p,ext),c=el('div','card cv');c.append(el('h3',null,'Community token or scam?'));
+ const M={community:['Looks community-like','var(--mint)'],scam:['Looks scam-like','var(--red)'],unclear:['Unclear','var(--amb)']}[r.v];
+ const vd=el('div','vd'),b=el('b',null,M[0]);b.style.color=M[1];vd.append(b,el('span','chip','based on '+r.n+' signals'));
+ if(ext&&ext.chain==='solana'){const jv=ext.jupErr?null:ext.jd?jupVerified(ext.jd):false,e=el('span','chip','Jupiter: '+(jv==null?'unavailable':jv?'verified \u2713':ext.jd?'not verified':'not found'));if(jv!=null)e.classList.add(jv?'up':'dn');vd.append(e)}
+ c.append(vd);
+ const sp=el('div','sp'),mk=el('i');mk.style.left='50%';sp.append(mk);c.append(sp);setTimeout(()=>mk.style.left='calc('+((r.net+1)/2*100).toFixed(1)+'% - 3px)',80);
+ const en=el('div','ends');en.append(el('span',null,'scam-like'),el('span',null,'community-like'));c.append(en);
+ if(r.hard)c.append(el('p','ev','Hard red flag: '+r.hard+'. This overrides everything else.'));
+ else if(r.v==='unclear')c.append(el('p','ev',r.n<5?'Too few signals could be checked to lean either way.':!(p&&p.pairCreatedAt&&(Date.now()-p.pairCreatedAt)/36e5>=24)?'Tokens under 24 hours old are never labelled community-like, because there is not enough history.':(ext&&ext.chain==='solana'&&!ext.jupErr&&!ext.jd)?'Jupiter has no record of this mint, so it is not labelled community-like.':'Signals are mixed or the evidence is thin.'));
+ const cols=el('div','cols'),col=(t,col,rows,empty)=>{const d=el('div','col'),h=el('h4',null,t);h.style.color=col;d.append(h);if(!rows.length)d.append(el('div',null,empty));rows.forEach(x=>{const e=el('div');e.append(el('b',null,x[0]+': '),document.createTextNode(x[1]));d.append(e)});cols.append(d)};
+ col('Points to community','var(--mint)',r.sg.filter(x=>x.dir>0).sort((a,b)=>b.w-a.w).map(x=>[x.name,x.why]),'Nothing found.');
+ col('Points to scam','var(--red)',r.sg.filter(x=>x.dir<0).sort((a,b)=>b.w-a.w).map(x=>[x.name,x.why]),'No scam signals found.');
+ col('Not checked','var(--mu)',r.un.map(x=>[x,'']).map(x=>[x[0],'']),'');
+ cols.lastChild.querySelectorAll('div').forEach(d=>{const bb=d.querySelector('b');if(bb)bb.textContent=bb.textContent.replace(/: $/,'')});
+ c.append(cols);
+ c.append(el('p','ev','This is a weighted read of the checks above, not a verdict. Scammers can copy community signals (burned LP, revoked authorities, spread-out wallets), and the unchecked items above are exactly where that is hidden. Never treat "community-like" as safe. Not financial advice.'));
+ return c}
+function lmCard(ext,chain,a){const {pairs,jd,cg,cgErr,jupErr}=ext,c=el('div','card');c.append(el('h3',null,'Listings & liquidity markets'));
+ const ch=el('div','chips'),lnk=(t,u)=>{const l=document.createElement('a');l.href=u;l.target='_blank';l.rel='noopener noreferrer';l.className='chip';l.style.cssText='color:var(--vio);text-decoration:none';l.textContent=t+' ↗';return l};
+ if(chain==='solana'){const v=jupErr?'unavailable':!jd?'not found':jupVerified(jd)?'verified ✓':'not verified';
+  const e=el('span','chip','Jupiter: '+v);if(!jupErr&&jd)e.classList.add(jupVerified(jd)?'up':'dn');ch.append(e);
+  if(jd&&jd.id===a)ch.append(lnk('View on Jupiter','https://jup.ag/tokens/'+encodeURIComponent(a)))}
+ const cge=el('span','chip','CoinGecko: '+(cg?'listed'+(n(cg.market_cap_rank)!=null?' #'+cg.market_cap_rank:''):cgErr==='unsupported'?'n/a for this chain':/HTTP 404/.test(cgErr||'')?'not listed':'unavailable'));
+ if(cg)cge.classList.add('up');else if(/HTTP 404/.test(cgErr||''))cge.classList.add('dn');ch.append(cge);
+ if(cg&&safeId(cg.id))ch.append(lnk('View on CoinGecko','https://www.coingecko.com/en/coins/'+encodeURIComponent(cg.id)));
+ c.append(ch);
+ const row=(i,label,href,sub,pct,right)=>{const r=el('div','hr');r.append(el('span',null,'#'+i));const m=el('div');
+  if(href){const x=document.createElement('a');x.href=href;x.target='_blank';x.rel='noopener noreferrer';x.textContent=label;m.append(x)}else m.append(el('span',null,label));
+  if(sub)m.append(el('span','tag',sub));if(pct!=null){const t=el('div','t'),b=el('i');b.style.width=Math.max(2,Math.min(100,pct))+'%';t.append(b);m.append(t)}
+  r.append(m,el('b',null,right));return r};
+ const hd=(t)=>{const h=el('div',null,t);h.style.cssText='font-weight:700;margin-top:14px;font-size:13px';return h};
+ if(pairs&&pairs.length)c.append(poolsBlock(pairs));
+ else c.append(el('p','ev','No DEX pools returned by DexScreener.'));
+ const tk=cg&&Array.isArray(cg.tickers)?cg.tickers.filter(t=>t&&t.market&&n(t.converted_volume&&t.converted_volume.usd)!=null).sort((x,y)=>(+y.converted_volume.usd)-(+x.converted_volume.usd)):[];
+ if(tk.length){const tv=tk.reduce((s,t)=>s+(+t.converted_volume.usd),0);c.append(hd('Markets tracked by CoinGecko – share of 24h volume'));
+  tk.slice(0,8).forEach((t,i)=>{const u=typeof t.trade_url==='string'&&/^https:\/\//.test(t.trade_url)?t.trade_url:null,v=+t.converted_volume.usd;
+   c.append(row(i+1,String(t.market.name||'?').slice(0,30)+' · '+String(t.base||'?').slice(0,12)+'/'+String(t.target||'?').slice(0,12),u,t.trust_score&&/^[a-z]{3,8}$/.test(t.trust_score)?'trust: '+t.trust_score:null,tv?v/tv*100:null,usd(v)))});
+  if(tk.length>8)c.append(el('p','ev','+ '+(tk.length-8)+' more market(s) not shown.'))}
+ else if(cg)c.append(el('p','ev','CoinGecko returned no market volume data for this token.'));
+ c.append(el('p','ev','Jupiter verification and CoinGecko listings are third-party reviews of whether a token is who it claims to be. They do not prove the token is safe, and new legitimate tokens are often unlisted. Liquidity figures are reported by DexScreener and CoinGecko and can be stale or manipulated; trade links open external sites, so check the address before trading.'));
+ return c}
 async function scan(){
  const a=$('a').value.trim(),o=$('o');o.replaceChildren();
  const kind=detect(a);if(!kind){o.append(el('p','err','Invalid address. Expected a 0x… EVM address or a Solana base58 mint.'));return}
  $('s').disabled=true;o.append(el('div','sk'),el('div','sk'));
- const failed=[];let pair=null,gp=null,chain=$('c').value;
+ const failed=[];let pair=null,gp=null,chain=$('c').value,allPairs=[];
  try{const d=await j('https://api.dexscreener.com/latest/dex/tokens/'+encodeURIComponent(a));
   let ps=(d.pairs||[]);if(chain)ps=ps.filter(p=>chain==='robinhood'?/robinhood/i.test(p.chainId):p.chainId===chain);
-  ps.sort((x,y)=>(n(y.liquidity&&y.liquidity.usd)||0)-(n(x.liquidity&&x.liquidity.usd)||0));pair=ps[0]||null}
+  ps.sort((x,y)=>(n(y.liquidity&&y.liquidity.usd)||0)-(n(x.liquidity&&x.liquidity.usd)||0));pair=ps[0]||null;
+  const lc=a.toLowerCase(),mine=ps.filter(p=>p.chainId===(pair&&pair.chainId)&&p.baseToken&&String(p.baseToken.address).toLowerCase()===lc);allPairs=mine.length?mine:ps.filter(p=>pair&&p.chainId===pair.chainId)}
  catch(e){failed.push('DexScreener: '+e.message)}
  chain=chain||(pair&&pair.chainId)||(kind==='solana'?'solana':'');
  if(/robinhood/i.test(chain))chain='robinhood';
@@ -240,16 +382,22 @@ async function scan(){
   else if(GP[chain]){const d=await j('https://api.gopluslabs.io/api/v1/token_security/'+GP[chain]+'?contract_addresses='+a.toLowerCase());gp=d.result&&Object.values(d.result)[0]}
   else failed.push('GoPlus: chain "'+chain+'" not supported by this tool')}
  catch(e){failed.push('GoPlus: '+e.message)}
- let dep=null;
- if(chain==='solana'){try{const r=await fetch('https://lite-api.jup.ag/tokens/v2/search?query='+encodeURIComponent(a));if(r.ok){const d=await r.json();const jd=Array.isArray(d)?d.find(z=>z.id===a):null;const dv=n(jd&&jd.audit&&jd.audit.devBalancePercentage);
-  if(dv!=null)dep=F('dep','deployer',dv>=10?'high':dv>=5?'warning':'pass','Deployer holdings','Dev wallet holds about '+dv.toFixed(1)+'% of supply. Previous launches and selling history are not checked.','Jupiter (third-party)',.6)}}catch(e){}}
+ let dep=null,jd=null,cg=null,cgErr=null,jupErr=null;
+ const jT=chain==='solana'?(async()=>{try{const d=await j('https://lite-api.jup.ag/tokens/v2/search?query='+encodeURIComponent(a));jd=Array.isArray(d)?(d.find(z=>z.id===a)||null):null}catch(e){jupErr=e.message}})():null;
+ const cT=(async()=>{if(!CGP[chain]){cgErr='unsupported';return}
+  try{cg=await j('https://api.coingecko.com/api/v3/coins/'+CGP[chain]+'/contract/'+encodeURIComponent(chain==='solana'?a:a.toLowerCase())+'?localization=false&tickers=true&community_data=false&developer_data=false&sparkline=false')}catch(e){cgErr=e.message}})();
+ await Promise.all([jT,cT]);
+ const dv=n(jd&&jd.audit&&jd.audit.devBalancePercentage);
+ if(dv!=null)dep=F('dep','deployer',dv>=10?'high':dv>=5?'warning':'pass','Deployer holdings','Dev wallet holds about '+dv.toFixed(1)+'% of supply. Previous launches and selling history are not checked.','Jupiter (third-party)',.6);
+ const ext={pairs:allPairs,jd,cg,cgErr,jupErr,chain};
  const fs=[...(pair?market(pair):[unk('liq','liquidity','Market data','No trading pair found on DexScreener.')]),
   ...(chain==='solana'?sol(gp):GP[chain]?evm(gp):[]),
+  ...listing(ext,chain),
   unk('bundle','bundle','Bundled buying','Needs launch-transaction and wallet-funding data, which free sources do not provide. Use the Bubblemaps button in the results to check visually.'),
   ...(dep?[dep]:(chain!=='solana'&&gp&&gp.creator_percent!=null?[]:[unk('dep','deployer','Deployer activity','Creator holdings were not available from the connected sources. Past launches are never checked in this version.')]))];
- window.__gp=gp;render(fs,pair,a,chain,failed);$('s').disabled=false}
+ window.__gp=gp;render(fs,pair,a,chain,failed,ext);$('s').disabled=false}
 
-function render(fs,p,a,chain,failed){const o=$('o');o.replaceChildren();
+function render(fs,p,a,chain,failed,ext){const o=$('o');o.replaceChildren();
  const r=score(fs),[lab,col]=band(r.score);const c=el('div','card');
  const top=el('div','top'),ring=el('div','ring');ring.style.setProperty('--c',col);
  const in_=el('div'),sv=el('strong',null,'0%');in_.append(sv,el('small',null,'risk'));ring.append(in_);rise(sv,r.score,'%');
@@ -291,10 +439,10 @@ function render(fs,p,a,chain,failed){const o=$('o');o.replaceChildren();
  const lbl={pass:'Pass',warning:'Warning',high:'High risk',critical:'Critical',inconclusive:'Inconclusive',na:'N/A'};
  fs.forEach((f,ix)=>{const d=el('details'),s=el('summary');d.style.animation='up .5s '+(ix*0.07+.3)+'s both';s.append(el('span','pill '+f.status,lbl[f.status]),el('span',null,f.title));d.append(s);
   d.append(el('div','ev',f.ev+'  [Source: '+f.src+']'));c2.append(d)});
- o.append(c2,sm,ck,wn);
+ o.append(...(ext?[cvCard(fs,p,ext)]:[]),c2,...(ext?[lmCard(ext,chain,a)]:[]),sm,ck,wn);
  extras(p,chain,a,o);
  const c3=el('div','card');c3.append(el('h3',null,'Scan details'));
- c3.append(el('p','ev','Scanned '+new Date().toLocaleString()+'. Sources: DexScreener, GoPlus. Inconclusive checks: '+(fs.filter(f=>f.status==='inconclusive').map(f=>f.title).join('; ')||'none')+'.'));
+ c3.append(el('p','ev','Scanned '+new Date().toLocaleString()+'. Sources: DexScreener, GoPlus, Jupiter (Solana), CoinGecko. Inconclusive checks: '+(fs.filter(f=>f.status==='inconclusive').map(f=>f.title).join('; ')||'none')+'.'));
  if(failed.length)c3.append(el('p','err',failed.join(' | ')));
  c3.append(el('p','ev','A low score does not mean a token is safe. This tool cannot guarantee future behavior, and flags are third-party signals or estimates, not proof of fraud. Not financial advice.'));
  o.append(c3)}
