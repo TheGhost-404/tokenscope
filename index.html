@@ -124,19 +124,6 @@ details.q p{margin:0;padding:0 14px 14px;color:var(--mu);font-size:14px}
 .tl{width:48px;height:48px;border-radius:50%;object-fit:cover;flex:none;box-shadow:0 0 24px -6px var(--mint);animation:up .6s both}
 .cl{width:16px;height:16px;border-radius:50%;vertical-align:middle;margin-right:6px}
 footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--bd);color:var(--mu);font-size:12px;text-align:center}
-.pool{background:var(--bg);border:1px solid var(--bd);border-radius:12px;padding:10px 12px;margin-top:8px;transition:.2s}.pool:hover{border-color:rgba(139,124,255,.55)}
-.pool .ph{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.pool .pn{font-weight:700}.pool .pl{margin-left:auto;font-weight:700;font-variant-numeric:tabular-nums}
-.pb{height:6px;background:var(--bd);border-radius:9px;overflow:hidden;margin:7px 0}.pb i{display:block;height:100%;background:linear-gradient(90deg,var(--vio),var(--mint));animation:grow 1s both}
-.pool .chips{margin-top:0}.pool .chip{background:var(--card)}.pool .pa{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;font-size:12px}.pool .pa a,.pool .pa button{color:var(--vio);text-decoration:none;background:none;border:0;padding:0;font:inherit;cursor:pointer}
-.tag.bad{color:var(--red);border-color:var(--red)}.tag.good{color:var(--mint);border-color:var(--mint)}.tag{white-space:nowrap}
-.ctl{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:10px;font-size:12px;color:var(--mu)}.ctl button{background:var(--bg);border:1px solid var(--bd);color:var(--tx);border-radius:99px;padding:4px 12px;font-size:12px}.ctl button.on{border-color:var(--mint);color:var(--mint)}
-.cv .vd{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:6px 0 10px}.cv .vd b{font-size:20px}
-.cv .sp{position:relative;height:12px;border-radius:99px;background:linear-gradient(90deg,var(--red),var(--amb) 50%,var(--mint));margin:14px 0 4px}.cv .sp i{position:absolute;top:-4px;width:6px;height:20px;border-radius:4px;background:var(--tx);box-shadow:0 0 0 2px var(--card);transition:left 1s cubic-bezier(.2,.8,.2,1)}
-.cv .ends{display:flex;justify-content:space-between;font-size:11px;color:var(--mu)}.cv .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin-top:12px}
-.cv .col{background:var(--bg);border-radius:12px;padding:10px 12px}.cv .col h4{margin:0 0 6px;font-size:13px}.cv .col div{font-size:13px;color:var(--mu);padding:3px 0}.cv .col div b{color:var(--tx);font-weight:600}
-.sim .sf{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:8px}.sim label{font-size:12px;color:var(--mu);display:block}.sim label input{margin-top:4px}
-.sim .big{font-size:24px;font-weight:800;font-variant-numeric:tabular-nums}.sim .qx{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;align-items:center;font-size:12px;color:var(--mu)}.sim .qx button{background:var(--bg);border:1px solid var(--bd);color:var(--tx);border-radius:99px;padding:4px 12px;font-size:12px}.sim .qx button:hover{border-color:var(--mint)}
-.sim .lad{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin-top:8px}.sim .lad .stat b{font-size:14px}
 </style></head><body><div class="w">
 <nav><div class="logo">TOKEN<b>SCOPE</b></div><div class="links"><a href="#how">How it works</a><a href="#checks">Checks</a><a href="#chains">Chains</a><a href="#learn">Learn</a><a href="#faq">FAQ</a><button class="ghost" id="th">Theme</button></div></nav>
 <h1>Don’t buy blind. Scan before you invest.</h1>
@@ -165,9 +152,7 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--bd);color:var
 <div class="fc"><div class="n">▤</div><h3>Holder concentration</h3><p>Top-10 share of supply for EVM tokens, from GoPlus.</p></div>
 <div class="fc"><div class="n">⇅</div><h3>Transaction pressure</h3><p>Buys versus sells across 5 minutes to 24 hours.</p></div>
 <div class="fc"><div class="n">⏱</div><h3>Token age</h3><p>Very new pairs carry extra risk.</p></div>
-<div class="fc"><div class="n">✓</div><h3>Listings &amp; verification</h3><p>Jupiter verified status (Solana, a strong weight in Community vs scam) and CoinGecko listing by contract.</p></div>
-<div class="fc"><div class="n">$</div><h3>Profit simulator</h3><p>Pick an entry and exit market cap and see what you keep after price impact, taxes and fees.</p></div>
-<div class="fc"><div class="n">⚖</div><h3>Community vs scam</h3><p>A weighted read of all checks: community-like, scam-like or unclear, with reasons.</p></div>
+<div class="fc"><div class="n">✓</div><h3>Listings &amp; verification</h3><p>Jupiter verified status (Solana) and CoinGecko listing by contract.</p></div>
 <div class="fc"><div class="n">⛁</div><h3>Liquidity markets</h3><p>Every DEX pool and CoinGecko-tracked market, with each one's share.</p></div></div></section>
 <section id="chains" class="rv"><h2>Pick a chain</h2><p>Tap one to filter your next scan.</p><div class="chs"><button data-ch="ethereum">Ethereum</button><button data-ch="solana">Solana</button><button data-ch="bsc">BNB Chain</button><button data-ch="base">Base</button><button data-ch="arbitrum">Arbitrum</button><button data-ch="optimism">Optimism</button><button data-ch="polygon">Polygon</button><button data-ch="avalanche">Avalanche</button><button data-ch="robinhood">Robinhood Chain</button></div>
 <p style="margin-top:14px">Not sure what to scan? Try a well-known token:</p><div class="chs"><button data-ex="0x6982508145454Ce325dDbE47a25d4ec3d2311933">PEPE (Ethereum)</button><button data-ex="DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263">BONK (Solana)</button><button data-ex="0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913">USDC (Base)</button></div></section>
@@ -180,7 +165,6 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--bd);color:var
 <details class="q"><summary>Bundled buying</summary><p>Several wallets buying in the same launch moment, sometimes funded by one source. Not analyzed in this version.</p></details></section>
 <section id="faq" class="rv"><h2>FAQ</h2>
 <details class="q"><summary>Does a low score mean a token is safe?</summary><p>No. It only means fewer risks were detected from the data available. Always check confidence and inconclusive items.</p></details>
-<details class="q"><summary>How does "Community vs scam" work?</summary><p>It weighs the checks (honeypot, taxes, holders, LP locks, listings, age and more) into a position between scam-like and community-like. Hard red flags override it, young tokens are never called community-like, and unchecked items such as creator history are listed. It is a read of the evidence, not a guarantee.</p></details>
 <details class="q"><summary>Do I need to connect a wallet?</summary><p>Never. This tool is read-only and never asks for a seed phrase or private key.</p></details>
 <details class="q"><summary>Where does the data come from?</summary><p>DexScreener, GoPlus, Jupiter, CoinGecko and the public Solana RPC. Each check names its source.</p></details>
 <details class="q"><summary>Is this financial advice?</summary><p>No. It is information only and cannot predict future behavior.</p></details></section>
@@ -261,124 +245,6 @@ function listing(ext,chain){const f=[],{pairs,jd,cg,cgErr,jupErr}=ext;
    f.push(F('mkts','liquidity',weak?'warning':'pass','Liquidity markets',cnt+' pool(s) found on this chain, '+usd(tot)+' reported in total; the largest holds '+sh.toFixed(0)+'%. '+(weak?'Liquidity depends on one pool, so a single pool pull or drain would remove most exits.':'Liquidity is spread across pools or deep enough that one pool is not the only exit.')+' Heuristic: warns when one pool carries over 90% and total is under $1M.','DexScreener (reported)',.6))}}
  else f.push(unk('mkts','liquidity','Liquidity markets','No pools were returned to compare.'));
  return f}
-const QK=new Set(['SOL','WSOL','USDC','USDT','WETH','ETH','WBNB','BNB','WBTC','CBBTC','DAI','USDS','WAVAX','AVAX','WMATIC','WPOL','POL','USD1','PYUSD','FDUSD','USDC.E','USDBC']);
-const ageTxt=ms=>{const h=(Date.now()-ms)/36e5;return h<1?Math.max(1,Math.round(h*60))+'m':h<48?h.toFixed(0)+'h':h<24*60?(h/24).toFixed(0)+'d':(h/24/30).toFixed(0)+'mo'};
-function poolsBlock(pairs){const w=el('div'),liq=p=>n(p.liquidity&&p.liquidity.usd)||0,vol=p=>n(p.volume&&p.volume.h24)||0;
- const tot=pairs.reduce((s,p)=>s+liq(p),0),tv=pairs.reduce((s,p)=>s+vol(p),0),main=pairs[0],mpx=n(main&&main.priceUsd);
- const dexes=new Set(pairs.map(p=>String(p.dexId||'?')));
- w.append((()=>{const h=el('div',null,'DEX pools (DexScreener)');h.style.cssText='font-weight:700;margin-top:14px;font-size:13px';return h})());
- const ch=el('div','chips');ch.style.marginTop='6px';
- [pairs.length+' pool'+(pairs.length>1?'s':''),dexes.size+' DEX'+(dexes.size>1?'es':''),'Total liquidity '+usd(tot),'24h volume '+usd(tv),'Top pool '+(tot?(liq(main)/tot*100).toFixed(0):'0')+'% of liquidity'].forEach(t=>ch.append(el('span','chip',t)));w.append(ch);
- let sort='liq',dust=true,all=false;const ctl=el('div','ctl'),list=el('div');
- const mkb=(t,on,fn)=>{const b=el('button',on?'on':'',t);b.onclick=()=>fn(b);return b};
- const sb={};ctl.append(el('span',null,'Sort:'));
- [['liq','Liquidity'],['vol','Volume'],['new','Newest']].forEach(([k,t])=>{sb[k]=mkb(t,k===sort,()=>{sort=k;Object.entries(sb).forEach(([z,b])=>b.classList.toggle('on',z===k));draw()});ctl.append(sb[k])});
- const db=mkb('Hide dust (<$1K)',true,b=>{dust=!dust;b.classList.toggle('on',dust);draw()});ctl.append(db);
- const draw=()=>{list.replaceChildren();let L=pairs.slice();const nd=L.filter(p=>liq(p)>=1000);if(dust&&nd.length)L=nd;
-  L.sort(sort==='vol'?(x,y)=>vol(y)-vol(x):sort==='new'?(x,y)=>(y.pairCreatedAt||0)-(x.pairCreatedAt||0):(x,y)=>liq(y)-liq(x));
-  const hidden=pairs.length-L.length,shown=all?L:L.slice(0,6);
-  shown.forEach(p=>{const d=el('div','pool'),h=el('div','ph'),l=liq(p),bs=String(p.baseToken&&p.baseToken.symbol||'?').slice(0,12),qs=String(p.quoteToken&&p.quoteToken.symbol||'?').slice(0,12);
-   h.append(el('span','pn',bs+'/'+qs),el('span','chip',String(p.dexId||'dex').slice(0,24)));
-   if(p.labels&&Array.isArray(p.labels))p.labels.slice(0,2).forEach(x=>h.append(el('span','chip',String(x).slice(0,10))));
-   if(p===main)h.append(el('span','tag good','main pool'));
-   const age=p.pairCreatedAt?(Date.now()-p.pairCreatedAt)/36e5:null,t=(p.txns&&p.txns.h24)||{},B=+t.buys||0,S=+t.sells||0,px=n(p.priceUsd),dev=mpx&&px&&p!==main?(px/mpx-1)*100:null;
-   if(age!=null&&age<24)h.append(el('span','tag','new '+ageTxt(p.pairCreatedAt)));
-   if(l<1000)h.append(el('span','tag','dust'));
-   if(!QK.has(qs.toUpperCase()))h.append(el('span','tag','unusual quote token'));
-   if(dev!=null&&Math.abs(dev)>5&&l>=1000)h.append(el('span','tag bad','price '+(dev>0?'+':'')+dev.toFixed(1)+'% vs main'));
-   if(B>=20&&S===0)h.append(el('span','tag bad','no sells in 24h'));
-   h.append(el('span','pl',usd(l)));d.append(h);
-   const bar=el('div','pb'),i=el('i');i.style.width=Math.max(2,tot?l/tot*100:0)+'%';bar.append(i);d.append(bar);
-   const st=el('div','chips'),pc=n(p.priceChange&&p.priceChange.h24);
-   [(tot?(l/tot*100).toFixed(1):'0')+'% of liquidity','Vol 24h '+usd(vol(p)),B+S?B+' buys / '+S+' sells':'no trades 24h',l?'Vol/Liq '+(vol(p)/l).toFixed(1)+'x':null,age!=null?'Age '+ageTxt(p.pairCreatedAt):null].filter(Boolean).forEach(x=>st.append(el('span','chip',x)));
-   if(pc!=null){const e=el('span','chip',(pc>0?'+':'')+pc+'% 24h');e.classList.add(pc>=0?'up':'dn');st.append(e)}
-   d.append(st);const ac=el('div','pa');
-   if(typeof p.url==='string'&&/^https:\/\/dexscreener\.com\//.test(p.url)){const x=document.createElement('a');x.href=p.url;x.target='_blank';x.rel='noopener noreferrer';x.textContent='Chart ↗';ac.append(x)}
-   if(typeof p.pairAddress==='string'&&/^[A-Za-z0-9]+$/.test(p.pairAddress)){const b=el('button',null,'Copy pool address');b.onclick=()=>navigator.clipboard.writeText(p.pairAddress).then(()=>{b.textContent='Copied'});ac.append(b)}
-   d.append(ac);list.append(d)});
-  if(L.length>6){const m=el('button','ghost',all?'Show fewer':'Show all '+L.length+' pools');m.style.marginTop='10px';m.onclick=()=>{all=!all;draw()};list.append(m)}
-  if(hidden>0&&dust)list.append(el('p','ev',hidden+' dust pool(s) under $1K hidden.'))};
- draw();w.append(ctl,list);
- w.append(el('p','ev','Price flags compare each pool with the main (deepest) pool: a gap over 5% on a funded pool can mean a stale or fake pool, or a real arbitrage gap. "Unusual quote token" means it is not paired with a major coin or stablecoin. Flags are heuristics, not proof.'));
- return w}
-function classify(fs,p,ext){const by={};fs.forEach(f=>by[f.id]=f);const sg=[],un=[];let hard=null;
- const add=(id,dir,w,name,why)=>sg.push({dir,w,name,why});
- const st=id=>by[id]&&by[id].status;
- const vote=(id,name,map)=>{const s=st(id);if(!by[id]||s==='inconclusive'||s==='na'){if(by[id])un.push(name+' (no data)');return}const m=map[s];if(m)add(id,m[0],m[1],name,m[2])};
- const hp=st('hp');if(hp==='critical'){hard='Flagged as a honeypot by GoPlus';add('hp',-1,3,'Honeypot check','Flagged as a honeypot, so sells may be blocked.')}else if(hp==='pass')add('hp',1,1,'Honeypot check','Not flagged as a honeypot.');else if(by.hp)un.push('Honeypot check (no data)');
- vote('tax','Buy/sell tax',{pass:[1,.5,'Taxes are low.'],warning:[-1,1,'Taxes are noticeable.'],high:[-1,2,'Very high sell tax.']});if(st('tax')==='high'&&!hard)hard='Sell tax of 30% or more';
- vote('src','Verified source code',{pass:[1,1,'Source is public, so it can be reviewed.'],warning:[-1,1,'Source is not verified.']});
- vote('perm','Contract powers',{pass:[1,1.5,'No risky powers flagged.'],warning:[-1,1,'Some creator powers remain.'],high:[-1,2,'Several creator powers remain.']});
- vote('auth','Mint & freeze authority',{pass:[1,1.5,'Mint and freeze are not active.'],warning:[-1,1,'One authority is still active.'],high:[-1,2,'Mint and freeze are both active.']});
- vote('hold','Holder spread',{pass:[1,1.5,'Supply is not dominated by a few wallets.'],warning:[-1,1.5,'A few wallets hold a large share.'],high:[-1,2.5,'A few wallets hold most of the supply.']});
- vote('dep','Creator holdings',{pass:[1,1.5,'Creator holds a small share.'],warning:[-1,1,'Creator holds a notable share.'],high:[-1,2.5,'Creator holds a large share.']});
- vote('lp','LP locked or burned',{pass:[1,2,'A good share of LP tokens is locked or burned.'],warning:[-1,1.5,'Little LP is locked, so the pool could be pulled.']});
- vote('liq','Liquidity depth',{pass:[1,1.5,'Meaningful liquidity in the main pool.'],warning:[-1,.5,'Liquidity is modest.'],high:[-1,2,'Liquidity is very thin.']});
- vote('mkts','Liquidity spread',{pass:[1,1,'Liquidity is not tied to one pool.'],warning:[-1,1.5,'Liquidity depends on one pool.']});
- vote('vol','Trading pattern',{pass:[1,.5,'Volume is in a normal range for the liquidity.'],warning:[-1,1,'Volume is extreme versus liquidity (possible wash trading).']});
- vote('jup','Jupiter verification',{pass:[1,3,'Verified by Jupiter, a strong sign the token is the real project and not an impersonator.'],warning:[-1,1.5,'Not verified by Jupiter, so it has not passed Jupiter\u2019s community review.']});
- const ol=ext&&ext.jd&&String(ext.jd.organicScoreLabel||'').toLowerCase();if(ol==='high')add('org',1,1,'Jupiter organic score','High organic score: trading looks driven by real users.');else if(ol==='low')add('org',-1,1,'Jupiter organic score','Low organic score: activity looks bot-driven or artificial.');
- vote('cg','CoinGecko listing',{pass:[1,2.5,'Listed on CoinGecko.'],warning:[-1,.5,'Not listed on CoinGecko (normal for new tokens).']});
- if(p&&p.pairCreatedAt){const h=(Date.now()-p.pairCreatedAt)/36e5;
-  if(h>=24*7)add('surv',1,1.5,'Track record','Trading for '+Math.floor(h/24)+' days, so it has lived through some market cycles.');
-  else if(h<24)add('surv',-1,1,'Track record','Under 24 hours old. There is no history to judge.')}
- const hc=n(ext&&ext.jd&&ext.jd.holderCount);if(hc!=null){if(hc>=1000)add('hc',1,1,'Holder count',hc.toLocaleString()+' holders (Jupiter).');else if(hc<100)add('hc',-1,1,'Holder count','Only '+hc+' holders (Jupiter).')}
- if(p){const t=(p.txns&&p.txns.h24)||{},B=+t.buys||0,S=+t.sells||0;if(B>=20&&S===0){if(!hard)hard='Many buys and zero sells in 24h on the main pool';add('ns',-1,3,'Sell activity','No sells in 24h despite '+B+' buys.')}else if(B+S>=50&&S>0)add('ns',1,.5,'Sell activity','Both buys and sells are happening.')}
- un.push('Creator history (past launches and rugs)','Bundled buying and linked wallets','Social authenticity (real followers vs bots)');
- const tw=sg.reduce((a,x)=>a+x.w,0),net=tw?sg.reduce((a,x)=>a+x.dir*x.w,0)/tw:0,old=p&&p.pairCreatedAt?(Date.now()-p.pairCreatedAt)/36e5>=24:false;
- let v='unclear';if(hard||net<=-.25)v='scam';else if(net>=.4&&sg.length>=5&&old&&!(ext&&ext.chain==='solana'&&!ext.jupErr&&!ext.jd))v='community';
- return{v,net,sg,un,hard,n:sg.length}}
-function cvCard(fs,p,ext){const r=classify(fs,p,ext),c=el('div','card cv');c.append(el('h3',null,'Community token or scam?'));
- const M={community:['Looks community-like','var(--mint)'],scam:['Looks scam-like','var(--red)'],unclear:['Unclear','var(--amb)']}[r.v];
- const vd=el('div','vd'),b=el('b',null,M[0]);b.style.color=M[1];vd.append(b,el('span','chip','based on '+r.n+' signals'));
- if(ext&&ext.chain==='solana'){const jv=ext.jupErr?null:ext.jd?jupVerified(ext.jd):false,e=el('span','chip','Jupiter: '+(jv==null?'unavailable':jv?'verified \u2713':ext.jd?'not verified':'not found'));if(jv!=null)e.classList.add(jv?'up':'dn');vd.append(e)}
- c.append(vd);
- const sp=el('div','sp'),mk=el('i');mk.style.left='50%';sp.append(mk);c.append(sp);setTimeout(()=>mk.style.left='calc('+((r.net+1)/2*100).toFixed(1)+'% - 3px)',80);
- const en=el('div','ends');en.append(el('span',null,'scam-like'),el('span',null,'community-like'));c.append(en);
- if(r.hard)c.append(el('p','ev','Hard red flag: '+r.hard+'. This overrides everything else.'));
- else if(r.v==='unclear')c.append(el('p','ev',r.n<5?'Too few signals could be checked to lean either way.':!(p&&p.pairCreatedAt&&(Date.now()-p.pairCreatedAt)/36e5>=24)?'Tokens under 24 hours old are never labelled community-like, because there is not enough history.':(ext&&ext.chain==='solana'&&!ext.jupErr&&!ext.jd)?'Jupiter has no record of this mint, so it is not labelled community-like.':'Signals are mixed or the evidence is thin.'));
- const cols=el('div','cols'),col=(t,col,rows,empty)=>{const d=el('div','col'),h=el('h4',null,t);h.style.color=col;d.append(h);if(!rows.length)d.append(el('div',null,empty));rows.forEach(x=>{const e=el('div');e.append(el('b',null,x[0]+': '),document.createTextNode(x[1]));d.append(e)});cols.append(d)};
- col('Points to community','var(--mint)',r.sg.filter(x=>x.dir>0).sort((a,b)=>b.w-a.w).map(x=>[x.name,x.why]),'Nothing found.');
- col('Points to scam','var(--red)',r.sg.filter(x=>x.dir<0).sort((a,b)=>b.w-a.w).map(x=>[x.name,x.why]),'No scam signals found.');
- col('Not checked','var(--mu)',r.un.map(x=>[x,'']).map(x=>[x[0],'']),'');
- cols.lastChild.querySelectorAll('div').forEach(d=>{const bb=d.querySelector('b');if(bb)bb.textContent=bb.textContent.replace(/: $/,'')});
- c.append(cols);
- c.append(el('p','ev','This is a weighted read of the checks above, not a verdict. Scammers can copy community signals (burned LP, revoked authorities, spread-out wallets), and the unchecked items above are exactly where that is hidden. Never treat "community-like" as safe. Not financial advice.'));
- return c}
-const pm=t=>{t=String(t).trim().toLowerCase().replace(/[$,\s]/g,'');const m=t.match(/^(\d*\.?\d+)([kmb])?$/);return m?+m[1]*({k:1e3,m:1e6,b:1e9}[m[2]]||1):null};
-const mny=v=>{if(v==null||!isFinite(v))return'n/a';const a=Math.abs(v);return(v<0?'-':'')+'$'+(a>=1e9?(a/1e9).toFixed(2)+'B':a>=1e6?(a/1e6).toFixed(2)+'M':a>=1e3?(a/1e3).toFixed(1)+'K':a.toFixed(2))};
-const mi=v=>v>=1e9?+(v/1e9).toPrecision(4)+'B':v>=1e6?+(v/1e6).toPrecision(4)+'M':v>=1e3?+(v/1e3).toPrecision(4)+'K':String(+v.toPrecision(4));
-function simCard(p,g){const c=el('div','card sim');c.append(el('h3',null,'Profit simulator – what would you really make?'));
- const cur=n(p.marketCap)||n(p.fdv),L=n(p.liquidity&&p.liquidity.usd),FEE=.003;
- if(!cur){c.append(el('p','ev','No market cap or FDV is reported for this token, so the simulator cannot start from a price. Inconclusive.'));return c}
- c.append(el('p','ev','Enter what you put in and the market cap you expect to sell at. Costs are taken off: price impact from the pool’s real liquidity, token taxes and DEX fees. Starting point: current '+(n(p.marketCap)?'market cap':'FDV (no market cap reported)')+' '+mny(cur)+'.'));
- const bt0=g&&n(g.buy_tax)!=null?+(g.buy_tax*100).toFixed(2):0,st0=g&&n(g.sell_tax)!=null?+(g.sell_tax*100).toFixed(2):0;
- const sf=el('div','sf'),F={},fld=(k,t,v)=>{const l=document.createElement('label');l.textContent=t;const i=document.createElement('input');i.value=v;i.inputMode='decimal';i.autocomplete='off';i.setAttribute('aria-label',t);i.oninput=calc;l.append(i);sf.append(l);F[k]=i};
- fld('inv','You invest ($)','1000');fld('em','Entry market cap ($)',mi(cur));fld('xm','Exit market cap ($)',mi(cur*5));fld('bt','Buy tax (%)',String(bt0));fld('st','Sell tax (%)',String(st0));
- c.append(sf);
- const qx=el('div','qx');qx.append(el('span',null,'Exit at:'));[2,5,10,25,100].forEach(m=>{const b=el('button',null,m+'x');b.onclick=()=>{const e=pm(F.em.value);if(e){F.xm.value=mi(e*m);calc()}};qx.append(b)});c.append(qx);
- const out=el('div');out.style.marginTop='12px';c.append(out);
- const sim=(inv,em,xm,bt,st)=>{const dep=mc=>L?L*Math.sqrt(mc/cur)/2:null;
-  const a=inv*(1-bt)*(1-FEE),R0=dep(em),eff=R0!=null?a*R0/(R0+a):a,gross=eff*(xm/em),R1=dep(xm),o=R1!=null?gross*R1/(R1+gross):gross;
-  const net=o*(1-FEE)*(1-st);return{net,eff,gross,R1,inImp:1-eff/a,outImp:1-o/gross,poolPct:R1?gross/R1*100:null,paper:inv*xm/em}};
- function calc(){out.replaceChildren();const inv=pm(F.inv.value),em=pm(F.em.value),xm=pm(F.xm.value),bt=(+F.bt.value)/100,st=(+F.st.value)/100;
-  if(!(inv>0&&em>0&&xm>0)||!isFinite(bt)||!isFinite(st)||bt<0||st<0||bt>=1||st>=1){out.append(el('p','err','Enter positive numbers, for example 1000, 250K or 1.5M. Taxes must be between 0 and 99.'));return}
-  const r=sim(inv,em,xm,bt,st),prof=r.net-inv,mult=r.net/inv,pc=prof/inv*100;
-  const top=el('div','stat'),sp=el('span',null,'Realistic result after costs'),bg=el('div','big',mny(r.net)+'  ('+(prof>=0?'+':'')+pc.toFixed(0)+'%)');bg.style.color=prof>=0?'var(--mint)':'var(--red)';top.append(sp,bg);out.append(top);
-  const gr=el('div','grid');[['Paper profit (no costs)',mny(r.paper-inv)+' · '+(r.paper/inv).toFixed(2)+'x'],['Real profit',mny(prof)+' · '+mult.toFixed(2)+'x'],['Lost to costs',mny(r.paper-r.net)],['Entry impact',(r.inImp*100).toFixed(2)+'%'],['Exit price impact',(r.outImp*100).toFixed(2)+'%'],['Your sale vs pool',r.poolPct==null?'n/a':r.poolPct.toFixed(2)+'%']].forEach(([k,v])=>{const s2=el('div','stat');s2.append(el('span',null,k),el('b',null,v));gr.append(s2)});out.append(gr);
-  let lo=em,hi=em*1e4;if(sim(inv,em,hi,bt,st).net>=inv){for(let i=0;i<70;i++){const m=Math.sqrt(lo*hi);sim(inv,em,m,bt,st).net>=inv?hi=m:lo=m}}else hi=null;
-  const w=[];if(r.outImp>.5)w.push('Selling would crash the price by '+(r.outImp*100).toFixed(0)+'%, so most of the paper gain would vanish. At this size you could not exit near the target.');else if(r.outImp>.1)w.push('Your sale would move the price by about '+(r.outImp*100).toFixed(0)+'%. Selling in several smaller pieces would help but is not guaranteed.');
-  if(st>=.3)w.push('The sell tax is '+(st*100).toFixed(0)+'%, which eats a large part of every sale.');
-  if(xm/em>=100)w.push('This needs a '+(xm/em).toFixed(0)+'x move, which very few tokens ever reach.');
-  if(L==null)w.push('No liquidity figure was reported, so price impact could not be estimated and the result is too optimistic.');
-  if(Math.abs(em/cur-1)>.5)w.push('Your entry market cap is far from the current one, so the pool depth at entry is a rough extrapolation.');
-  const be=el('p','ev','Break-even exit market cap after all costs: '+(hi?mny(hi)+' ('+(hi/em).toFixed(2)+'x your entry).':'not reachable within 10,000x with these settings.'));out.append(be);
-  w.forEach(t=>{const e=el('p','ev',' ⚠ '+t);e.style.color='var(--amb)';out.append(e)});
-  const lh=el('div',null,'Profit ladder (same investment, same costs)');lh.style.cssText='font-weight:700;margin-top:12px;font-size:13px';out.append(lh);
-  const ld=el('div','lad');[2,5,10,25,100].forEach(m=>{const q=sim(inv,em,em*m,bt,st),pf=q.net-inv,s3=el('div','stat'),b3=el('b',null,(pf>=0?'+':'')+mny(pf));b3.style.color=pf>=0?'var(--mint)':'var(--red)';s3.append(el('span',null,m+'x → exit at '+mny(em*m)),b3,el('span',null,'impact '+(q.outImp*100).toFixed(1)+'%'));ld.append(s3)});out.append(ld)}
- calc();
- c.append(el('p','ev','Estimate only. It assumes a constant-product pool (Uniswap v2 style), ~0.3% fee each way, and that no new liquidity is added as the price rises (conservative). Concentrated-liquidity pools, Solana pools, token unlocks and other holders selling first will change the real result. Taxes come from GoPlus when available. Not a prediction and not financial advice.'));
- return c}
 function lmCard(ext,chain,a){const {pairs,jd,cg,cgErr,jupErr}=ext,c=el('div','card');c.append(el('h3',null,'Listings & liquidity markets'));
  const ch=el('div','chips'),lnk=(t,u)=>{const l=document.createElement('a');l.href=u;l.target='_blank';l.rel='noopener noreferrer';l.className='chip';l.style.cssText='color:var(--vio);text-decoration:none';l.textContent=t+' ↗';return l};
  if(chain==='solana'){const v=jupErr?'unavailable':!jd?'not found':jupVerified(jd)?'verified ✓':'not verified';
@@ -393,7 +259,11 @@ function lmCard(ext,chain,a){const {pairs,jd,cg,cgErr,jupErr}=ext,c=el('div','ca
   if(sub)m.append(el('span','tag',sub));if(pct!=null){const t=el('div','t'),b=el('i');b.style.width=Math.max(2,Math.min(100,pct))+'%';t.append(b);m.append(t)}
   r.append(m,el('b',null,right));return r};
  const hd=(t)=>{const h=el('div',null,t);h.style.cssText='font-weight:700;margin-top:14px;font-size:13px';return h};
- if(pairs&&pairs.length)c.append(poolsBlock(pairs));
+ if(pairs&&pairs.length){const tot=pairs.reduce((s,x)=>s+(n(x.liquidity&&x.liquidity.usd)||0),0);
+  c.append(hd('DEX pools (DexScreener) – share of reported liquidity'));
+  pairs.slice(0,8).forEach((p,i)=>{const lq=n(p.liquidity&&p.liquidity.usd)||0,u=typeof p.url==='string'&&/^https:\/\/dexscreener\.com\//.test(p.url)?p.url:null;
+   c.append(row(i+1,String(p.dexId||'dex')+' · '+String(p.baseToken&&p.baseToken.symbol||'?').slice(0,12)+'/'+String(p.quoteToken&&p.quoteToken.symbol||'?').slice(0,12),u,'vol 24h '+usd(n(p.volume&&p.volume.h24)),tot?lq/tot*100:null,usd(lq)))});
+  if(pairs.length>8)c.append(el('p','ev','+ '+(pairs.length-8)+' more pool(s) not shown.'))}
  else c.append(el('p','ev','No DEX pools returned by DexScreener.'));
  const tk=cg&&Array.isArray(cg.tickers)?cg.tickers.filter(t=>t&&t.market&&n(t.converted_volume&&t.converted_volume.usd)!=null).sort((x,y)=>(+y.converted_volume.usd)-(+x.converted_volume.usd)):[];
  if(tk.length){const tv=tk.reduce((s,t)=>s+(+t.converted_volume.usd),0);c.append(hd('Markets tracked by CoinGecko – share of 24h volume'));
@@ -427,7 +297,7 @@ async function scan(){
  await Promise.all([jT,cT]);
  const dv=n(jd&&jd.audit&&jd.audit.devBalancePercentage);
  if(dv!=null)dep=F('dep','deployer',dv>=10?'high':dv>=5?'warning':'pass','Deployer holdings','Dev wallet holds about '+dv.toFixed(1)+'% of supply. Previous launches and selling history are not checked.','Jupiter (third-party)',.6);
- const ext={pairs:allPairs,jd,cg,cgErr,jupErr,chain};
+ const ext={pairs:allPairs,jd,cg,cgErr,jupErr};
  const fs=[...(pair?market(pair):[unk('liq','liquidity','Market data','No trading pair found on DexScreener.')]),
   ...(chain==='solana'?sol(gp):GP[chain]?evm(gp):[]),
   ...listing(ext,chain),
@@ -435,6 +305,53 @@ async function scan(){
   ...(dep?[dep]:(chain!=='solana'&&gp&&gp.creator_percent!=null?[]:[unk('dep','deployer','Deployer activity','Creator holdings were not available from the connected sources. Past launches are never checked in this version.')]))];
  window.__gp=gp;render(fs,pair,a,chain,failed,ext);$('s').disabled=false}
 
+function scoreCard(fs,r,lab,col,p,a,chain){
+ const W=1200,H=675,cv=document.createElement('canvas');cv.width=W;cv.height=H;const x=cv.getContext('2d');
+ const FF='system-ui,-apple-system,"Segoe UI",Roboto,sans-serif',MONO='ui-monospace,Menlo,Consolas,monospace';
+ const BG='#0b0d10',CARD='#14181d',BD='#232a32',TX='#e8edf2',MU='#8a96a3',MINT='#3ee8a5',VIO='#8b7cff',RED='#ff6b6b',AMB='#ffb84d';
+ const rc={'var(--mint)':MINT,'var(--amb)':AMB,'var(--red)':RED}[col]||MINT;
+ const fit=(t,w)=>{t=String(t);if(x.measureText(t).width<=w)return t;while(t.length>1&&x.measureText(t+'…').width>w)t=t.slice(0,-1);return t+'…'};
+ const wrap=(t,w,max)=>{const L=[];let s='';for(const wd of String(t).split(' ')){const u=s?s+' '+wd:wd;if(x.measureText(u).width>w&&s){L.push(s);s=wd;if(L.length===max)return L}else s=u}if(s&&L.length<max)L.push(s);return L};
+ const rr=(px,py,w,h,q)=>{x.beginPath();x.moveTo(px+q,py);x.arcTo(px+w,py,px+w,py+h,q);x.arcTo(px+w,py+h,px,py+h,q);x.arcTo(px,py+h,px,py,q);x.arcTo(px,py,px+w,py,q);x.closePath()};
+ x.fillStyle=BG;x.fillRect(0,0,W,H);
+ let g=x.createRadialGradient(150,0,0,150,0,620);g.addColorStop(0,'rgba(139,124,255,.28)');g.addColorStop(1,'rgba(139,124,255,0)');x.fillStyle=g;x.fillRect(0,0,W,H);
+ g=x.createRadialGradient(W-60,60,0,W-60,60,520);g.addColorStop(0,'rgba(62,232,165,.18)');g.addColorStop(1,'rgba(62,232,165,0)');x.fillStyle=g;x.fillRect(0,0,W,H);
+ rr(14,14,W-28,H-28,28);x.fillStyle='rgba(20,24,29,.72)';x.fill();x.strokeStyle=BD;x.lineWidth=2;x.stroke();
+ x.textBaseline='alphabetic';x.textAlign='left';
+ x.beginPath();x.arc(66,56,6,0,7);x.fillStyle=MINT;x.fill();
+ x.font='800 26px '+FF;x.fillStyle=TX;x.fillText('TOKEN',84,65);x.fillStyle=MINT;x.fillText('SCOPE',84+x.measureText('TOKEN').width,65);
+ x.textAlign='right';x.font='20px '+FF;x.fillStyle=MU;x.fillText('Scanned '+new Date().toLocaleDateString(),W-56,64);x.textAlign='left';
+ const nm=p&&p.baseToken?(p.baseToken.name+' ('+p.baseToken.symbol+')'):'Token not found on a DEX';
+ x.font='700 46px '+FF;x.fillStyle=TX;x.fillText(fit(nm,W-112),56,142);
+ x.font='20px '+MONO;x.fillStyle=MU;x.fillText(fit((chain||'unknown chain')+' · '+a,W-112),56,180);
+ const cx=210,cy=400,R=105;
+ x.lineWidth=22;x.lineCap='round';x.beginPath();x.arc(cx,cy,R,0,Math.PI*2);x.strokeStyle=BD;x.stroke();
+ if(r.score>0){x.shadowColor=rc;x.shadowBlur=22;x.beginPath();x.arc(cx,cy,R,-Math.PI/2,-Math.PI/2+Math.PI*2*r.score/100);x.strokeStyle=rc;x.stroke();x.shadowBlur=0}
+ x.textAlign='center';x.fillStyle=TX;x.font='800 66px '+FF;x.fillText(r.score+'%',cx,cy+14);
+ x.font='18px '+FF;x.fillStyle=MU;x.fillText('risk',cx,cy+44);
+ x.font='700 24px '+FF;x.fillStyle=rc;x.fillText(fit(lab,370),cx,568);
+ x.font='19px '+FF;x.fillStyle=MU;x.fillText('Evidence confidence '+r.conf+'%',cx,600);x.textAlign='left';
+ const X0=430,CW=W-56-X0,all=fs.filter(f=>SEV[f.status]>0).sort((u,v)=>SEV[v.status]-SEV[u.status]),cs=all.slice(0,3);
+ x.font='700 22px '+FF;x.fillStyle=MU;x.fillText(all.length>3?'Main concerns (+'+(all.length-3)+' more)':'Main concerns',X0,260);
+ if(!cs.length){x.font='600 28px '+FF;x.fillStyle=MINT;x.fillText('No flags from the checks that ran',X0,312);
+  x.font='20px '+FF;x.fillStyle=MU;x.fillText('That is not the same as safe. See the note below.',X0,346)}
+ cs.forEach((f,i)=>{const y=282+i*72,hi=f.status!=='warning',pc=hi?RED:AMB,pt=f.status==='critical'?'Critical':hi?'High':'Warning';
+  x.font='700 16px '+FF;const pw=x.measureText(pt).width+26;
+  rr(X0,y,pw,34,17);x.fillStyle=hi?'rgba(255,107,107,.14)':'rgba(255,184,77,.14)';x.fill();x.strokeStyle=pc;x.lineWidth=1.5;x.stroke();
+  x.fillStyle=pc;x.textAlign='center';x.fillText(pt,X0+pw/2,y+23);x.textAlign='left';
+  x.font='700 28px '+FF;x.fillStyle=TX;x.fillText(fit(f.title,CW-pw-16),X0+pw+16,y+26);
+  x.font='18px '+FF;x.fillStyle=MU;x.fillText(fit(String(f.ev).split('. ')[0],CW),X0,y+58)});
+ const st=[['Liquidity',p&&usd(n(p.liquidity&&p.liquidity.usd))],['FDV',p&&usd(n(p.fdv))],['24h volume',p&&usd(n(p.volume&&p.volume.h24))]].filter(z=>z[1]);
+ if(st.length){x.font='22px '+FF;x.fillStyle=TX;x.fillText(fit(st.map(z=>z[0]+' '+z[1]).join('   ·   '),CW),X0,524)}
+ const ic=fs.filter(f=>f.status==='inconclusive').length;
+ x.font='18px '+FF;x.fillStyle=MU;wrap('Not checked: bundled buying and linked wallets.'+(ic?' '+ic+' check'+(ic>1?'s':'')+' could not be completed.':'')+' A low score can still hide risk.',CW,2).forEach((t,i)=>x.fillText(t,X0,562+i*26));
+ x.beginPath();x.moveTo(56,616);x.lineTo(W-56,616);x.strokeStyle=BD;x.lineWidth=1;x.stroke();
+ x.font='17px '+FF;x.fillStyle=MU;x.fillText('Flags are third-party signals or estimates, not proof of fraud. Not financial advice.',56,644);
+ return cv}
+function saveCard(fs,r,lab,col,p,a,chain){
+ const cv=scoreCard(fs,r,lab,col,p,a,chain),sy=String(p&&p.baseToken&&p.baseToken.symbol||'').replace(/[^A-Za-z0-9]/g,'').slice(0,12)||'token';
+ return new Promise((ok,no)=>cv.toBlob(b=>{if(!b)return no(new Error('toBlob failed'));const u=URL.createObjectURL(b),l=document.createElement('a');
+  l.href=u;l.download='tokenscope-'+sy+'-'+r.score+'pct.png';document.body.append(l);l.click();l.remove();setTimeout(()=>URL.revokeObjectURL(u),4000);ok()},'image/png'))}
 function render(fs,p,a,chain,failed,ext){const o=$('o');o.replaceChildren();
  const r=score(fs),[lab,col]=band(r.score);const c=el('div','card');
  const top=el('div','top'),ring=el('div','ring');ring.style.setProperty('--c',col);
@@ -451,6 +368,9 @@ function render(fs,p,a,chain,failed,ext){const o=$('o');o.replaceChildren();
   const cpy=()=>navigator.clipboard.writeText(u).then(()=>{sh.textContent='Link copied';setTimeout(()=>sh.textContent='Share scan link',1800)}).catch(()=>{sh.textContent='Copy failed'});
   if(navigator.share)navigator.share({title:'TOKENSCOPE scan',url:u}).catch(cpy);else cpy()};
  c.append(sh);
+ const dl=el('button','ghost','Download result card');dl.style.cssText='margin:12px 0 0 8px';
+ dl.onclick=()=>{saveCard(fs,r,lab,col,p,a,chain).then(()=>{dl.textContent='Card saved'}).catch(()=>{dl.textContent='Could not create card'}).finally(()=>setTimeout(()=>dl.textContent='Download result card',1800))};
+ c.append(dl);
  o.append(c);
  const sm=el('div','card');sm.append(el('h3',null,'Summary'));
  const grp=(t,cls,arr,empty)=>{const h=el('div',cls,t);h.style.cssText='font-weight:700;margin-top:10px';sm.append(h);if(!arr.length)sm.append(el('div','ev',empty));arr.forEach(f=>sm.append(el('div','ev','• '+f.title+': '+f.ev)))};
@@ -477,7 +397,7 @@ function render(fs,p,a,chain,failed,ext){const o=$('o');o.replaceChildren();
  const lbl={pass:'Pass',warning:'Warning',high:'High risk',critical:'Critical',inconclusive:'Inconclusive',na:'N/A'};
  fs.forEach((f,ix)=>{const d=el('details'),s=el('summary');d.style.animation='up .5s '+(ix*0.07+.3)+'s both';s.append(el('span','pill '+f.status,lbl[f.status]),el('span',null,f.title));d.append(s);
   d.append(el('div','ev',f.ev+'  [Source: '+f.src+']'));c2.append(d)});
- o.append(...(ext?[cvCard(fs,p,ext)]:[]),c2,...(ext?[lmCard(ext,chain,a)]:[]),...(p?[simCard(p,window.__gp)]:[]),sm,ck,wn);
+ o.append(c2,...(ext?[lmCard(ext,chain,a)]:[]),sm,ck,wn);
  extras(p,chain,a,o);
  const c3=el('div','card');c3.append(el('h3',null,'Scan details'));
  c3.append(el('p','ev','Scanned '+new Date().toLocaleString()+'. Sources: DexScreener, GoPlus, Jupiter (Solana), CoinGecko. Inconclusive checks: '+(fs.filter(f=>f.status==='inconclusive').map(f=>f.title).join('; ')||'none')+'.'));
