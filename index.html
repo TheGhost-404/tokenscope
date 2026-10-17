@@ -27,7 +27,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:12px 0
 @keyframes redp{50%{box-shadow:0 0 20px -1px var(--red)}}
 @keyframes mintp{50%{box-shadow:0 0 18px -3px var(--mint)}}
 @keyframes rip{to{transform:scale(3);opacity:0}}
-h1{font-size:clamp(28px,6vw,44px);line-height:1.1;margin:10px 0;background:linear-gradient(100deg,var(--tx),var(--mint),var(--vio),var(--mint),var(--tx));background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 18px rgba(62,232,165,.35));animation:up .7s both,grad 7s linear infinite}
+h1{font-size:clamp(28px,6vw,44px);line-height:1.1;margin:10px 0;background:linear-gradient(100deg,var(--tx),var(--mint),var(--vio),var(--mint),var(--tx));background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 18px rgba(62,232,165,.35));animation:hin .9s both,grad 7s linear infinite}
 .sub{color:var(--mu);margin:0 0 22px;animation:up .7s .1s both}
 .radar{position:relative;width:140px;height:140px;border-radius:50%;margin:0 auto 18px;border:1px solid var(--bd);background:repeating-radial-gradient(circle,transparent 0 22px,var(--bd) 23px);box-shadow:0 0 50px -10px var(--mint)}
 .radar::before{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(rgba(62,232,165,.55),transparent 28%);animation:sweep 3.2s linear infinite}
@@ -45,7 +45,7 @@ button{font:inherit;cursor:pointer}
 .go::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(-120%);animation:shine 3.4s ease-in-out infinite;pointer-events:none}
 .fxr{position:absolute;border-radius:50%;background:rgba(255,255,255,.45);transform:scale(0);animation:rip .6s ease-out forwards;pointer-events:none}
 .note{color:var(--mu);font-size:13px;margin-top:10px}
-.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:18px;margin-top:16px;animation:up .6s both;transition:transform .25s,border-color .25s,box-shadow .25s}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:18px;margin-top:16px;animation:up .6s backwards;transition:transform .25s,border-color .25s,box-shadow .25s}
 .card:hover,.fc:hover{transform:translateY(-3px);border-color:rgba(62,232,165,.45);box-shadow:0 0 34px -14px var(--mint);background-image:radial-gradient(280px circle at var(--mx,50%) var(--my,50%),rgba(139,124,255,.18),transparent 62%)}
 .card h3{margin:0 0 6px}
 .card.warn{border-color:var(--amb)}.card.warn h3{color:var(--amb)}
@@ -117,8 +117,65 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--bd);color:var
 .stats div{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px}
 .stats b{font-size:34px;color:var(--mint);text-shadow:0 0 20px var(--mint);display:block}.stats span{color:var(--mu);font-size:12px}
 @keyframes draw{to{stroke-dashoffset:0}}
+
+/* v2 additions */
+@keyframes hin{from{opacity:0;transform:scale(.92);letter-spacing:.1em}to{opacity:1;transform:none;letter-spacing:normal}}
+@keyframes pop{0%{opacity:0;transform:scale(.6)}70%{transform:scale(1.08)}100%{opacity:1;transform:none}}
+@keyframes shake{20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+@keyframes drift{to{transform:translate(8vmax,6vmax) scale(1.15)}}
+@keyframes bgs{to{background-position:100% 0}}
+@keyframes flt{50%{transform:translate(14px,-18px) scale(1.12)}}
+@keyframes bmglow{0%,100%{box-shadow:0 0 30px -8px #8b7cff}50%{box-shadow:0 0 60px 0 #8b7cff}}
+@keyframes bping{from{transform:scale(1);opacity:.8}to{transform:scale(1.9);opacity:0}}
+.pop{animation:pop .5s both}.shake{animation:shake .45s}
+.aur{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.aur i{position:absolute;width:55vmax;height:55vmax;border-radius:50%;filter:blur(90px);opacity:.16;animation:drift 22s ease-in-out infinite alternate}
+.aur i:nth-child(1){background:var(--vio);left:-15vmax;top:-20vmax}
+.aur i:nth-child(2){background:var(--mint);right:-20vmax;bottom:-25vmax;animation-duration:28s;animation-delay:-8s}
+.ring{position:relative}
+.ring::after{content:"";position:absolute;inset:-9px;border-radius:50%;border:1px dashed var(--c);opacity:.55;animation:sweep 14s linear infinite}
+.fc:hover{transform:perspective(700px) translateY(-3px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))}
+.rv.in .fc{animation:pop .6s backwards}
+details[open]>.ev{animation:up .35s both}
+/* big bubblemaps */
+.bmbig{display:flex;align-items:center;gap:16px;position:relative;overflow:hidden;margin-top:16px;padding:28px 22px;border-radius:22px;text-decoration:none;color:#fff;background:linear-gradient(120deg,#2a1f8f,#5b4bff 45%,#0f9f72,#5b4bff);background-size:300% 100%;animation:up .6s backwards,bgs 7s ease-in-out infinite alternate,bmglow 2.4s ease-in-out infinite;transition:transform .25s}
+.bmbig:hover{transform:perspective(700px) translateY(-4px) scale(1.015) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))}
+.bmbig:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.bbl{position:absolute;inset:0;pointer-events:none}
+.bbl i{position:absolute;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.55),rgba(255,255,255,.06));border:1px solid rgba(255,255,255,.35);animation:flt 7s ease-in-out infinite}
+.bmt{position:relative;flex:1;min-width:0}
+.bmt small{display:block;font-size:12px;opacity:.85;margin-bottom:4px}
+.bmt strong{display:block;font-size:clamp(21px,6vw,30px);line-height:1.15;word-break:break-word}
+.bmt span{display:block;font-size:13px;opacity:.92;margin-top:6px}
+.bmgo{position:relative;width:56px;height:56px;border-radius:50%;background:#fff;color:#2a1f8f;display:grid;place-items:center;font-size:28px;font-weight:800;flex:none;transition:transform .3s}
+.bmgo::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #fff;animation:bping 1.8s ease-out infinite}
+.bmbig:hover .bmgo{transform:rotate(45deg) scale(1.12)}
+/* short summary */
+.sum .vd{display:flex;flex-direction:column;gap:2px;padding:12px 14px;border-radius:12px;border:1px solid var(--c);background:linear-gradient(110deg,transparent,rgba(255,255,255,.07),transparent),var(--bg);background-size:250% 100%;animation:grad 5s linear infinite;box-shadow:0 0 28px -10px var(--c)}
+.sum .vd b{font-size:20px;color:var(--c)}.sum .vd span{color:var(--mu);font-size:13px}
+.gauge{position:relative;height:8px;border-radius:9px;margin:18px 0 6px;background:linear-gradient(90deg,var(--mint),var(--amb) 50%,var(--red))}
+.gauge i{position:absolute;top:50%;left:0;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;background:var(--tx);border:3px solid var(--bg);box-shadow:0 0 14px var(--tx);transition:left 1.4s cubic-bezier(.3,1.4,.5,1)}
+.cnt{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px;text-align:center}
+.cnt div{background:var(--bg);border-radius:10px;padding:10px 4px;animation:pop .5s backwards}
+.cnt div:nth-child(2){animation-delay:.12s}.cnt div:nth-child(3){animation-delay:.24s}
+.cnt b{display:block;font-size:26px;color:inherit}.cnt span{font-size:12px;color:var(--mu)}.cnt .mu{color:var(--mu)}
+.cc{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--bd);animation:up .5s backwards}
+.cc:nth-of-type(2){animation-delay:.1s}.cc:nth-of-type(3){animation-delay:.2s}
+.cc strong{display:block;font-size:14px}.cc small{color:var(--mu);font-size:12px}
+
+/* coin image + tips */
+@keyframes bob{50%{transform:translateY(-8px)}}
+@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.25)}30%{transform:scale(1)}45%{transform:scale(1.18)}}
+.coinhero{position:relative;width:min(220px,60vw);aspect-ratio:1;margin:8px auto 22px;display:grid;place-items:center;animation:pop .8s backwards}
+.coinring{position:absolute;inset:-8px;border-radius:50%;background:conic-gradient(from var(--ang),var(--vio),var(--mint),var(--vio),transparent 40%,var(--vio));animation:spin 5s linear infinite}
+.coinring::after{content:"";position:absolute;inset:4px;border-radius:50%;background:var(--card)}
+.coinimg,.coinph{position:relative;width:100%;height:100%;border-radius:50%;object-fit:cover;background:var(--bg);animation:bob 4s ease-in-out infinite;box-shadow:0 0 60px -10px var(--mint)}
+.coinph{display:grid;place-items:center;font-size:56px;font-weight:800;color:var(--mint)}
+.tipc{text-align:center}
+.tipc .addr{font-size:13px;padding:12px;border:1px dashed var(--bd);border-radius:10px;margin:12px 0;user-select:all}
+.heart{font-size:44px;line-height:1;color:var(--red);text-shadow:0 0 24px var(--red);animation:beat 1.6s ease-in-out infinite}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
-</style></head><body><div class="w">
+</style></head><body><div class="aur"><i></i><i></i></div><div class="w">
 <nav><div class="logo">TOKEN<b>SCOPE</b></div><button class="ghost" id="th">Theme</button></nav>
 <h1>Don’t buy blind. Scan before you invest.</h1>
 <div class="radar"><i style="top:22%;left:62%"></i><i style="top:60%;left:28%;animation-delay:1.1s"></i><i style="top:70%;left:70%;animation-delay:2.1s"></i></div>
@@ -146,6 +203,10 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--bd);color:var
 <details class="q"><summary>Does a low score mean a token is safe?</summary><p>No. It only means fewer risks were detected from the data available. Always check confidence and inconclusive items.</p></details>
 <details class="q"><summary>Do I need to connect a wallet?</summary><p>Never. This tool is read-only and never asks for a seed phrase or private key.</p></details>
 <details class="q"><summary>Is this financial advice?</summary><p>No. It is information only and cannot predict future behavior.</p></details></section>
+<section class="rv" id="tip"><h2>Enjoying TOKENSCOPE?</h2><p>It is free and read-only. Tips are optional and help keep it running.</p>
+<div class="card tipc"><div class="heart">♥</div><div class="addr" id="tw">9rFx67bz3kw1xaiPZBpbgABVHdLqDMEpiGh7ou8DPjcq</div>
+<button class="go" id="tc" style="width:100%">Copy Solana address</button>
+<p class="ev">Solana network only. Double-check the address before sending.</p></div></section>
 <footer>TOKENSCOPE · Read-only token risk scanner · Not financial advice · Data may be delayed or incomplete.</footer></div>
 <script>
 const $=id=>document.getElementById(id);
@@ -343,7 +404,6 @@ function extras(p,chain,a,o){
  const BM={ethereum:'eth',bsc:'bsc',solana:'sol',base:'base',robinhood:'robinhood'},lk=el('div','card'),cs=el('div','chips');lk.append(el('h3',null,'Check wallet clusters'));
  const add=(t,u)=>{const l=document.createElement('a');l.href=u;l.target='_blank';l.rel='noopener noreferrer';l.className='chip';l.textContent=t+' ↗';cs.append(l)};
  if(chain==='robinhood')add('Blockscout explorer','https://robinhoodchain.blockscout.com/token/'+a);
- if(BM[chain])add('Bubblemaps','https://app.bubblemaps.io/'+BM[chain]+'/token/'+a);
  if(cs.children.length){lk.append(cs,el('p','ev','Opens third-party sites that map linked wallets and possible bundles. Clusters are a warning sign, not proof of fraud.'));o.append(lk)}}
 function rise(node,v,suf){const t0=performance.now();(function s(t){const k=Math.min(1,(t-t0)/1300);node.textContent=Math.round(v*(1-Math.pow(1-k,3)))+suf;if(k<1)requestAnimationFrame(s)})(t0)}
 async function scan(){
@@ -370,14 +430,19 @@ async function scan(){
  if(dv!=null)dep=F('dep','deployer',dv>=10?'high':dv>=5?'warning':'pass','Deployer holdings','Dev wallet holds about '+dv.toFixed(1)+'% of supply. Previous launches and selling history are not checked.','Jupiter (third-party)',.6);
  const ext={pairs:allPairs,jd,cg,cgErr,jupErr};
  const fs=[...(pair?market(pair):[unk('liq','liquidity','Market data','No trading pair found on DexScreener.')]),...(chain==='solana'?sol(gp):GP[chain]?evm(gp):[]),
-  ...listing(ext,chain),unk('bundle','bundle','Bundled buying','Needs launch-transaction and wallet-funding data, which free sources do not provide. Use Bubblemaps below to check visually.'),
+  ...listing(ext,chain),unk('bundle','bundle','Bundled buying','Needs launch-transaction and wallet-funding data, which free sources do not provide. Use the Bubblemaps card above to check visually.'),
   ...(dep?[dep]:(chain!=='solana'&&gp&&gp.creator_percent!=null?[]:[unk('dep','deployer','Deployer activity','Creator holdings were not available from the connected sources. Past launches are never checked in this version.')]))];
  render(fs,pair,a,chain,failed,ext);$('s').disabled=false}
 function render(fs,p,a,chain,failed,ext){const o=$('o');o.replaceChildren();
  const r=score(fs),[lab,col]=band(r.score),c=el('div','card'),top=el('div','top'),ring=el('div','ring');ring.style.setProperty('--c',col);
  const inn=el('div'),sv=el('strong',null,'0%');inn.append(sv,el('small',null,'risk'));ring.append(inn);rise(sv,r.score,'%');
  const meta=el('div','meta');meta.append(el('h2',null,p?p.baseToken.name+' ('+p.baseToken.symbol+')':'No trading pair found'),el('div','addr',chain+' · '+a),el('div',null,lab+' · evidence confidence '+r.conf+'%'));
- top.append(ring,meta);c.append(top);setTimeout(()=>ring.style.setProperty('--p',r.score),80);
+ top.append(ring,meta);
+ const imgs=[ext&&ext.cg&&ext.cg.image&&ext.cg.image.large,ext&&ext.jd&&ext.jd.icon,p&&p.info&&p.info.imageUrl].filter(u=>typeof u==='string'&&/^https:\/\//.test(u)),
+  hero=el('div','coinhero'),ph=el('div','coinph',String(p&&p.baseToken&&p.baseToken.symbol||'?').slice(0,3).toUpperCase());
+ hero.append(el('div','coinring'));
+ if(imgs.length){const im=document.createElement('img');let k=0;im.className='coinimg';im.alt=(p&&p.baseToken?p.baseToken.name:'Token')+' logo';im.referrerPolicy='no-referrer';im.src=imgs[0];im.onerror=()=>{k++;if(imgs[k])im.src=imgs[k];else im.replaceWith(ph)};hero.append(im)}else hero.append(ph);
+ c.append(hero,top);setTimeout(()=>ring.style.setProperty('--p',r.score),80);
  const cp=el('button','ghost','Copy address');cp.style.marginTop='12px';cp.onclick=()=>navigator.clipboard.writeText(a).then(()=>cp.textContent='Copied').catch(()=>cp.textContent='Copy failed');
  const shr=el('button','ghost','Share scan link');shr.style.cssText='margin:12px 0 0 8px';
  shr.onclick=()=>{const u=location.href.split('#')[0].split('?')[0]+'?scan='+encodeURIComponent(a);const cpy=()=>navigator.clipboard.writeText(u).then(()=>{shr.textContent='Link copied';setTimeout(()=>shr.textContent='Share scan link',1800)}).catch(()=>{shr.textContent='Copy failed'});if(navigator.share)navigator.share({title:'TOKENSCOPE scan',url:u}).catch(cpy);else cpy()};
@@ -385,17 +450,27 @@ function render(fs,p,a,chain,failed,ext){const o=$('o');o.replaceChildren();
  dl.onclick=()=>{saveCard(fs,r,lab,col,p,a,chain).then(()=>{dl.textContent='Card saved'}).catch(()=>{dl.textContent='Could not create card'}).finally(()=>setTimeout(()=>dl.textContent='Download result card',1800))};
  c.append(cp,shr,dl);
  if(p){const g=el('div','grid');[['Price',p.priceUsd?'$'+p.priceUsd:'n/a'],['Liquidity',usd(n(p.liquidity&&p.liquidity.usd))],['FDV',usd(n(p.fdv))],['24h volume',usd(n(p.volume&&p.volume.h24))],['DEX',p.dexId||'n/a']].forEach(([k,v])=>{const s=el('div','stat');s.append(el('span',null,k),el('b',null,v));g.append(s)});c.append(g)}
- o.append(c);
+ const bmu=BMC[chain]?'https://app.bubblemaps.io/'+BMC[chain]+'/token/'+a:'https://app.bubblemaps.io',bm=el('a','bmbig');
+ bm.href=bmu;bm.target='_blank';bm.rel='noopener noreferrer';
+ const bb=el('div','bbl');for(let i=0;i<9;i++){const q=el('i'),z=18+Math.random()*44;q.style.cssText='width:'+z+'px;height:'+z+'px;left:'+Math.random()*90+'%;top:'+Math.random()*70+'%;animation-delay:-'+Math.random()*6+'s;animation-duration:'+(5+Math.random()*5)+'s';bb.append(q)}
+ const bt=el('div','bmt');bt.append(el('small',null,'Bundle and wallet-cluster check'),el('strong',null,'Open '+(p&&p.baseToken?String(p.baseToken.symbol||'token').slice(0,12):'this token')+' on Bubblemaps'),el('span',null,BMC[chain]?'See linked wallets and hidden bundles. Not included in the score.':'This chain has no direct link. Opens the Bubblemaps app.'));
+ bm.append(bb,bt,el('div','bmgo','↗'));
+ o.append(c,bm);
  const c2=el('div','card');c2.append(el('h3',null,'Risk breakdown'));
  const L={pass:'Pass',warning:'Warning',high:'High risk',critical:'Critical',inconclusive:'Inconclusive'};
  fs.forEach(f=>{const d=el('details'),s=el('summary');s.append(el('span','pill '+f.status,L[f.status]),el('span',null,f.title));d.append(s,el('div','ev',f.ev+'  [Source: '+f.src+']'));c2.append(d)});
  o.append(c2,...(ext?[lmCard(ext,chain,a)]:[]));
- const sm=el('div','card');sm.append(el('h3',null,'Summary'));
- const grp=(t,cls,arr,empty)=>{const h=el('div',cls,t);h.style.cssText='font-weight:700;margin-top:10px';sm.append(h);if(!arr.length)sm.append(el('div','ev',empty));arr.forEach(f=>sm.append(el('div','ev','• '+f.title+': '+f.ev)))};
- grp('Main concerns','dn',fs.filter(f=>['warning','high','critical'].includes(f.status)),'None detected by the checks that ran.');
- grp('Looks OK','up',fs.filter(f=>f.status==='pass'),'Nothing passed.');
- grp('Could not check','',fs.filter(f=>f.status==='inconclusive'),'Everything was checked.');
- sm.append(el('p','ev',(r.score>=60?'Several serious risk signals were found. Treat this token with extreme caution. ':r.score>=40?'Some notable risk signals were found. Look at the concerns above before deciding. ':'Few risk signals were found in the data available. ')+(r.conf<60?'Evidence is limited ('+r.conf+'%), so this picture is incomplete. ':'')+'Unchecked items and linked wallets can still hide risk. This is information, not advice.'));
+ const sm=el('div','card sum');
+ const bad=fs.filter(f=>['warning','high','critical'].includes(f.status)).sort((x,y)=>SEV[y.status]-SEV[x.status]),good=fs.filter(f=>f.status==='pass'),unch=fs.filter(f=>f.status==='inconclusive');
+ const vd=el('div','vd');vd.style.setProperty('--c',col);vd.append(el('b',null,lab),el('span',null,r.score>=60?'Several serious red flags. Extreme caution.':r.score>=40?'Notable risks. Read the top concerns.':'Few red flags in the data available.'));
+ const gg=el('div','gauge'),gm=el('i');gg.append(gm);setTimeout(()=>gm.style.left=r.score+'%',150);
+ const cn=el('div','cnt');[[bad.length,'concerns','dn'],[good.length,'passed','up'],[unch.length,'unchecked','mu']].forEach(([v,l,k])=>{const d=el('div',k),b=el('b',null,'0');rise(b,v,'');d.append(b,el('span',null,l));cn.append(d)});
+ sm.append(el('h3',null,'Summary'),vd,gg,cn);
+ const sh=t=>{const x=String(t).split('. ')[0].replace(/\.$/,'');return x.length>90?x.slice(0,87)+'…':x};
+ bad.slice(0,3).forEach(f=>{const d=el('div','cc'),m=el('div');m.append(el('strong',null,f.title),el('small',null,sh(f.ev)));d.append(el('span','pill '+f.status,L[f.status]),m);sm.append(d)});
+ if(bad.length>3)sm.append(el('p','ev','+ '+(bad.length-3)+' more in the risk breakdown below.'));
+ if(!bad.length)sm.append(el('p','ev','No flags from the checks that ran.'));
+ sm.append(el('p','ev',(r.conf<60?'Evidence is limited ('+r.conf+'%). ':'')+'Unchecked items can still hide risk. Not financial advice.'));
  const ck=el('div','card');ck.append(el('h3',null,'Before you decide'));
  const has=(id,st)=>fs.some(f=>f.id===id&&st.includes(f.status)),T=['Open Bubblemaps and look for a tight cluster of linked wallets holding a big share of supply.'];
  if(has('liq',['warning','high']))T.push('Liquidity is thin, so even a modest sale can move the price sharply.');
@@ -406,7 +481,7 @@ function render(fs,p,a,chain,failed,ext){const o=$('o');o.replaceChildren();
  if(has('age',['warning']))T.push('This token is very new, so there is little history to judge it by.');
  if(has('hold',['warning','high']))T.push('A few wallets hold a large share, so one sale could crash the price.');
  T.push('Never connect your wallet to links from a token page, and never share a seed phrase.','Only risk money you can afford to lose.');
- T.forEach(t=>ck.append(el('div','ev','☐ '+t)));o.append(sm,ck);
+ T.forEach(t=>ck.append(el('div','ev','☐ '+t)));bm.after(sm);o.append(ck);
  if(p){const fm=el('div','card');fm.append(el('h3',null,'FOMO meter'));
  const pc=p.priceChange||{},vv=p.volume||{},t1=(p.txns&&p.txns.h1)||{},c1=n(pc.h1),c24=n(pc.h24),vh=n(vv.h1),v24=n(vv.h24),tot=(+t1.buys||0)+(+t1.sells||0),age=p.pairCreatedAt?(Date.now()-p.pairCreatedAt)/36e5:null;
  let sc=0,have=0;const why=[];
@@ -421,9 +496,8 @@ function render(fs,p,a,chain,failed,ext){const o=$('o');o.replaceChildren();
   const bar=el('div','bar'),fi=el('i');fi.style.width=sc+'%';fi.style.backgroundSize=(10000/Math.max(sc,1))+'% 100%';bar.append(fi);fm.append(hd,bar);
   const cs=el('div','chips');(why.length?why:['No hype signals right now']).forEach(w=>{const s=el('span','chip',w);s.style.color='var(--tx)';cs.append(s)});fm.append(cs)}
  fm.append(el('p','ev','Estimate from DexScreener price, volume and trade data. Fast pumps often reverse. This does not predict price.'));o.append(fm)}
- const wn=el('div','card warn');wn.append(el('h3',null,'⚠ Check Bubblemaps before you buy'),el('p','ev','This scanner cannot see bundled buying or linked wallets, and the score does not include them. A low score can still hide a coordinated launch.'));
+ const wn=el('div','card warn');wn.append(el('h3',null,'⚠ Score blind spot'),el('p','ev','Bundled buying and linked wallets are not in the score. Use the Bubblemaps card above.'));
  const ch=el('div','chips');
- if(BMC[chain]){const l=el('a','chip','Open in Bubblemaps ↗');l.href='https://app.bubblemaps.io/'+BMC[chain]+'/token/'+a;l.target='_blank';l.rel='noopener noreferrer';ch.append(l)}
  if(p&&/^https:\/\/dexscreener\.com\//.test(p.url||'')){const l=el('a','chip','Chart on DexScreener ↗');l.href=p.url;l.target='_blank';l.rel='noopener noreferrer';ch.append(l)}
  wn.append(ch);o.append(wn);extras(p,chain,a,o);
  const c3=el('div','card');c3.append(el('p','ev','Scanned '+new Date().toLocaleString()+'. A low score does not mean a token is safe. Flags are third-party signals or estimates, not proof of fraud. Not financial advice.'));
@@ -454,12 +528,13 @@ function quiz(){const c=$('qz');c.replaceChildren();
   const rs=el('button','ghost','Play again');rs.style.marginLeft='8px';rs.onclick=()=>{qi=0;qs=0;quiz()};c.append(sh,rs);return}
  const q=QS[qi];c.append(el('div','lab','Question '+(qi+1)+' of 5'),el('p',null,q[0]));
  const row=el('div','row');
- [['Rug',1],['Legit',0]].forEach(([t,v])=>{const b=el('button','ghost',t);b.onclick=()=>{const ok=v===q[1];if(ok)qs++;row.replaceChildren();c.append(el('p',ok?'up':'dn',(ok?'Correct. ':'Not quite. ')+q[2]));const nx=el('button','go',qi<4?'Next':'See score');nx.onclick=()=>{qi++;quiz()};c.append(nx)};row.append(b)});
+ [['Rug',1],['Legit',0]].forEach(([t,v])=>{const b=el('button','ghost',t);b.onclick=()=>{const ok=v===q[1];if(ok)qs++;row.replaceChildren();c.append(el('p',ok?'up pop':'dn shake',(ok?'Correct. ':'Not quite. ')+q[2]));const nx=el('button','go',qi<4?'Next':'See score');nx.onclick=()=>{qi++;quiz()};c.append(nx)};row.append(b)});
  c.append(row)}
 quiz();
 ['Ethereum','Solana','BNB Chain','Base','Arbitrum','Optimism','Polygon','Avalanche','Robinhood Chain','Ethereum','Solana','BNB Chain','Base','Arbitrum','Optimism','Polygon','Avalanche','Robinhood Chain'].forEach(t=>{const s=el('span');s.append(el('b',null,'◆ '),document.createTextNode(t));$('mqi').append(s)});
 [['◎','Honeypot & taxes','Can it be sold, and what do buys and sells cost.'],['⚿','Contract powers','Minting, hidden owner, pausing, blacklists, proxies.'],['≋','Liquidity','Depth of the main pool and reported LP locks.'],['▤','Holder concentration','Top-10 share of supply for EVM tokens, from GoPlus.'],['⇅','Transaction pressure','Buys versus sells across 5 minutes to 24 hours.'],['⏱','Token age','Very new pairs carry extra risk.'],['✓','Listings & verification','Jupiter verified status (Solana) and CoinGecko listing by contract.'],['⛁','Liquidity markets','Every DEX pool and CoinGecko-tracked market, with each one’s share.']].forEach(([i,t,d])=>{const f=el('div','fc');f.append(el('div','n',i),el('h3',null,t),el('p',null,d));$('chk').append(f)});
 [['Honeypot','A token you can buy but not sell. Detection is a simulation and can be wrong.'],['Mint authority','The ability to create more tokens, which can dilute holders. Revoked means it cannot be used again.'],['Freeze authority','On Solana, lets a creator freeze token accounts so holders cannot move tokens.'],['Liquidity lock','Locked liquidity cannot be pulled by the creator until the lock ends. Having a pool is not the same as being locked.'],['Holder concentration','When a few wallets hold most supply, one sale can crash the price. Pools and contracts can look like whales.'],['Bundled buying','Several wallets buying in the same launch moment, sometimes funded by one source. Not analyzed in this version.']].forEach(([t,x])=>{const d=el('details','q');d.append(el('summary',null,t),el('p',null,x));$('gl').append(d)});
+$('tc').onclick=()=>{const b=$('tc'),t=$('tw').textContent;navigator.clipboard.writeText(t).then(()=>{b.textContent='Copied. Thank you!'}).catch(()=>{b.textContent='Press and hold the address to copy'});setTimeout(()=>b.textContent='Copy Solana address',2400)};
 $('s').onclick=scan;$('a').onkeydown=e=>{if(e.key==='Enter')scan()};
 $('p').onclick=async()=>{try{$('a').value=await navigator.clipboard.readText()}catch{$('a').focus()}};
 document.querySelectorAll('[data-ch]').forEach(b=>b.onclick=()=>{$('c').value=b.dataset.ch;scrollTo({top:0,behavior:'smooth'});$('a').focus()});
@@ -483,10 +558,13 @@ const q=new URLSearchParams(location.search).get('scan');if(q&&detect(q)){$('a')
  const cur=matchMedia('(pointer:fine)').matches?mk('div','fxc'):null;let raf=0,mx=0,my=0;
  d.addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;
   if(!raf)raf=requestAnimationFrame(()=>{raf=0;if(cur)cur.style.transform='translate('+mx+'px,'+my+'px)'});
+  const tl=e.target.closest&&e.target.closest('.fc,.bmbig');if(tl){const r=tl.getBoundingClientRect();tl.style.setProperty('--ry',((e.clientX-r.left)/r.width-.5)*8+'deg');tl.style.setProperty('--rx',-((e.clientY-r.top)/r.height-.5)*8+'deg')}
   const c=e.target.closest&&e.target.closest('.card,.fc');
   if(c){const r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')}},{passive:true});
+ d.addEventListener('pointerout',e=>{const t=e.target.closest&&e.target.closest('.fc,.bmbig');if(t){t.style.setProperty('--rx','0deg');t.style.setProperty('--ry','0deg')}});
  d.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('.go');if(!b)return;
   const r=b.getBoundingClientRect(),s=Math.max(r.width,r.height),sp=d.createElement('span');sp.className='fxr';
   sp.style.cssText='width:'+s+'px;height:'+s+'px;left:'+(e.clientX-r.left-s/2)+'px;top:'+(e.clientY-r.top-s/2)+'px';b.appendChild(sp);setTimeout(()=>sp.remove(),650)});
 })();
+document.head.appendChild(Object.assign(document.createElement('style'),{textContent:Array.from({length:14},(_,i)=>'#o>:nth-child('+(i+1)+'):not(.bmbig){animation-delay:'+(i*.08).toFixed(2)+'s}').join('')+Array.from({length:8},(_,i)=>'.rv.in .fc:nth-child('+(i+1)+'){animation-delay:'+(i*.07).toFixed(2)+'s}').join('')}));
 </script></body></html>
