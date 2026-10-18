@@ -368,6 +368,33 @@ footer{padding-bottom:84px}
 .trr button{border-color:var(--mint);color:var(--mint);font-weight:700;padding:7px 14px}
 .trr button:hover{background:var(--mint);color:#04140d}
 [data-theme=light] .trr button:hover{color:#fff}
+
+/* v11: bubblemaps picture */
+@keyframes bbf{50%{transform:translate(var(--dx),var(--dy))}}
+@keyframes lkp{to{stroke-dashoffset:-22}}
+@keyframes rsp{to{transform:rotate(360deg)}}
+.bmpic{position:relative;padding:16px}
+.bmpic svg{width:100%;height:auto;display:block;border-radius:14px;background:radial-gradient(circle at 30% 45%,rgba(139,124,255,.14),transparent 62%),var(--bg);border:1px solid var(--bd);overflow:hidden}
+.bmpic .ex{display:inline-block;margin-bottom:10px;font-size:11px;padding:3px 10px;border-radius:99px;background:var(--bg);border:1px solid var(--bd);color:var(--mu)}
+.bbn{animation:bbf 7s ease-in-out infinite}
+.lnk{stroke:var(--red);stroke-width:1.4;stroke-dasharray:4 4;opacity:.85;animation:lkp 1.2s linear infinite}
+.ring2{transform-origin:112px 112px;animation:rsp 22s linear infinite}
+.bmpic .br{fill:var(--red);fill-opacity:.3;stroke:var(--red)}
+.bmpic .bv{fill:var(--vio);fill-opacity:.25;stroke:var(--vio)}
+.bmpic .bp{fill:var(--mint);fill-opacity:.25;stroke:var(--mint)}
+.bmpic text{fill:var(--tx);pointer-events:none}
+.bleg{display:flex;flex-wrap:wrap;gap:8px 16px;margin:12px 0 4px}
+.bleg div{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--mu)}
+.bleg i{width:10px;height:10px;border-radius:50%;flex:none}
+.bleg .d1{background:var(--red)}.bleg .d2{background:var(--vio)}.bleg .d3{background:var(--mint)}
+.bmbtn{display:flex;align-items:center;justify-content:center;gap:10px;margin:14px 0 10px;padding:16px 20px;border-radius:14px;background:linear-gradient(120deg,#ffb84d,#ffd166 50%,#ff9f1a);color:#1a1200;font-weight:800;font-size:17px;text-decoration:none;box-shadow:0 0 28px -8px rgba(255,184,77,.8);transition:transform .25s,box-shadow .25s}
+.bmbtn:hover{transform:translateY(-3px);box-shadow:0 0 44px -4px rgba(255,184,77,.95)}
+.bmbtn:focus-visible{outline:3px solid var(--tx);outline-offset:3px}
+
+/* v12: live map */
+.lmap iframe{width:100%;height:min(70vh,600px);min-height:420px;border:1px solid var(--bd);border-radius:14px;background:var(--bg);display:block;margin-top:4px}
+.lmbar{display:flex;gap:8px;justify-content:space-between;align-items:center;margin:10px 0 8px}
+.lmbar .ghost{padding:8px 14px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style></head><body><div class="aur"><i></i><i></i></div><nav class="top"><div class="tb"><a class="logo" href="#" aria-label="TOKENSCOPE home"><svg class="mk" aria-hidden="true" viewBox="0 0 32 32"><defs><linearGradient id="lgn" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b7cff"/><stop offset="1" stop-color="#3ee8a5"/></linearGradient></defs><rect width="32" height="32" rx="8" fill="#0b0d10"/><circle cx="16" cy="16" r="9.5" fill="none" stroke="url(#lgn)" stroke-width="2"/><circle cx="16" cy="16" r="4.5" fill="none" stroke="url(#lgn)" stroke-width="1.6" opacity=".7"/><g class="sw"><path d="M16 16 23.5 9.5" stroke="#3ee8a5" stroke-width="2" stroke-linecap="round"/></g><circle cx="16" cy="16" r="1.8" fill="#3ee8a5"/><circle cx="23.5" cy="9.5" r="1.6" fill="#ff6b6b"/></svg>TOKEN<b>SCOPE</b></a><div class="dd" id="menu" role="navigation" aria-label="Sections"><a href="#scanbox">Scan</a><a href="#trending">Trending</a><a href="#how">How it works</a><a href="#checks">Checks</a><a href="#learn">Glossary</a><a href="#quiz">Quiz</a><a href="#faq">FAQ</a><a href="#tip">♥ Tips</a></div><button class="ghost" id="th">Theme</button><button class="hb" id="hb" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button></div></nav><div class="scrim" id="scrim"></div><div class="w">
 
@@ -384,6 +411,7 @@ footer{padding-bottom:84px}
 <section class="rv" id="trending"><h2>Hot right now</h2><p>Tokens boosted or newly listed on DexScreener. Boosted means the team paid for visibility, not that the token is safe. Tap Scan to run the full check.</p><div class="trh"><div class="seg" id="trtabs"></div></div><div id="trl"></div><p class="ev" id="trn"></p></section>
 <div class="mq rv"><div id="mqi"></div></div>
 <section class="rv"><div class="stats"><div><b data-n="9">0</b><span>chains supported</span></div><div><b data-n="11">0</b><span>risk categories</span></div><div><b data-n="0">0</b><span>wallets to connect</span></div></div></section>
+<section id="bubblemaps" class="rv"><h2>See who is really behind a token</h2><p>Bubblemaps draws top holders as bubbles and links wallets that send money to each other. A tight, linked cluster holding a big share can mean insiders or a coordinated launch.</p><div class="card bmpic"><div class="ex">Example illustration, not a real token</div><svg viewBox="0 0 360 232" role="img" aria-label="Illustration of a bubble map: a cluster of linked red wallets next to normal holder bubbles and a liquidity pool"><g style="stroke-width:1.5"><g class="bbn" style="--dx:4px;--dy:-5px;animation-duration:9s"><circle class="ring2" cx="112" cy="112" r="98" fill="none" stroke="var(--red)" stroke-width="1.4" stroke-dasharray="3 7" opacity=".7"/><line class="lnk" x1="110" y1="120" x2="68" y2="86"/><line class="lnk" x1="110" y1="120" x2="150" y2="78"/><line class="lnk" x1="110" y1="120" x2="158" y2="152"/><line class="lnk" x1="110" y1="120" x2="64" y2="162"/><line class="lnk" x1="110" y1="120" x2="108" y2="56"/><line class="lnk" x1="68" y1="86" x2="108" y2="56"/><line class="lnk" x1="150" y1="78" x2="108" y2="56"/><line class="lnk" x1="158" y1="152" x2="194" y2="114"/><line class="lnk" x1="150" y1="78" x2="194" y2="114"/><line class="lnk" x1="68" y1="86" x2="64" y2="162"/><circle class="br" cx="110" cy="120" r="28"/><text x="110" y="123" text-anchor="middle" font-size="12" font-weight="700">14%</text><circle class="br" cx="68" cy="86" r="16"/><text x="68" y="89" text-anchor="middle" font-size="8" font-weight="700">6%</text><circle class="br" cx="150" cy="78" r="18"/><text x="150" y="81" text-anchor="middle" font-size="9.0" font-weight="700">7%</text><circle class="br" cx="158" cy="152" r="20"/><text x="158" y="155" text-anchor="middle" font-size="10.0" font-weight="700">8%</text><circle class="br" cx="64" cy="162" r="14"/><text x="64" y="165" text-anchor="middle" font-size="8" font-weight="700">4%</text><circle class="br" cx="108" cy="56" r="12"/><text x="108" y="59" text-anchor="middle" font-size="8" font-weight="700">3%</text><circle class="br" cx="194" cy="114" r="13"/><text x="194" y="117" text-anchor="middle" font-size="8" font-weight="700">3%</text></g><g class="bbn" style="--dx:-5px;--dy:6px;animation-duration:8s;animation-delay:-1s"><circle class="bp" cx="282" cy="118" r="32"/><text x="282" y="121" text-anchor="middle" font-size="12" font-weight="700">Pool</text></g><g class="bbn" style="--dx:6px;--dy:-6px;animation-duration:6.5s;animation-delay:-2s"><circle class="bv" cx="238" cy="58" r="14"/><text x="238" y="61" text-anchor="middle" font-size="8" font-weight="700">3%</text></g><g class="bbn" style="--dx:-5px;--dy:5px;animation-duration:7.5s;animation-delay:-3s"><circle class="bv" cx="326" cy="66" r="12"/><text x="326" y="69" text-anchor="middle" font-size="8" font-weight="700">2%</text></g><g class="bbn" style="--dx:5px;--dy:-5px;animation-duration:6s;animation-delay:-4s"><circle class="bv" cx="334" cy="164" r="14"/><text x="334" y="167" text-anchor="middle" font-size="8" font-weight="700">2%</text></g><g class="bbn" style="--dx:-6px;--dy:-4px;animation-duration:8.5s;animation-delay:-0s"><circle class="bv" cx="272" cy="196" r="16"/><text x="272" y="199" text-anchor="middle" font-size="8" font-weight="700">3%</text></g><g class="bbn" style="--dx:6px;--dy:-6px;animation-duration:7s;animation-delay:-5s"><circle class="bv" cx="216" cy="176" r="10"/></g><g class="bbn" style="--dx:6px;--dy:-6px;animation-duration:6s;animation-delay:-2s"><circle class="bv" cx="24" cy="36" r="9"/></g><g class="bbn" style="--dx:-4px;--dy:6px;animation-duration:7s;animation-delay:-3s"><circle class="bv" cx="28" cy="206" r="10"/></g><g class="bbn" style="--dx:6px;--dy:-6px;animation-duration:5.5s;animation-delay:-1s"><circle class="bv" cx="338" cy="112" r="8"/></g><g class="bbn" style="--dx:5px;--dy:5px;animation-duration:6.8s;animation-delay:-4s"><circle class="bv" cx="205" cy="34" r="9"/></g></g><g transform="translate(14,8)"><rect x="0" y="0" width="0" height="0" fill="none"/></g></svg><div class="bleg"><div><i class="d1"></i>Linked wallets</div><div><i class="d2"></i>Normal holders</div><div><i class="d3"></i>Liquidity pool</div></div><p class="ev">In this example, 7 linked wallets together hold about 45% of supply. That is the kind of pattern worth a closer look.</p><a class="bmbtn" href="https://app.bubblemaps.io" target="_blank" rel="noopener noreferrer">Open Bubblemaps ↗</a><p class="ev">After any scan, the big amber card opens that token’s own map. Bubblemaps is an independent third-party tool. TOKENSCOPE does not analyze linked wallets itself.</p></div></section>
 <section id="how" class="rv"><h2>How it works</h2><p>Three steps, a few seconds.</p>
 <div class="g3"><div class="fc"><div class="n">1</div><h3>Paste an address</h3><p>Add an EVM contract or a Solana mint. The chain is detected for you.</p></div>
 <div class="fc"><div class="n">2</div><h3>We pull public data</h3><p>Market data from DexScreener and security flags from GoPlus.</p></div>
@@ -746,7 +774,7 @@ function render(fs,p,a,chain,failed,ext){const o=$('o');o.replaceChildren();
  if(has('age',['warning']))T.push('This token is very new, so there is little history to judge it by.');
  if(has('hold',['warning','high']))T.push('A few wallets hold a large share, so one sale could crash the price.');
  T.push('Never connect your wallet to links from a token page, and never share a seed phrase.','Only risk money you can afford to lose.');
- T.forEach(t=>ck.append(el('div','ev','☐ '+t)));bm.after(sm);o.append(ck);
+ T.forEach(t=>ck.append(el('div','ev','☐ '+t)));bm.after(sm);const lmc=liveMapCard(chain,a);if(lmc)bm.after(lmc);o.append(ck);
  if(p&&p.baseToken){lastScan={name:String(p.baseToken.name||'Token').slice(0,30),sym:String(p.baseToken.symbol||'token').slice(0,12),score:r.score,lab,conf:r.conf,chain,nbad:bad.length,ngood:good.length,nunk:unch.length,bad:bad.slice(0,5).map(f=>({t:f.title,e:f.ev,s:f.status}))};if(window.chatNew)chatNew()}
  if(r.score>=60&&!tipSeen()){tipMark();const tp=el('div','tipline'),tl=el('a','tl','♥ Tip'),dx=el('button',null,'✕');tl.href='#tip';dx.setAttribute('aria-label','Dismiss');dx.onclick=()=>tp.remove();tp.append(el('span',null,'This scan flagged serious risks. Did it help?'),tl,dx);sm.after(tp)}
  if(p&&p.baseToken){hnew=hkey({a,chain});hsave({a,chain,name:String(p.baseToken.name||'Token').slice(0,30),sym:String(p.baseToken.symbol||'').slice(0,12),score:r.score,conf:r.conf,lab,col,nbad:bad.length,ngood:good.length,nunk:unch.length,liq:n(p.liquidity&&p.liquidity.usd),fdv:n(p.fdv),vol:n(p.volume&&p.volume.h24),ch24:n(p.priceChange&&p.priceChange.h24),top:bad.slice(0,3).map(f=>f.title),img:imgs[0]||'',ts:Date.now()})}
@@ -898,6 +926,22 @@ function moment(sc){if(RM)return;
  const sec=document.getElementById('trending');
  if('IntersectionObserver' in window){new IntersectionObserver((es,ob)=>{if(es.some(e=>e.isIntersecting)&&!started){started=true;ob.disconnect();load(false)}},{rootMargin:'300px'}).observe(sec)}else{started=true;load(false)}
 })();
+/* ---------- live Bubblemaps map (official iframe) ---------- */
+const BUBBLEMAPS_PARTNER_ID='';/* Get one from Bubblemaps (contact@bubblemaps.io) for your domain, then paste it here. Until then the live map only shows in test mode on localhost or when opening the file directly. */
+const BMIF={ethereum:'eth',bsc:'bsc',solana:'solana',base:'base',arbitrum:'arbitrum',polygon:'polygon',avalanche:'avalanche',robinhood:'robinhood'};
+function bmPartner(){if(BUBBLEMAPS_PARTNER_ID)return{id:BUBBLEMAPS_PARTNER_ID,test:false};const h=location.hostname;return(!h||h==='localhost'||h==='127.0.0.1'||h==='0.0.0.0')?{id:'demo',test:true}:null}
+function liveMapCard(chain,a){const ch=BMIF[chain],pt=bmPartner();if(!ch||!pt||!detect(a))return null;
+ const url='https://iframe.bubblemaps.io/map?address='+encodeURIComponent(a)+'&chain='+ch+'&partnerId='+encodeURIComponent(pt.id),page='https://app.bubblemaps.io/'+(BMC[chain]||ch)+'/token/'+encodeURIComponent(a);
+ const c=el('div','card lmap');c.append(el('h3',null,'Live bubble map'),el('p','ev','The real map from Bubblemaps: top holders as bubbles, with lines between linked wallets. It loads from Bubblemaps (a third party) only when you tap.'));
+ const go=el('button','go','Load live map');c.append(go);
+ if(pt.test)c.append(el('p','ev','Test mode (demo partner ID). Add your own Bubblemaps partner ID in the code to show maps on your live site.'));
+ go.onclick=()=>{go.remove();const bar=el('div','lmbar'),cl=el('button','ghost','Close map'),op=el('a','chip','Open on Bubblemaps ↗');op.href=page;op.target='_blank';op.rel='noopener noreferrer';
+  const fr=document.createElement('iframe');fr.src=url;fr.title='Bubblemaps live map';fr.setAttribute('allow','clipboard-write');fr.setAttribute('sandbox','allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms');fr.referrerPolicy='strict-origin-when-cross-origin';
+  const note=el('p','ev','If the map stays blank, this token may not have a map yet. Use Open on Bubblemaps.');
+  cl.onclick=()=>{bar.remove();fr.remove();note.remove();c.insertBefore(go,c.children[2]||null)};
+  bar.append(cl,op);c.insertBefore(bar,c.children[2]||null);c.insertBefore(fr,bar.nextSibling);c.insertBefore(note,fr.nextSibling)};
+ return c}
+
 /* ---------- chat assistant ---------- */
 const CHAT_ENDPOINT='';/* Optional: your own server URL that holds an AI key. It receives {question,scan} and must return {answer}. Leave empty to use the built-in guide. */
 let lastScan=null;
