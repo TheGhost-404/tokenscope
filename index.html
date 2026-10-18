@@ -129,7 +129,8 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--bd);color:var
 @keyframes drift{to{transform:translate(8vmax,6vmax) scale(1.15)}}
 @keyframes bgs{to{background-position:100% 0}}
 @keyframes flt{50%{transform:translate(14px,-18px) scale(1.12)}}
-@keyframes bmglow{0%,100%{box-shadow:0 0 30px -8px #8b7cff}50%{box-shadow:0 0 60px 0 #8b7cff}}
+@keyframes bmglow{0%,100%{box-shadow:0 0 28px -8px rgba(255,184,77,.8)}50%{box-shadow:0 0 56px 0 rgba(255,184,77,.95)}}
+@keyframes stripe{to{background-position:28px 0}}
 @keyframes bping{from{transform:scale(1);opacity:.8}to{transform:scale(1.9);opacity:0}}
 .pop{animation:pop .5s both}.shake{animation:shake .45s}
 .aur{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
@@ -142,17 +143,18 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--bd);color:var
 .rv.in .fc{animation:pop .6s backwards}
 details[open]>.ev{animation:up .35s both}
 /* big bubblemaps */
-.bmbig{display:flex;align-items:center;gap:16px;position:relative;overflow:hidden;margin-top:16px;padding:28px 22px;border-radius:22px;text-decoration:none;color:#fff;background:linear-gradient(120deg,#2a1f8f,#5b4bff 45%,#0f9f72,#5b4bff);background-size:300% 100%;animation:up .6s backwards,bgs 7s ease-in-out infinite alternate,bmglow 2.4s ease-in-out infinite;transition:transform .25s}
+.bmbig{display:flex;align-items:center;gap:16px;position:relative;overflow:hidden;margin-top:16px;padding:32px 22px 26px;border-radius:22px;text-decoration:none;color:#1a1200;background:linear-gradient(120deg,#ffb84d,#ffd166 50%,#ff9f1a);background-size:200% 100%;animation:up .6s backwards,bgs 6s ease-in-out infinite alternate,bmglow 2.4s ease-in-out infinite;transition:transform .25s}
+.bmbig::before{content:"";position:absolute;left:0;right:0;top:0;height:9px;background:repeating-linear-gradient(-45deg,#1a1200 0 10px,transparent 10px 20px);background-size:28px 28px;opacity:.9;animation:stripe 1.2s linear infinite}
 .bmbig:hover{transform:perspective(700px) translateY(-4px) scale(1.015) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))}
-.bmbig:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.bmbig:focus-visible{outline:3px solid #1a1200;outline-offset:3px}
 .bbl{position:absolute;inset:0;pointer-events:none}
-.bbl i{position:absolute;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.55),rgba(255,255,255,.06));border:1px solid rgba(255,255,255,.35);animation:flt 7s ease-in-out infinite}
+.bbl i{position:absolute;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.45),rgba(26,18,0,.1));border:1px solid rgba(26,18,0,.25);animation:flt 7s ease-in-out infinite}
 .bmt{position:relative;flex:1;min-width:0}
-.bmt small{display:block;font-size:12px;opacity:.85;margin-bottom:4px}
+.bmt small{display:block;font-size:13px;font-weight:800;margin-bottom:4px;color:#1a1200}
 .bmt strong{display:block;font-size:clamp(21px,6vw,30px);line-height:1.15;word-break:break-word}
-.bmt span{display:block;font-size:13px;opacity:.92;margin-top:6px}
-.bmgo{position:relative;width:56px;height:56px;border-radius:50%;background:#fff;color:#2a1f8f;display:grid;place-items:center;font-size:28px;font-weight:800;flex:none;transition:transform .3s}
-.bmgo::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #fff;animation:bping 1.8s ease-out infinite}
+.bmt span{display:block;font-size:13px;font-weight:600;margin-top:6px;color:#3a2a00}
+.bmgo{position:relative;width:56px;height:56px;border-radius:50%;background:#1a1200;color:#ffb84d;display:grid;place-items:center;font-size:28px;font-weight:800;flex:none;transition:transform .3s}
+.bmgo::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #1a1200;animation:bping 1.8s ease-out infinite}
 .bmbig:hover .bmgo{transform:rotate(45deg) scale(1.12)}
 /* short summary */
 .sum .vd{display:flex;flex-direction:column;gap:2px;padding:12px 14px;border-radius:12px;border:1px solid var(--c);background:linear-gradient(110deg,transparent,rgba(255,255,255,.07),transparent),var(--bg);background-size:250% 100%;animation:grad 5s linear infinite;box-shadow:0 0 28px -10px var(--c)}
@@ -290,6 +292,48 @@ nav.top.open .dd a{animation:up .35s backwards}
 #scanbox .row select{grid-column:1/-1;min-width:0;max-width:100%}
 #scanbox .row>*{min-width:0}
 @media(min-width:560px){#scanbox .row{grid-template-columns:minmax(0,1.2fr) auto minmax(0,1fr)}#scanbox .row select{grid-column:auto}}
+
+/* v8: tip prompt */
+.tipline{display:flex;align-items:center;gap:10px;margin:10px 2px 0;padding:10px 12px;border:1px dashed var(--bd);border-radius:12px;font-size:13px;color:var(--mu);animation:up .6s 1.2s backwards}
+.tipline span{flex:1;min-width:0}
+.tipline .tl{color:var(--mint);font-weight:700;text-decoration:none;padding:5px 12px;border:1px solid var(--mint);border-radius:99px;flex:none;transition:.2s}
+.tipline .tl:hover{background:var(--mint);color:#04140d}
+.tipline button{background:none;border:0;color:var(--mu);font-size:14px;padding:4px 6px;flex:none}
+
+/* v9: chat assistant */
+@keyframes tdot{0%,60%,100%{opacity:.25;transform:none}30%{opacity:1;transform:translateY(-3px)}}
+.cbfab{position:fixed;right:16px;bottom:16px;z-index:38;width:58px;height:58px;border-radius:50%;border:0;background:linear-gradient(135deg,var(--vio),var(--mint));color:#04140d;display:grid;place-items:center;box-shadow:0 8px 30px -6px rgba(62,232,165,.6);cursor:pointer;transition:transform .25s;animation:pop .6s 1s backwards;padding:0}
+.cbfab:hover{transform:scale(1.08)}.cbfab:focus-visible{outline:3px solid var(--tx);outline-offset:3px}
+.cbfab svg{width:28px;height:28px;grid-area:1/1}
+.cbfab .x{display:none}.cbfab.open .x{display:block}.cbfab.open .ic{display:none}
+.cbfab::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--mint);animation:bping 2.4s ease-out infinite;pointer-events:none}
+.cbfab.open::after{display:none}
+.cbfab .dot{position:absolute;top:1px;right:1px;width:15px;height:15px;border-radius:50%;background:var(--red);border:2px solid var(--bg);display:none}
+.cbfab.new .dot{display:block}
+.cbp{position:fixed;right:16px;bottom:86px;z-index:38;width:min(380px,calc(100vw - 32px));height:min(560px,calc(100vh - 170px));height:min(560px,calc(100dvh - 170px));display:flex;flex-direction:column;background:var(--card);border:1px solid var(--bd);border-radius:18px;box-shadow:0 20px 60px -12px rgba(0,0,0,.7);overflow:hidden;transform-origin:bottom right;opacity:0;transform:scale(.92) translateY(12px);visibility:hidden;pointer-events:none;transition:opacity .25s,transform .25s,visibility .25s}
+.cbp.open{opacity:1;transform:none;visibility:visible;pointer-events:auto}
+.cbh{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--bd);background:linear-gradient(135deg,rgba(139,124,255,.14),rgba(62,232,165,.1))}
+.cbh .mk{width:30px;height:30px;margin:0;animation:none}
+.cbh b{display:block;font-size:14px}.cbh small{display:block;color:var(--mu);font-size:11px}
+.cbh>div{flex:1;min-width:0}
+.cbh button{background:none;border:0;color:var(--mu);font-size:18px;padding:6px 8px;border-radius:8px}
+.cbm{flex:1;overflow-y:auto;overscroll-behavior:contain;padding:12px;display:flex;flex-direction:column;gap:8px}
+.cm{max-width:88%;padding:9px 12px;border-radius:14px;font-size:14px;line-height:1.45;white-space:pre-wrap;overflow-wrap:anywhere;animation:up .3s backwards}
+.cm.bot{align-self:flex-start;background:var(--bg);border:1px solid var(--bd);border-bottom-left-radius:4px}
+.cm.me{align-self:flex-end;background:linear-gradient(135deg,var(--vio),var(--mint));color:#04140d;font-weight:600;border-bottom-right-radius:4px}
+.cm.typ{display:flex;gap:4px;padding:12px}
+.cm.typ i{width:6px;height:6px;border-radius:50%;background:var(--mu);animation:tdot 1s infinite}
+.cm.typ i:nth-child(2){animation-delay:.15s}.cm.typ i:nth-child(3){animation-delay:.3s}
+.cbq{display:flex;gap:6px;flex-wrap:wrap;padding:0 12px 8px}
+.cbq button{background:var(--bg);border:1px solid var(--bd);color:var(--tx);border-radius:99px;padding:6px 11px;font-size:12px;transition:.2s}
+.cbq button:hover{border-color:var(--mint);color:var(--mint)}
+.cbi{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--bd)}
+.cbi input{flex:1;min-width:0;background:var(--bg);border:1px solid var(--bd);color:var(--tx);border-radius:10px;padding:10px 12px;font:inherit;font-size:16px}
+.cbi input:focus{outline:none;border-color:var(--mint)}
+.cbi button{background:var(--mint);color:#04140d;border:0;border-radius:10px;padding:0 16px;font-weight:700}
+.cbn{margin:0;padding:0 12px 10px;font-size:11px;color:var(--mu)}
+footer{padding-bottom:84px}
+@media(max-width:480px){.cbp{right:8px;width:calc(100vw - 16px)}.cbfab{right:12px;bottom:12px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style></head><body><div class="aur"><i></i><i></i></div><nav class="top"><div class="tb"><a class="logo" href="#" aria-label="TOKENSCOPE home"><svg class="mk" aria-hidden="true" viewBox="0 0 32 32"><defs><linearGradient id="lgn" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b7cff"/><stop offset="1" stop-color="#3ee8a5"/></linearGradient></defs><rect width="32" height="32" rx="8" fill="#0b0d10"/><circle cx="16" cy="16" r="9.5" fill="none" stroke="url(#lgn)" stroke-width="2"/><circle cx="16" cy="16" r="4.5" fill="none" stroke="url(#lgn)" stroke-width="1.6" opacity=".7"/><g class="sw"><path d="M16 16 23.5 9.5" stroke="#3ee8a5" stroke-width="2" stroke-linecap="round"/></g><circle cx="16" cy="16" r="1.8" fill="#3ee8a5"/><circle cx="23.5" cy="9.5" r="1.6" fill="#ff6b6b"/></svg>TOKEN<b>SCOPE</b></a><div class="dd" id="menu" role="navigation" aria-label="Sections"><a href="#scanbox">Scan</a><a href="#how">How it works</a><a href="#checks">Checks</a><a href="#learn">Glossary</a><a href="#quiz">Quiz</a><a href="#faq">FAQ</a><a href="#tip">♥ Tips</a></div><button class="ghost" id="th">Theme</button><button class="hb" id="hb" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button></div></nav><div class="scrim" id="scrim"></div><div class="w">
 
@@ -519,10 +563,10 @@ function scoreCard(fs,r,lab,col,p,a,chain,logo){
  if(st.length){x.font='22px '+FF;x.fillStyle=TX;x.fillText(fit(st.map(z=>z[0]+' '+z[1]).join('   ·   '),CW),X0,508)}
  const ic=fs.filter(f=>f.status==='inconclusive').length;
  {const sa=a.length>14?a.slice(0,6)+'…'+a.slice(-5):a,bu='app.bubblemaps.io'+(BMC[chain]?'/'+BMC[chain]+'/token/'+sa:''),gg=x.createLinearGradient(X0,0,X0+CW,0);
-  gg.addColorStop(0,'#2a1f8f');gg.addColorStop(.5,'#5b4bff');gg.addColorStop(1,'#0f9f72');
+  gg.addColorStop(0,'#ffb84d');gg.addColorStop(.5,'#ffd166');gg.addColorStop(1,'#ff9f1a');
   rr(X0,522,CW,48,24);x.fillStyle=gg;x.fill();
-  x.font='700 20px '+FF;x.fillStyle='#fff';const lt='Wallet clusters on Bubblemaps',lw=x.measureText(lt).width;x.fillText(lt,X0+24,553);
-  const room=CW-48-lw-24;if(room>140){x.font='13px '+MONO;x.fillStyle='rgba(255,255,255,.85)';x.textAlign='right';x.fillText(fit(bu,room),X0+CW-24,552);x.textAlign='left'}}
+  x.font='700 20px '+FF;x.fillStyle='#1a1200';const lt='Wallet clusters on Bubblemaps',lw=x.measureText(lt).width;x.fillText(lt,X0+24,553);
+  const room=CW-48-lw-24;if(room>140){x.font='13px '+MONO;x.fillStyle='#3a2a00';x.textAlign='right';x.fillText(fit(bu,room),X0+CW-24,552);x.textAlign='left'}}
  x.font='17px '+FF;x.fillStyle=MU;x.fillText(fit('Not checked: bundled buying and linked wallets.'+(ic?' '+ic+' check'+(ic>1?'s':'')+' could not be completed.':''),CW),X0,602);
  x.beginPath();x.moveTo(56,616);x.lineTo(W-56,616);x.strokeStyle=BD;x.lineWidth=1;x.stroke();
  x.font='17px '+FF;x.fillStyle=MU;x.fillText('Flags are third-party signals or estimates, not proof of fraud. Not financial advice.',56,644);
@@ -605,11 +649,11 @@ function render(fs,p,a,chain,failed,ext){const o=$('o');o.replaceChildren();
  const bmu=BMC[chain]?'https://app.bubblemaps.io/'+BMC[chain]+'/token/'+a:'https://app.bubblemaps.io',bm=el('a','bmbig');
  bm.href=bmu;bm.target='_blank';bm.rel='noopener noreferrer';
  const bb=el('div','bbl');for(let i=0;i<9;i++){const q=el('i'),z=18+Math.random()*44;q.style.cssText='width:'+z+'px;height:'+z+'px;left:'+Math.random()*90+'%;top:'+Math.random()*70+'%;animation-delay:-'+Math.random()*6+'s;animation-duration:'+(5+Math.random()*5)+'s';bb.append(q)}
- const bt=el('div','bmt');bt.append(el('small',null,'Bundle and wallet-cluster check'),el('strong',null,'Open '+(p&&p.baseToken?String(p.baseToken.symbol||'token').slice(0,12):'this token')+' on Bubblemaps'),el('span',null,BMC[chain]?'See linked wallets and hidden bundles. Not included in the score.':'This chain has no direct link. Opens the Bubblemaps app.'));
+ const bt=el('div','bmt');bt.append(el('small',null,'⚠ Check before you buy'),el('strong',null,'Open '+(p&&p.baseToken?String(p.baseToken.symbol||'token').slice(0,12):'this token')+' on Bubblemaps'),el('span',null,BMC[chain]?'See linked wallets and hidden bundles. Not included in the score.':'This chain has no direct link. Opens the Bubblemaps app.'));
  bm.append(bb,bt,el('div','bmgo','↗'));
  document.title=(p&&p.baseToken?String(p.baseToken.symbol||'Token').slice(0,12)+' · ':'')+r.score+'% risk · TOKENSCOPE';
  if(r.score<20)c.classList.add('calm');else if(r.score>=80)c.classList.add('alert');
- o.append(c,bm);setTimeout(()=>moment(r.score,ring),450);
+ o.append(c,bm);setTimeout(()=>moment(r.score),450);
  const c2=el('div','card');c2.append(el('h3',null,'Risk breakdown'));
  const L={pass:'Pass',warning:'Warning',high:'High risk',critical:'Critical',inconclusive:'Inconclusive'};
  fs.forEach(f=>{const d=el('details'),s=el('summary');s.append(el('span','pill '+f.status,L[f.status]),el('span',null,f.title));d.append(s,el('div','ev',f.ev+'  [Source: '+f.src+']'));c2.append(d)});
@@ -636,6 +680,8 @@ function render(fs,p,a,chain,failed,ext){const o=$('o');o.replaceChildren();
  if(has('hold',['warning','high']))T.push('A few wallets hold a large share, so one sale could crash the price.');
  T.push('Never connect your wallet to links from a token page, and never share a seed phrase.','Only risk money you can afford to lose.');
  T.forEach(t=>ck.append(el('div','ev','☐ '+t)));bm.after(sm);o.append(ck);
+ if(p&&p.baseToken){lastScan={name:String(p.baseToken.name||'Token').slice(0,30),sym:String(p.baseToken.symbol||'token').slice(0,12),score:r.score,lab,conf:r.conf,chain,nbad:bad.length,ngood:good.length,nunk:unch.length,bad:bad.slice(0,5).map(f=>({t:f.title,e:f.ev,s:f.status}))};if(window.chatNew)chatNew()}
+ if(r.score>=60&&!tipSeen()){tipMark();const tp=el('div','tipline'),tl=el('a','tl','♥ Tip'),dx=el('button',null,'✕');tl.href='#tip';dx.setAttribute('aria-label','Dismiss');dx.onclick=()=>tp.remove();tp.append(el('span',null,'This scan flagged serious risks. Did it help?'),tl,dx);sm.after(tp)}
  if(p&&p.baseToken){hnew=hkey({a,chain});hsave({a,chain,name:String(p.baseToken.name||'Token').slice(0,30),sym:String(p.baseToken.symbol||'').slice(0,12),score:r.score,conf:r.conf,lab,col,nbad:bad.length,ngood:good.length,nunk:unch.length,liq:n(p.liquidity&&p.liquidity.usd),fdv:n(p.fdv),vol:n(p.volume&&p.volume.h24),ch24:n(p.priceChange&&p.priceChange.h24),top:bad.slice(0,3).map(f=>f.title),img:imgs[0]||'',ts:Date.now()})}
  if(p){const fm=el('div','card');fm.append(el('h3',null,'FOMO meter'));
  const pc=p.priceChange||{},vv=p.volume||{},t1=(p.txns&&p.txns.h1)||{},c1=n(pc.h1),c24=n(pc.h24),vh=n(vv.h1),v24=n(vv.h24),tot=(+t1.buys||0)+(+t1.sells||0),age=p.pairCreatedAt?(Date.now()-p.pairCreatedAt)/36e5:null;
@@ -708,7 +754,7 @@ function quiz(){const c=$('qz');c.replaceChildren();if(!deck.length)qreset();
  c.append(row)}
 quiz();
 /* scan history + compare */
-const HK='ts-hist',HC={'var(--mint)':1,'var(--amb)':1,'var(--red)':1};let sel=[],hnew='';
+const HK='ts-hist',HC={'var(--mint)':1,'var(--amb)':1,'var(--red)':1};let sel=[],hnew='',tipMem=false;const tipSeen=()=>{try{return sessionStorage.getItem('ts-tip')==='1'}catch{return tipMem}},tipMark=()=>{tipMem=true;try{sessionStorage.setItem('ts-tip','1')}catch{}};
 const hget=()=>{try{const v=JSON.parse(localStorage.getItem(HK)||'[]');return Array.isArray(v)?v:[]}catch{return[]}};
 const hset=v=>{try{localStorage.setItem(HK,JSON.stringify(v))}catch{}};
 const hkey=x=>(x.chain||'')+':'+x.a;
@@ -745,16 +791,84 @@ function showCmp(z){const [A,B]=z,c=$('cmp');if(!A||!B)return;c.replaceChildren(
  k.append(g,el('p','ev',lo?lo.name+' shows lower detected risk. A lower score still does not mean safe.':'Both show the same risk score.'),el('p','ev','Snapshots from each token’s last scan. Rescan for fresh data.'));
  c.append(k);k.scrollIntoView({behavior:RM?'auto':'smooth',block:'center'})}
 /* verdict moments */
-function confetti(ox,oy){const cv=document.createElement('canvas');cv.setAttribute('aria-hidden','true');cv.style.cssText='position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:60';document.body.append(cv);
- const dpr=Math.min(2,devicePixelRatio||1),W=innerWidth,H=innerHeight,x=cv.getContext('2d'),cols=['#3ee8a5','#8b7cff','#ffb84d','#e8edf2','#5b4bff'];cv.width=W*dpr;cv.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);
- oy=Math.max(80,Math.min(H-80,oy));
- const P=Array.from({length:150},()=>{const an=-Math.PI/2+(Math.random()-.5)*1.9,sp=6+Math.random()*10;return{x:ox,y:oy,vx:Math.cos(an)*sp,vy:Math.sin(an)*sp,w:5+Math.random()*6,h:3+Math.random()*5,r:Math.random()*6,vr:(Math.random()-.5)*.4,c:cols[Math.random()*cols.length|0]}});
- const t0=performance.now();(function f(t){const k=(t-t0)/3200;x.clearRect(0,0,W,H);if(k>=1){cv.remove();return}
-  for(const p of P){p.vy+=.28;p.vx*=.99;p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.globalAlpha=Math.min(1,(1-k)*2);x.fillStyle=p.c;x.fillRect(-p.w/2,-p.h/2,p.w,p.h);x.restore()}
-  requestAnimationFrame(f)})(t0)}
-function moment(sc,ring){if(RM)return;const b=ring.getBoundingClientRect();
- if(sc<20)confetti(b.left+b.width/2,b.top+b.height/2);
- else if(sc>=80){const v=document.createElement('div');v.className='vig';v.setAttribute('aria-hidden','true');document.body.append(v);setTimeout(()=>v.remove(),1800)}}
+function moment(sc){if(RM)return;
+ if(sc>=80){const v=document.createElement('div');v.className='vig';v.setAttribute('aria-hidden','true');document.body.append(v);setTimeout(()=>v.remove(),1800)}}
+
+/* ---------- chat assistant ---------- */
+const CHAT_ENDPOINT='';/* Optional: your own server URL that holds an AI key. It receives {question,scan} and must return {answer}. Leave empty to use the built-in guide. */
+let lastScan=null;
+const KB=[
+{k:['what is tokenscope','what is this','how does it work','how it works','how do you','what do you do','what does this do','what can you','about'],a:'TOKENSCOPE checks a token address using public data and gives a risk score from 0 to 100. It looks at honeypot behavior, taxes, contract powers, liquidity, holder concentration, buy and sell pressure, token age and listings. It is read-only: no wallet, no keys. Higher means more detected risk.'},
+{k:['data','source','dexscreener','goplus','geckoterminal','coingecko','jupiter','where does','api'],a:'Market data comes from DexScreener, security checks from GoPlus (EVM chains), chart candles from GeckoTerminal, and listings from CoinGecko and Jupiter (Solana). If a source has nothing for a check, it is marked inconclusive and never counted as a pass.'},
+{k:['score','risk score','percent','%','what does it mean','bands','rating','low risk','high risk','critical'],a:'The score runs 0 to 100 and is a weighted mix of all the checks.\nUnder 20: lower detected risk\n20 to 39: moderate\n40 to 59: elevated\n60 to 79: high\n80 and up: critical risk indicators\nA low score does not mean safe. It means fewer risks were detected from the data available.'},
+{k:['confidence','evidence','inconclusive','unchecked','could not check','missing data','n/a'],a:'Confidence shows how much of the picture the scan could actually check. Inconclusive means a data source had nothing for that check. It is shown honestly and never counted as a pass, so low confidence means the score may be missing something.'},
+{k:['honeypot','cant sell','can’t sell','cannot sell','sell blocked','trapped'],a:'A honeypot lets you buy but blocks selling. The scan uses GoPlus simulation data, which can be wrong in both directions. A flag is a serious warning, and a pass is not proof you can sell later.'},
+{k:['tax','fee','slippage','buy tax','sell tax'],a:'A buy or sell tax is a cut taken on each trade. A few percent can be normal and disclosed. Very high taxes, or ones the owner can change, can trap holders. See the Buy / sell tax result in your scan.'},
+{k:['liquidity','pool','lp','lock','locked','price impact','burned'],a:'Liquidity is the money in the trading pool. Thin liquidity means big price swings and easy exits for insiders. Having a pool is not the same as being locked: locked or burned LP means the creator cannot pull it. Check the Liquidity depth and lock results.'},
+{k:['mint','authority','freeze','owner','ownership','renounce','blacklist','proxy','pausable','permissions','contract powers'],a:'These are powers the creator may keep. Mint authority can create more tokens and dilute you. Freeze authority (Solana) can lock your tokens. A hidden owner, blacklist, pause or upgradeable proxy can change the rules later. Revoked or renounced powers are safer, but still not a guarantee.'},
+{k:['holder','whale','top 10','concentration','supply','distribution'],a:'When a few wallets hold most of the supply, one sale can crash the price. Pools, exchanges and burn addresses can look like whales, so check who the top holders really are. The scan shows the top-10 share for EVM tokens.'},
+{k:['bubblemaps','bubble map','bundle','bundled','cluster','linked wallets','sniper','insider'],a:'Bubblemaps shows which wallets are linked and how much supply they hold. A tight cluster holding a big share can mean a coordinated launch or insiders. TOKENSCOPE does not analyze bundles itself, so use the big Bubblemaps card on each result.'},
+{k:['rug','rugpull','rug pull','scam','exit','dump','how to spot','red flag'],a:'Common signs: a few wallets hold most of the supply, no proof of locked liquidity, active mint authority, high or changeable taxes, selling is blocked, a brand-new pair with sudden hype, and pressure to hurry. No single check proves a rug, so look at several together. The Rug or Legit quiz is good practice.'},
+{k:['safe','safe to buy','should i buy','invest','advice','guarantee','legit','good coin','moon','prediction','will it go up'],a:'I can’t tell you whether to buy, and no scanner can predict price or guarantee safety. A scan shows detected red flags from public data. Check the confidence, any inconclusive items and Bubblemaps, and only risk what you can afford to lose. This is information, not financial advice.'},
+{k:['chain','chains','supported','solana','ethereum','base','bnb','bsc','arbitrum','polygon','optimism','avalanche','robinhood','network'],a:'Supported: Ethereum, BNB Chain, Solana, Base, Arbitrum, Optimism, Polygon, Avalanche and Robinhood Chain. Leave the picker on Auto-detect, or choose the chain yourself if the same address exists on more than one.'},
+{k:['wallet','connect','seed','private key','phrase','privacy','login','account','sign in'],a:'You never need to. TOKENSCOPE is read-only and never asks for a wallet connection, seed phrase or private key. If any site asks for those, leave. Recent scans are saved only in your own browser.'},
+{k:['address','contract address','where do i find','find the token','paste','ca'],a:'Copy the contract address from the token’s page on DexScreener or CoinGecko, or from the project’s official site, not from a random DM. Paste it in the scan box and tap Scan token. Double-check it, because scammers copy names and logos.'},
+{k:['free','cost','pay','subscription','tip','donate','donation','support','money'],a:'TOKENSCOPE is free. If it helped you, there is an optional tip box near the bottom. Open the menu and tap Tips to jump there. No pressure, the tool works the same either way.'},
+{k:['history','recent','compare','side by side','previous','last scans'],a:'Your last 8 scans appear under the scan box. Tap one to rescan it, or tap + Compare on two of them to see them side by side. They are stored only in this browser.'},
+{k:['download','card','image','share','save result','screenshot'],a:'On any result, tap Download result card to save an image with the score, top concerns and a Bubblemaps link.'},
+{k:['chart','candle','candles','timeframe','price chart','1h','24h','7d','30d'],a:'The chart has 1H, 6H, 24H, 7D and 30D tabs and a Line or Candles switch. Hover or touch it to see price and time. Data comes from GeckoTerminal and can be delayed or incomplete.'},
+{k:['quiz','game','rug or legit','streak'],a:'The Rug or Legit quiz gives you five random cases out of fifteen. Pick Rug or Legit, read why, and build a streak. Find it in the menu under Quiz.'},
+{k:['age','new token','new pair','launched','brand new'],a:'Very new pairs carry extra risk because there is little history and rugs often happen early. The Token age check flags how recently the pair was created.'},
+{k:['buys','sells','pressure','volume','wash','fake volume','transactions'],a:'Transaction pressure compares buys and sells from 5 minutes to 24 hours. A heavy one-sided flow, or huge volume compared to liquidity, can point to hype or manipulation. It is a hint, not proof.'},
+{k:['hi','hello','hey','yo','sup','thanks','thank you','thx','good morning'],a:'Hi! Ask me about red flags, what a score means, or how to use the scanner. After a scan, tap “Explain this scan” and I’ll break it down.'}];
+const shortT=t=>{const x=String(t||'').split('. ')[0];return x.length>110?x.slice(0,107)+'…':x};
+const scanRe=/(\bthis (scan|token|coin|result|one)\b|\bmy (scan|token|coin|result)\b|\bthe (scan|result)\b|\bwhy\b.*\b(score|high|low|risky|red|flag)|\bexplain (this|it|the (scan|result))|\bsummar|\bconcerns?\b|\bwhat.*\b(next|check next|wrong|worry)|\bshould i\b|\bis it (safe|ok|okay|legit|a scam|a rug)|\bscam or\b)/i;
+function scanText(q){const c=lastScan;if(!c)return null;
+ if(/\bnext\b|what should|what do i do|how (do|can) i (check|verify)/i.test(q)){const st=['Open the Bubblemaps card on the result and look for a tight cluster of linked wallets holding a big share of supply.'];
+  if(c.bad.some(f=>/liquidity/i.test(f.t)))st.push('Check whether the liquidity is locked or burned, and how deep the pool is.');
+  if(c.bad.some(f=>/honeypot|tax/i.test(f.t)))st.push('Honeypot and tax flags are hard to ignore. Many people treat them as a stop sign.');
+  if(c.nunk)st.push(c.nunk+' check'+(c.nunk>1?'s':'')+' could not be completed, so confidence is '+c.conf+'%.');
+  st.push('Confirm the contract address matches the project’s official page.');
+  return 'For '+c.sym+', this is what I would check next:\n'+st.map((x,i)=>(i+1)+'. '+x).join('\n')}
+ if(/safe|\bok\b|okay|legit|scam|rug|should i|buy/i.test(q))return c.sym+' scored '+c.score+'% ('+c.lab.toLowerCase()+') with '+c.conf+'% confidence. '+(c.score>=60?'Several serious flags came up, so extra caution is warranted. ':c.score<20?'Few red flags were found, but that is not a guarantee of safety. ':'Some risks showed up. ')+'No scanner can promise a token is safe and I can’t tell you whether to buy. Check Bubblemaps for wallet clusters, which are not in the score.';
+ const top=c.bad.slice(0,3).map((f,i)=>(i+1)+'. '+f.t+': '+shortT(f.e)).join('\n');
+ return c.name+' ('+c.sym+') scored '+c.score+'%, '+c.lab.toLowerCase()+', with '+c.conf+'% confidence.\n'+(top?'Top concerns:\n'+top+'\n':'No concerns were flagged by the checks that ran.\n')+c.nbad+' concerns, '+c.ngood+' passed, '+c.nunk+' unchecked. Wallet clusters are not in the score, so open the Bubblemaps card too.'}
+function kbAnswer(q){const t=' '+q.toLowerCase().replace(/[^a-z0-9%’' ]/g,' ').replace(/\s+/g,' ')+' ';let best=null,bs=0;
+ KB.forEach(e=>{let sc=0;e.k.forEach(w=>{if(t.includes(w.length<4?' '+w+' ':w))sc+=w.includes(' ')?3:w.length>5?2:1});if(sc>bs){bs=sc;best=e}});return bs>0?best.a:null}
+function localAnswer(q){if(lastScan&&scanRe.test(q))return scanText(q);
+ if(!lastScan&&/\b(this|my) (scan|token|coin|result)\b|\bexplain (this|it)\b|\bcheck next\b/i.test(q))return 'Scan a token first and I’ll break the result down for you. Paste an address in the scan box and tap Scan token.';
+ return kbAnswer(q)||'I don’t have an answer for that yet. I can help with red flags (honeypot, taxes, liquidity, mint authority, holders), what the score means, supported chains, Bubblemaps, or explain your latest scan. Try one of the buttons below.'}
+function ask(q){if(!CHAT_ENDPOINT)return Promise.resolve(localAnswer(q));
+ const ctl=new AbortController(),tm=setTimeout(()=>ctl.abort(),15000);
+ return fetch(CHAT_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:q,scan:lastScan}),signal:ctl.signal}).then(r=>r.ok?r.json():Promise.reject()).then(j=>j&&typeof j.answer==='string'&&j.answer?j.answer.slice(0,1500):localAnswer(q)).catch(()=>localAnswer(q)).finally(()=>clearTimeout(tm))}
+(function(){
+ const fab=el('button','cbfab'),pan=el('div','cbp'),hd=el('div','cbh'),msgs=el('div','cbm'),chips=el('div','cbq'),inp=document.createElement('input'),send=el('button',null,'Send');
+ fab.setAttribute('aria-label','Ask the assistant');fab.setAttribute('aria-expanded','false');
+ fab.innerHTML='<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><circle cx="9" cy="12" r=".8" fill="currentColor"/><circle cx="13" cy="12" r=".8" fill="currentColor"/><circle cx="17" cy="12" r=".8" fill="currentColor"/></svg><svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg><span class="dot"></span>';
+ pan.setAttribute('role','dialog');pan.setAttribute('aria-label','TOKENSCOPE assistant');
+ const nm=el('div');nm.append(el('b',null,'Scope Assistant'),el('small',null,'Built-in guide · not a live AI'));
+ const cx=el('button',null,'✕');cx.setAttribute('aria-label','Close');
+ const mk=document.querySelector('nav.top .mk').cloneNode(true);mk.querySelectorAll('[id]').forEach(e=>e.removeAttribute('id'));
+ hd.append(mk,nm,cx);
+ inp.type='text';inp.placeholder='Ask about a red flag or your scan…';inp.maxLength=300;inp.setAttribute('aria-label','Your question');inp.autocomplete='off';
+ const row=el('div','cbi');row.append(inp,send);
+ pan.append(hd,msgs,chips,row,el('p','cbn','Answers come from a built-in guide and your latest scan. Not financial advice.'));
+ document.body.append(pan,fab);
+ const say=(t,me)=>{const m=el('div','cm '+(me?'me':'bot'),t);msgs.append(m);while(msgs.children.length>40)msgs.firstChild.remove();msgs.scrollTop=msgs.scrollHeight;return m};
+ const base=['How does it work?','What does the score mean?','What is a honeypot?','What is Bubblemaps?','How do I spot a rug?'];
+ function setChips(){chips.replaceChildren();(lastScan?['Explain this scan','What should I check next?','Is it safe to buy?']:[]).concat(base).slice(0,4).forEach(t=>{const b=el('button',null,t);b.onclick=()=>go(t);chips.append(b)})}
+ let busy=false;
+ function go(q){q=String(q||'').trim().slice(0,300);if(!q||busy)return;busy=true;say(q,true);inp.value='';
+  const ty=el('div','cm bot typ');ty.append(el('i'),el('i'),el('i'));msgs.append(ty);msgs.scrollTop=msgs.scrollHeight;
+  const t0=Date.now();ask(q).then(a=>{const w=Math.max(0,500-(Date.now()-t0));setTimeout(()=>{ty.remove();say(a);busy=false},w)})}
+ function open(o){pan.classList.toggle('open',o);fab.classList.toggle('open',o);fab.setAttribute('aria-expanded',o);if(o){fab.classList.remove('new');if(matchMedia('(hover:hover)').matches)setTimeout(()=>inp.focus(),250)}}
+ fab.onclick=()=>open(!pan.classList.contains('open'));cx.onclick=()=>open(false);
+ addEventListener('keydown',e=>{if(e.key==='Escape')open(false)});
+ send.onclick=()=>go(inp.value);inp.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();go(inp.value)}});
+ say('Hi! I’m the TOKENSCOPE helper. Ask me about red flags, what a score means, or how to use the scanner. After a scan I can explain your result.\nI answer from a built-in guide, I’m not a live AI, and I can’t give financial advice.');
+ setChips();
+ window.chatNew=()=>{setChips();if(!pan.classList.contains('open'))fab.classList.add('new')};
+})();
 hrender();
 ['Ethereum','Solana','BNB Chain','Base','Arbitrum','Optimism','Polygon','Avalanche','Robinhood Chain','Ethereum','Solana','BNB Chain','Base','Arbitrum','Optimism','Polygon','Avalanche','Robinhood Chain'].forEach(t=>{const s=el('span');s.append(el('b',null,'◆ '),document.createTextNode(t));$('mqi').append(s)});
 [['◎','Honeypot & taxes','Can it be sold, and what do buys and sells cost.'],['⚿','Contract powers','Minting, hidden owner, pausing, blacklists, proxies.'],['≋','Liquidity','Depth of the main pool and reported LP locks.'],['▤','Holder concentration','Top-10 share of supply for EVM tokens, from GoPlus.'],['⇅','Transaction pressure','Buys versus sells across 5 minutes to 24 hours.'],['⏱','Token age','Very new pairs carry extra risk.'],['✓','Listings & verification','Jupiter verified status (Solana) and CoinGecko listing by contract.'],['⛁','Liquidity markets','Every DEX pool and CoinGecko-tracked market, with each one’s share.']].forEach(([i,t,d])=>{const f=el('div','fc');f.append(el('div','n',i),el('h3',null,t),el('p',null,d));$('chk').append(f)});
@@ -802,5 +916,5 @@ const q=new URLSearchParams(location.search).get('scan');if(q&&detect(q)){$('a')
   const r=b.getBoundingClientRect(),s=Math.max(r.width,r.height),sp=d.createElement('span');sp.className='fxr';
   sp.style.cssText='width:'+s+'px;height:'+s+'px;left:'+(e.clientX-r.left-s/2)+'px;top:'+(e.clientY-r.top-s/2)+'px';b.appendChild(sp);setTimeout(()=>sp.remove(),650)});
 })();
-document.head.appendChild(Object.assign(document.createElement('style'),{textContent:Array.from({length:14},(_,i)=>'#o>:nth-child('+(i+1)+'):not(.bmbig){animation-delay:'+(i*.08).toFixed(2)+'s}').join('')+Array.from({length:8},(_,i)=>'.rv.in .fc:nth-child('+(i+1)+'){animation-delay:'+(i*.07).toFixed(2)+'s}').join('')}));
+document.head.appendChild(Object.assign(document.createElement('style'),{textContent:Array.from({length:14},(_,i)=>'#o>:nth-child('+(i+1)+'):not(.bmbig):not(.tipline){animation-delay:'+(i*.08).toFixed(2)+'s}').join('')+Array.from({length:8},(_,i)=>'.rv.in .fc:nth-child('+(i+1)+'){animation-delay:'+(i*.07).toFixed(2)+'s}').join('')}));
 </script></body></html>
