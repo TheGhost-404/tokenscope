@@ -2582,17 +2582,17 @@ b.onclick=()=>{const t=document.getElementById('scanbox')||document.body;t.scrol
 <script>
 /* ---------- privacy, terms, cookies & storage ---------- */
 (function(){
- /* EDIT THESE THREE LINES before publishing */
- const OWNER='[your name or project name]',EMAIL='[your contact email]',COUNTRY='[your country]';
+ /* EDIT THESE before publishing. EMAIL='' hides the contact line. A COUNTRY in [brackets] hides the governing-law sentence. */
+ const OWNER='Bruce Wayne',EMAIL='',COUNTRY='[your country]';
  const UPDATED='9 November 2026';
  const dlg=document.getElementById('tsldlg'),body=document.getElementById('tslbody');
  if(!dlg||!body)return;
  const ph=v=>v.charAt(0)==='['?'<mark class="ph">'+v+'</mark>':v;
- const O=ph(OWNER),M=ph(EMAIL),C=ph(COUNTRY);
+ const O=ph(OWNER),M=EMAIL?ph(EMAIL):'',C=ph(COUNTRY),HASC=!!COUNTRY&&COUNTRY.charAt(0)!=='[';
  const T={
  privacy:`<p class="lu">Last updated: ${UPDATED}</p>
 <p>TOKENSCOPE is a read-only token risk scanner. In short: no accounts, no cookies of our own, no analytics or ads, and we never ask for a seed phrase or private key.</p>
-<h4>Who runs this site</h4><p>${O}. Contact: ${M}</p>
+<h4>Who runs this site</h4><p>${O}.${M?' Contact: '+M:''}</p>
 <h4>What we do not collect</h4><p>We don’t ask for your name, email or any account. We don’t connect to your wallet or ask you to sign anything. Never enter a seed phrase or private key anywhere on this site or any other.</p>
 <h4>What is sent when you use the scanner</h4><ul>
 <li><b>Scans and name search.</b> The address or name you enter is sent to data providers to fetch public information: DexScreener, GoPlus, GeckoTerminal, CoinGecko, Jupiter and block explorers. Solana holder checks go through our own Cloudflare Worker to Helius.</li>
@@ -2603,7 +2603,7 @@ b.onclick=()=>{const t=document.getElementById('scanbox')||document.body;t.scrol
 <h4>Public data we store</h4><p>A background job on our Worker scans public tokens and stores public blockchain data, such as token addresses and risk scores. This is not data about visitors.</p>
 <h4>Why we process this data</h4><p>To run, secure and improve the scanner (in GDPR terms, our legitimate interests).</p>
 <h4>On your device</h4><p>See the “Cookies &amp; storage” tab. Nothing stored on your device is sent to us.</p>
-<h4>Your rights</h4><p>Depending on where you live (for example under the EU or UK GDPR, or California law) you may have the right to ask what data is held about you, to have it corrected or deleted, to object to processing, and to complain to your data protection authority. We don’t keep an account or profile about you, so there is normally nothing to look up on our side. Data held by the providers above is covered by their own policies. To make a request, contact ${M}. You can erase everything this site saved in your browser from the “Cookies &amp; storage” tab.</p>
+<h4>Your rights</h4><p>Depending on where you live (for example under the EU or UK GDPR, or California law) you may have the right to ask what data is held about you, to have it corrected or deleted, to object to processing, and to complain to your data protection authority. We don’t keep an account or profile about you, so there is normally nothing to look up on our side. Data held by the providers above is covered by their own policies. ${M?'To make a request, contact '+M+'. ':'This site has no contact form or email, so requests about data held by the providers above need to go to those providers directly. '}You can erase everything this site saved in your browser from the “Cookies &amp; storage” tab.</p>
 <h4>Children</h4><p>This site is not meant for people under 18.</p>
 <h4>Changes</h4><p>If this policy changes, the date at the top changes.</p>`,
  terms:`<p class="lu">Last updated: ${UPDATED}</p>
@@ -2614,8 +2614,8 @@ b.onclick=()=>{const t=document.getElementById('scanbox')||document.body;t.scrol
 <h4>Third-party services</h4><p>Data and embedded content come from third parties such as DexScreener, GoPlus, GeckoTerminal, CoinGecko, Jupiter, Helius and Bubblemaps. We don’t control them, and we are not affiliated with them or with any token you scan. Names and trademarks belong to their owners.</p>
 <h4>Tips</h4><p>Tips are voluntary and go straight to the wallet address shown. Blockchain transactions can’t be reversed, so tips can’t be refunded. Check the address before you send. A tip gives no extra features or rights.</p>
 <h4>Acceptable use</h4><p>Please don’t abuse the service: no large-scale automated scraping, no attempts to get around rate limits, and no interference with the site or its backend. We may limit or block access to protect it.</p>
-<h4>Changes and governing law</h4><p>We may change the site or these terms at any time; the date above shows the latest version. These terms are governed by the laws of ${C}, unless your local consumer law says otherwise.</p>
-<p>Contact: ${M}</p>`,
+<h4>Changes and governing law</h4><p>We may change the site or these terms at any time; the date above shows the latest version. ${HASC?'These terms are governed by the laws of '+C+', unless your local consumer law says otherwise.':''}</p>
+${M?'<p>Contact: '+M+'</p>':''}`,
  storage:`<p class="lu">Last updated: ${UPDATED}</p>
 <p>TOKENSCOPE sets no cookies of its own. It saves a few small items in your browser’s storage so the site remembers your choices. They stay on your device and are never sent to us. We don’t use cookies or storage for tracking, advertising or analytics.</p>
 <table>
