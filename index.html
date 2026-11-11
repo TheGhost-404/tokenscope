@@ -1052,6 +1052,48 @@ html[data-theme=light] .sub,html[data-theme=light] section>p,html[data-theme=lig
 <div class="mbands"><span class="b1">Under 20 · lower detected risk</span><span class="b2">20 to 39 · moderate</span><span class="b3">40 to 59 · elevated</span><span class="b4">60 to 79 · high</span><span class="b5">80 and up · critical risk indicators</span></div>
 <p class="ev">The weights are our judgement, not a guarantee, and we adjust them as we learn. A low score means fewer risks were detected from the data available. It is never advice to buy.</p></section>
 <section class="rv" id="quiz"><h2>Rug or legit?</h2><p>Spot the scam. Five tokens, five calls.</p><div class="card" id="qz"></div></section>
+<style id="plans-css">
+#plans[hidden]{display:none}
+.pbill{display:inline-flex;gap:4px;padding:4px;border:1px solid var(--bd);border-radius:12px;margin:8px 0 4px}
+.pbill button{background:none;border:0;color:var(--mu);font:inherit;font-weight:600;padding:8px 14px;border-radius:9px;cursor:pointer}
+.pbill button.on{background:color-mix(in srgb,var(--mint) 16%,transparent);color:var(--tx)}
+.pbill small{color:var(--mint);font-weight:700;margin-left:4px}
+.pgrid{display:grid;gap:18px;margin-top:16px}
+@media(min-width:900px){.pgrid{grid-template-columns:repeat(3,1fr);align-items:stretch}}
+.pcard{position:relative;display:flex;flex-direction:column;margin-top:0}
+.pcard.pop{border-color:var(--mint)}
+.pbadge{position:absolute;top:-11px;left:16px;background:var(--mint);color:var(--bg);font-size:12px;font-weight:800;padding:3px 10px;border-radius:99px}
+.pcard h3{margin:4px 0 0}
+.pprice{display:flex;align-items:baseline;gap:8px;margin:8px 0 2px}
+.pprice b{font-size:34px}
+.pprice span{color:var(--mu);font-size:13.5px}
+.psub{color:var(--mu);margin:0 0 10px}
+.pf{list-style:none;padding:0;margin:8px 0 16px;display:grid;gap:9px;flex:1}
+.pf li{padding-left:24px;position:relative;line-height:1.4}
+.pf li::before{content:"✓";position:absolute;left:0;color:var(--mint);font-weight:800}
+.pf li.pl{color:var(--mu)}
+.pf li.pl::before{content:"+";color:var(--mu)}
+.psoon{font-size:11px;font-weight:700;border:1px solid var(--bd);border-radius:99px;padding:1px 7px;color:var(--mu);margin-left:6px;white-space:nowrap}
+.pcard button{width:100%}
+.pcard button:disabled{opacity:.65;cursor:not-allowed}
+</style>
+<section class="rv" id="plans" hidden>
+<h2>Plans</h2>
+<p><b>Preview only.</b> Payments aren’t set up and nothing here can be bought. Prices and features are examples.</p>
+<div class="pbill" role="group" aria-label="Billing period"><button type="button" class="on" data-bill="m" aria-pressed="true">Monthly</button><button type="button" data-bill="y" aria-pressed="false">Yearly<small>save 20%</small></button></div>
+<div class="pgrid">
+<div class="card pcard"><h3>Free</h3><div class="pprice"><b>$0</b><span>forever</span></div><p class="psub">A quick safety check before you buy.</p>
+<ul class="pf"><li>Basic scan: market, liquidity, age, tax and honeypot flags</li><li>Search by token name</li><li>Hot right now and Scams we flagged</li><li>Plain-words explanation of every check</li><li>Check my wallet (top 30 tokens)</li><li>Scan history on your device</li></ul>
+<button type="button" class="ghost" disabled>Your current plan</button></div>
+<div class="card pcard pop"><span class="pbadge">Most popular</span><h3>Pro</h3><div class="pprice"><b data-m="$9" data-y="$7">$9</b><span data-per>per month</span></div><p class="psub">For people who check coins every day.</p>
+<ul class="pf"><li class="pl">Everything in Free</li><li>Deep Solana scan: holders, bundled buying, funding trace, creator history</li><li>Bubblemaps map and recent wallet moves</li><li>Full wallet check, every token</li><li>Higher scan limits</li><li>Watchlist alerts<span class="psoon">Soon</span></li></ul>
+<button type="button" class="go" disabled>Coming soon</button></div>
+<div class="card pcard"><h3>Team</h3><div class="pprice"><b data-m="$29" data-y="$23">$29</b><span data-per>per month</span></div><p class="psub">For groups and heavy users.</p>
+<ul class="pf"><li class="pl">Everything in Pro</li><li>Batch scan: up to 20 tokens at once<span class="psoon">Soon</span></li><li>One-page PDF report for each scan<span class="psoon">Soon</span></li><li>Telegram alerts<span class="psoon">Soon</span></li><li>API access<span class="psoon">Soon</span></li><li>Priority support</li></ul>
+<button type="button" class="ghost" disabled>Coming soon</button></div>
+</div>
+<p class="ev">Example prices in US dollars. Not financial advice.</p>
+</section>
 <section id="faq" class="rv"><h2>FAQ</h2>
 <details class="q"><summary>Does a low score mean a token is safe?</summary><p>No. It only means fewer risks were detected from the data available. Always check confidence and inconclusive items.</p></details>
 <details class="q"><summary>Do I need to connect a wallet?</summary><p>Never. This tool is read-only and never asks for a seed phrase or private key.</p></details>
@@ -2675,6 +2717,19 @@ ${(typeof TS_SITEKEY!=='undefined'&&TS_SITEKEY)?'<tr><td>ts-session</td><td>Your
  let seen=false;try{seen=localStorage.getItem('ts-notice')==='1'}catch(e){}
  if(nb&&!seen&&SHOW_NOTICE)setTimeout(()=>{nb.hidden=false},4500);
  if(ok)ok.addEventListener('click',()=>{nb.hidden=true;try{localStorage.setItem('ts-notice','1')}catch(e){}});
+})();
+</script>
+<script>
+/* Plans preview: hidden for visitors. Open the site with ?plans=1 to see it, or set SHOW_PLANS to true. */
+(function(){
+ const s=document.getElementById('plans');if(!s)return;
+ const SHOW_PLANS=false;
+ if(SHOW_PLANS||/[?&]plans=1(&|$)/.test(location.search))s.hidden=false;
+ const bt=[...s.querySelectorAll('[data-bill]')];
+ bt.forEach(b=>b.addEventListener('click',()=>{const y=b.dataset.bill==='y';
+  bt.forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',String(x===b))});
+  s.querySelectorAll('[data-m]').forEach(e=>{e.textContent=y?e.dataset.y:e.dataset.m});
+  s.querySelectorAll('[data-per]').forEach(e=>{e.textContent=y?'per month, billed yearly':'per month'})}));
 })();
 </script>
 </body></html>
