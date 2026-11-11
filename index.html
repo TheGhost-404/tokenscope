@@ -173,7 +173,7 @@ details[open]>.ev{animation:up .35s both}
 .cc:nth-of-type(2){animation-delay:.1s}.cc:nth-of-type(3){animation-delay:.2s}
 .cc strong{display:block;font-size:14px}.cc small{color:var(--mu);font-size:12px}
 
-/* coin image + tips */
+/* coin image */
 @keyframes bob{50%{transform:translateY(-8px)}}
 @keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.25)}30%{transform:scale(1)}45%{transform:scale(1.18)}}
 .coinhero{position:relative;width:min(220px,60vw);aspect-ratio:1;margin:8px auto 22px;display:grid;place-items:center;animation:pop .8s backwards}
@@ -181,9 +181,6 @@ details[open]>.ev{animation:up .35s both}
 .coinring::after{content:"";position:absolute;inset:4px;border-radius:50%;background:var(--card)}
 .coinimg,.coinph{position:relative;width:100%;height:100%;border-radius:50%;object-fit:cover;background:var(--bg);animation:bob 4s ease-in-out infinite;box-shadow:0 0 60px -10px var(--ac)}
 .coinph{display:grid;place-items:center;font-size:56px;font-weight:800;color:var(--ac)}
-.tipc{text-align:center}
-.tipc .addr{font-size:13px;padding:12px;border:1px dashed var(--bd);border-radius:10px;margin:12px 0;user-select:all}
-.heart{font-size:44px;line-height:1;color:var(--red);text-shadow:0 0 24px var(--red);animation:beat 1.6s ease-in-out infinite}
 
 /* v3: history, compare, verdict moments */
 @keyframes calm{0%,100%{box-shadow:0 0 30px -10px var(--mint)}50%{box-shadow:0 0 70px -6px var(--mint)}}
@@ -297,13 +294,6 @@ nav.top.open .dd a{animation:up .35s backwards}
 #scanbox .row>*{min-width:0}
 @media(min-width:560px){#scanbox .row{grid-template-columns:minmax(0,1.2fr) auto minmax(0,1fr)}#scanbox .row select{grid-column:auto}}
 
-/* v8: tip prompt */
-.tipline{display:flex;align-items:center;gap:10px;margin:10px 2px 0;padding:10px 12px;border:1px dashed var(--bd);border-radius:12px;font-size:13px;color:var(--mu);animation:up .6s 1.2s backwards}
-.tipline span{flex:1;min-width:0}
-.tipline .tl{color:var(--ac);font-weight:700;text-decoration:none;padding:5px 12px;border:1px solid var(--ac);border-radius:99px;flex:none;transition:.2s}
-.tipline .tl:hover{background:var(--ac);color:#04140d}
-.tipline button{background:none;border:0;color:var(--mu);font-size:14px;padding:4px 6px;flex:none}
-
 /* v9: chat assistant */
 @keyframes tdot{0%,60%,100%{opacity:.25;transform:none}30%{opacity:1;transform:translateY(-3px)}}
 .cbfab{position:fixed;right:16px;bottom:16px;z-index:38;width:58px;height:58px;border-radius:50%;border:0;background:linear-gradient(135deg,var(--ac2),var(--ac));color:#04140d;display:grid;place-items:center;box-shadow:0 8px 30px -6px rgba(62,232,165,.6);cursor:pointer;transition:transform .25s;animation:pop .6s 1s backwards;padding:0}
@@ -340,7 +330,7 @@ footer{padding-bottom:84px}
 @media(max-width:480px){.cbp{right:8px;width:calc(100vw - 16px)}.cbfab{right:12px;bottom:12px}}
 
 /* v10: light-mode fixes, holder chart, trending */
-[data-theme=light] .go,[data-theme=light] .seg button.on,[data-theme=light] .cm.me,[data-theme=light] .cbfab,[data-theme=light] .cbi button,[data-theme=light] .tipline .tl:hover,[data-theme=light] .dd a.on{color:#fff}
+[data-theme=light] .go,[data-theme=light] .seg button.on,[data-theme=light] .cm.me,[data-theme=light] .cbfab,[data-theme=light] .cbi button,[data-theme=light] .dd a.on{color:#fff}
 [data-theme=light] .cbfab .dot{border-color:var(--card)}
 [data-theme=light] .card,[data-theme=light] .cbp,[data-theme=light] .tr{box-shadow:0 1px 3px rgba(18,23,28,.06)}
 [data-theme=light] .cbp{box-shadow:0 20px 50px -12px rgba(18,23,28,.3)}
@@ -531,11 +521,7 @@ html.busy::after{content:"";position:fixed;left:0;top:0;width:100%;height:3px;z-
 html[data-motion=off] .tkl .tick circle{transform:none}
 html[data-motion=off] .tkl .tick path,html[data-motion=off] .tstrip .tick path{stroke-dashoffset:0}
 
-/* v18: chain logos, watchlist */
-.tamts{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:10px 0}
-.tamts button{background:var(--bg);border:1px solid var(--bd);color:var(--tx);border-radius:99px;padding:7px 14px;font-size:13px;font-weight:600;transition:.2s}
-.tamts button[aria-pressed=true]{background:var(--ac);border-color:var(--ac);color:#04140d}
-[data-theme=light] .tamts button[aria-pressed=true]{color:#fff}
+/* v18: chain logos{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:10px 0}
 .tbtns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
 @media(max-width:420px){.tbtns{grid-template-columns:1fr}}
 a.go{display:flex;align-items:center;justify-content:center;text-decoration:none}
@@ -1015,13 +1001,13 @@ html[data-theme=light] .sub,html[data-theme=light] section>p,html[data-theme=lig
 #tsldlg .lb td:first-child{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--tx);white-space:nowrap;padding-right:12px}
 #tsldlg .lb .ph{background:rgba(255,184,77,.28);color:var(--tx);border-radius:4px;padding:0 4px}
 #tsldlg .lb .wipe{margin-top:10px}
-#tslnote{position:fixed;left:12px;right:84px;bottom:max(12px,env(safe-area-inset-bottom));max-width:540px;z-index:36;display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap;background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:14px;padding:12px 14px;font-size:13.5px;line-height:1.45;box-shadow:0 14px 40px -16px rgba(0,0,0,.5)}
+#tslnote{position:fixed;left:10px;right:84px;bottom:max(10px,env(safe-area-inset-bottom));max-width:400px;z-index:36;display:flex;align-items:center;gap:8px;flex-wrap:nowrap;background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:12px;padding:6px 8px 6px 12px;font-size:12.5px;line-height:1.3;box-shadow:0 14px 40px -16px rgba(0,0,0,.5)}
 #tslnote[hidden]{display:none}
-#tslnote p{margin:0;flex:1 1 220px;color:var(--mu)}
+#tslnote p{margin:0;flex:1 1 auto;color:var(--mu)}
 #tslnote div{display:flex;gap:8px}
-#tslnote button{padding:8px 14px;font-size:13.5px}
+#tslnote button{padding:5px 10px;font-size:12.5px;white-space:nowrap}
 </style>
-</head><body><div class="intro" id="intro" aria-hidden="true"><canvas class="iwp"></canvas><div class="igrid"></div><i class="hc k1"></i><i class="hc k2"></i><i class="hc k3"></i><i class="hc k4"></i><div class="ifl"></div><div class="ish"></div><svg class="ir" viewBox="0 0 32 32" width="110" height="110"><defs><linearGradient id="lgi" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b7cff"/><stop offset="1" stop-color="#3ee8a5"/></linearGradient></defs><circle cx="16" cy="16" r="14.4" fill="none" stroke="#8b7cff" stroke-opacity=".3" stroke-width=".3" stroke-dasharray=".6 .9"/><circle class="id" cx="16" cy="16" r="12" pathLength="1" fill="none" stroke="url(#lgi)" stroke-width="1.6"/><circle class="id d2" cx="16" cy="16" r="8" pathLength="1" fill="none" stroke="url(#lgi)" stroke-width="1.4"/><circle class="id d3" cx="16" cy="16" r="4" pathLength="1" fill="none" stroke="url(#lgi)" stroke-width="1.2"/><circle class="bl" cx="24.93" cy="14.90" r=".95" fill="#3ee8a5" style="--d:0.17s;color:#3ee8a5"/><circle class="bl" cx="20.73" cy="19.69" r=".95" fill="#3ee8a5" style="--d:0.32s;color:#3ee8a5"/><circle class="bl" cx="17.22" cy="25.93" r=".95" fill="#ffbe46" style="--d:0.47s;color:#ffbe46"/><circle class="bl" cx="12.92" cy="19.94" r=".95" fill="#3ee8a5" style="--d:0.62s;color:#3ee8a5"/><circle class="bl" cx="5.58" cy="17.28" r=".95" fill="#ff5d6c" style="--d:0.77s;color:#ff5d6c"/><circle class="bl" cx="10.88" cy="11.23" r=".95" fill="#3ee8a5" style="--d:0.93s;color:#3ee8a5"/><circle class="bl" cx="15.67" cy="6.51" r=".95" fill="#ffbe46" style="--d:1.08s;color:#ffbe46"/><g class="tg" style="--d:0.25s"><rect x="28.4" y="10.6" width="5.0" height="2.7" rx=".7" fill="#3ee8a5" fill-opacity=".16" stroke="#3ee8a5" stroke-width=".18"/><text x="30.9" y="12.55" text-anchor="middle" fill="#3ee8a5">6%</text></g><g class="tg" style="--d:0.55s"><rect x="18.3" y="26.5" width="5.0" height="2.7" rx=".7" fill="#ffbe46" fill-opacity=".16" stroke="#ffbe46" stroke-width=".18"/><text x="20.8" y="28.45" text-anchor="middle" fill="#ffbe46">52%</text></g><g class="tg" style="--d:0.85s"><rect x="6.6" y="13.4" width="5.4" height="2.7" rx=".7" fill="#ff5d6c" fill-opacity=".16" stroke="#ff5d6c" stroke-width=".18"/><text x="9.3" y="15.35" text-anchor="middle" fill="#ff5d6c">94%</text></g><g transform="translate(5.58 17.28)"><g class="lk"><circle r="2.3" fill="none" stroke="#ff5d6c" stroke-width=".25"/><path d="M0 -3.5V-2M0 2V3.5M-3.5 0H-2M2 0H3.5" stroke="#ff5d6c" stroke-width=".3" stroke-linecap="round"/></g></g><g class="isw"><path d="M16 16 26 7" stroke="#3ee8a5" stroke-width="1.8" stroke-linecap="round"/></g><circle cx="16" cy="16" r="1.5" fill="#3ee8a5"/></svg><div class="ic">SCANNING <b>----</b></div><div class="iw"><span class="l">T</span><span class="l">O</span><span class="l">K</span><span class="l">E</span><span class="l">N</span><b><span class="l">S</span><span class="l">C</span><span class="l">O</span><span class="l">P</span><span class="l">E</span></b></div><div class="itg">See the risk before you buy</div></div><div class="aur"><i></i><i></i></div><nav class="top"><div class="tb"><a class="logo" href="#" aria-label="TOKENSCOPE home"><svg class="mk" aria-hidden="true" viewBox="0 0 32 32"><defs><linearGradient id="lgn" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b7cff"/><stop offset="1" stop-color="#3ee8a5"/></linearGradient></defs><rect width="32" height="32" rx="8" fill="#0b0d10"/><circle cx="16" cy="16" r="9.5" fill="none" stroke="url(#lgn)" stroke-width="2"/><circle cx="16" cy="16" r="4.5" fill="none" stroke="url(#lgn)" stroke-width="1.6" opacity=".7"/><g class="sw"><path d="M16 16 23.5 9.5" stroke="#3ee8a5" stroke-width="2" stroke-linecap="round"/></g><circle cx="16" cy="16" r="1.8" fill="#3ee8a5"/><circle cx="23.5" cy="9.5" r="1.6" fill="#ff6b6b"/></svg>TOKEN<b>SCOPE</b></a><div class="dd" id="menu" role="navigation" aria-label="Sections"><a href="#scanbox">Scan</a><a href="#trending">Trending</a><a href="#caught" id="navcaught" hidden>Caught scams</a><a href="#how">How it works</a><a href="#checks">Checks</a><a href="#method">Scoring</a><a href="#learn">Glossary</a><a href="#quiz">Quiz</a><a href="#faq">FAQ</a><a href="#tip">♥ Tips</a></div><button class="ghost" id="th">Theme</button><button class="hb" id="hb" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button></div></nav><div class="scrim" id="scrim"></div><div class="w">
+</head><body><div class="intro" id="intro" aria-hidden="true"><canvas class="iwp"></canvas><div class="igrid"></div><i class="hc k1"></i><i class="hc k2"></i><i class="hc k3"></i><i class="hc k4"></i><div class="ifl"></div><div class="ish"></div><svg class="ir" viewBox="0 0 32 32" width="110" height="110"><defs><linearGradient id="lgi" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b7cff"/><stop offset="1" stop-color="#3ee8a5"/></linearGradient></defs><circle cx="16" cy="16" r="14.4" fill="none" stroke="#8b7cff" stroke-opacity=".3" stroke-width=".3" stroke-dasharray=".6 .9"/><circle class="id" cx="16" cy="16" r="12" pathLength="1" fill="none" stroke="url(#lgi)" stroke-width="1.6"/><circle class="id d2" cx="16" cy="16" r="8" pathLength="1" fill="none" stroke="url(#lgi)" stroke-width="1.4"/><circle class="id d3" cx="16" cy="16" r="4" pathLength="1" fill="none" stroke="url(#lgi)" stroke-width="1.2"/><circle class="bl" cx="24.93" cy="14.90" r=".95" fill="#3ee8a5" style="--d:0.17s;color:#3ee8a5"/><circle class="bl" cx="20.73" cy="19.69" r=".95" fill="#3ee8a5" style="--d:0.32s;color:#3ee8a5"/><circle class="bl" cx="17.22" cy="25.93" r=".95" fill="#ffbe46" style="--d:0.47s;color:#ffbe46"/><circle class="bl" cx="12.92" cy="19.94" r=".95" fill="#3ee8a5" style="--d:0.62s;color:#3ee8a5"/><circle class="bl" cx="5.58" cy="17.28" r=".95" fill="#ff5d6c" style="--d:0.77s;color:#ff5d6c"/><circle class="bl" cx="10.88" cy="11.23" r=".95" fill="#3ee8a5" style="--d:0.93s;color:#3ee8a5"/><circle class="bl" cx="15.67" cy="6.51" r=".95" fill="#ffbe46" style="--d:1.08s;color:#ffbe46"/><g class="tg" style="--d:0.25s"><rect x="28.4" y="10.6" width="5.0" height="2.7" rx=".7" fill="#3ee8a5" fill-opacity=".16" stroke="#3ee8a5" stroke-width=".18"/><text x="30.9" y="12.55" text-anchor="middle" fill="#3ee8a5">6%</text></g><g class="tg" style="--d:0.55s"><rect x="18.3" y="26.5" width="5.0" height="2.7" rx=".7" fill="#ffbe46" fill-opacity=".16" stroke="#ffbe46" stroke-width=".18"/><text x="20.8" y="28.45" text-anchor="middle" fill="#ffbe46">52%</text></g><g class="tg" style="--d:0.85s"><rect x="6.6" y="13.4" width="5.4" height="2.7" rx=".7" fill="#ff5d6c" fill-opacity=".16" stroke="#ff5d6c" stroke-width=".18"/><text x="9.3" y="15.35" text-anchor="middle" fill="#ff5d6c">94%</text></g><g transform="translate(5.58 17.28)"><g class="lk"><circle r="2.3" fill="none" stroke="#ff5d6c" stroke-width=".25"/><path d="M0 -3.5V-2M0 2V3.5M-3.5 0H-2M2 0H3.5" stroke="#ff5d6c" stroke-width=".3" stroke-linecap="round"/></g></g><g class="isw"><path d="M16 16 26 7" stroke="#3ee8a5" stroke-width="1.8" stroke-linecap="round"/></g><circle cx="16" cy="16" r="1.5" fill="#3ee8a5"/></svg><div class="ic">SCANNING <b>----</b></div><div class="iw"><span class="l">T</span><span class="l">O</span><span class="l">K</span><span class="l">E</span><span class="l">N</span><b><span class="l">S</span><span class="l">C</span><span class="l">O</span><span class="l">P</span><span class="l">E</span></b></div><div class="itg">See the risk before you buy</div></div><div class="aur"><i></i><i></i></div><nav class="top"><div class="tb"><a class="logo" href="#" aria-label="TOKENSCOPE home"><svg class="mk" aria-hidden="true" viewBox="0 0 32 32"><defs><linearGradient id="lgn" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b7cff"/><stop offset="1" stop-color="#3ee8a5"/></linearGradient></defs><rect width="32" height="32" rx="8" fill="#0b0d10"/><circle cx="16" cy="16" r="9.5" fill="none" stroke="url(#lgn)" stroke-width="2"/><circle cx="16" cy="16" r="4.5" fill="none" stroke="url(#lgn)" stroke-width="1.6" opacity=".7"/><g class="sw"><path d="M16 16 23.5 9.5" stroke="#3ee8a5" stroke-width="2" stroke-linecap="round"/></g><circle cx="16" cy="16" r="1.8" fill="#3ee8a5"/><circle cx="23.5" cy="9.5" r="1.6" fill="#ff6b6b"/></svg>TOKEN<b>SCOPE</b></a><div class="dd" id="menu" role="navigation" aria-label="Sections"><a href="#scanbox">Scan</a><a href="#trending">Trending</a><a href="#caught" id="navcaught" hidden>Caught scams</a><a href="#how">How it works</a><a href="#checks">Checks</a><a href="#method">Scoring</a><a href="#learn">Glossary</a><a href="#quiz">Quiz</a><a href="#faq">FAQ</a></div><button class="ghost" id="th">Theme</button><button class="hb" id="hb" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button></div></nav><div class="scrim" id="scrim"></div><div class="w">
 
 <div class="herobg" aria-hidden="true"></div><h1>Don’t buy blind. Scan before you invest.</h1>
 <div class="radar"><i style="top:22%;left:62%"></i><i style="top:60%;left:28%;animation-delay:1.1s"></i><i style="top:70%;left:70%;animation-delay:2.1s"></i></div>
@@ -1070,9 +1056,7 @@ html[data-theme=light] .sub,html[data-theme=light] section>p,html[data-theme=lig
 <details class="q"><summary>Does a low score mean a token is safe?</summary><p>No. It only means fewer risks were detected from the data available. Always check confidence and inconclusive items.</p></details>
 <details class="q"><summary>Do I need to connect a wallet?</summary><p>Never. This tool is read-only and never asks for a seed phrase or private key.</p></details>
 <details class="q"><summary>Is this financial advice?</summary><p>No. It is information only and cannot predict future behavior.</p></details></section>
-<section class="rv" id="tip"><h2>Enjoying TOKENSCOPE?</h2><p>It is free and read-only. Tips are optional and help keep it running.</p>
-<div class="card tipc"><div class="heart">♥</div><div class="tamts" role="group" aria-label="Tip amount"><button data-a="" aria-pressed="false">Any</button><button data-a="0.05" aria-pressed="false">0.05 SOL</button><button data-a="0.1" aria-pressed="false">0.1 SOL</button><button data-a="0.5" aria-pressed="false">0.5 SOL</button></div><div class="addr" id="tw">9rFx67bz3kw1xaiPZBpbgABVHdLqDMEpiGh7ou8DPjcq</div><div class="tbtns"><a class="go" id="to" href="solana:9rFx67bz3kw1xaiPZBpbgABVHdLqDMEpiGh7ou8DPjcq?label=TOKENSCOPE">Open in wallet app</a><button class="ghost" id="tc">Copy Solana address</button></div><p class="ev">Solana network only. Double-check the address before sending. On a phone, the button opens Phantom, Solflare or another Solana wallet; on a computer, copy the address and paste it into your wallet.</p></div></section>
-<footer><div class="fb"><svg class="mk" aria-hidden="true" viewBox="0 0 32 32"><defs><linearGradient id="lgf2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b7cff"/><stop offset="1" stop-color="#3ee8a5"/></linearGradient></defs><rect width="32" height="32" rx="8" fill="#0b0d10"/><circle cx="16" cy="16" r="9.5" fill="none" stroke="url(#lgf2)" stroke-width="2"/><circle cx="16" cy="16" r="4.5" fill="none" stroke="url(#lgf2)" stroke-width="1.6" opacity=".7"/><g><path d="M16 16 23.5 9.5" stroke="#3ee8a5" stroke-width="2" stroke-linecap="round"/></g><circle cx="16" cy="16" r="1.8" fill="#3ee8a5"/><circle cx="23.5" cy="9.5" r="1.6" fill="#ff6b6b"/></svg>TOKEN<b>SCOPE</b></div><p class="ftag">See the risk before you buy.</p><div class="fl"><a href="#scanbox">Scan</a><a href="#how">How it works</a><a href="#quiz">Quiz</a><a href="#faq">FAQ</a><a href="#tip">♥ Tips</a></div><div class="fl lgl"><a href="#" data-legal="privacy">Privacy</a><a href="#" data-legal="terms">Terms</a><a href="#" data-legal="storage">Cookies &amp; storage</a></div><p>Read-only token risk scanner · Not financial advice · Data may be delayed or incomplete.</p><p class="ev" style="font-size:11px">Build 59 · Oct 27, 2026</p></footer></div>
+<footer><div class="fb"><svg class="mk" aria-hidden="true" viewBox="0 0 32 32"><defs><linearGradient id="lgf2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b7cff"/><stop offset="1" stop-color="#3ee8a5"/></linearGradient></defs><rect width="32" height="32" rx="8" fill="#0b0d10"/><circle cx="16" cy="16" r="9.5" fill="none" stroke="url(#lgf2)" stroke-width="2"/><circle cx="16" cy="16" r="4.5" fill="none" stroke="url(#lgf2)" stroke-width="1.6" opacity=".7"/><g><path d="M16 16 23.5 9.5" stroke="#3ee8a5" stroke-width="2" stroke-linecap="round"/></g><circle cx="16" cy="16" r="1.8" fill="#3ee8a5"/><circle cx="23.5" cy="9.5" r="1.6" fill="#ff6b6b"/></svg>TOKEN<b>SCOPE</b></div><p class="ftag">See the risk before you buy.</p><div class="fl"><a href="#scanbox">Scan</a><a href="#how">How it works</a><a href="#quiz">Quiz</a><a href="#faq">FAQ</a></div><div class="fl lgl"><a href="#" data-legal="privacy">Privacy</a><a href="#" data-legal="terms">Terms</a><a href="#" data-legal="storage">Cookies &amp; storage</a></div><p>Read-only token risk scanner · Not financial advice · Data may be delayed or incomplete.</p><p class="ev" style="font-size:11px">Build 59 · Oct 27, 2026</p></footer></div>
 <script>
 /* shows a small note if something on the page throws, so problems are easy to report */
 window.addEventListener('error',function(e){try{if(!e.message||document.getElementById('errbar'))return;var d=document.createElement('div');d.id='errbar';d.setAttribute('role','alert');d.style.cssText='position:fixed;left:8px;right:8px;bottom:8px;z-index:200;background:#3a1414;color:#ffd7d7;border:1px solid #ff6b6b;border-radius:12px;padding:10px 12px;font:13px/1.4 system-ui,sans-serif';d.textContent='Something on this page hit an error: '+e.message+(e.lineno?' (line '+e.lineno+')':'')+'. Try refreshing, or update your browser. ';var b=document.createElement('button');b.textContent='Dismiss';b.style.cssText='margin-left:6px;background:none;border:1px solid #ff6b6b;color:inherit;border-radius:8px;padding:2px 8px';b.onclick=function(){d.remove()};d.appendChild(b);document.body.appendChild(d)}catch(_){}});
@@ -1460,7 +1444,6 @@ function render(fs,p,a,chain,failed,ext){const o=$('o');o.replaceChildren();
  T.push('Never connect your wallet to links from a token page, and never share a seed phrase.','Only risk money you can afford to lose.');
  T.forEach(t=>ck.append(el('div','ev','☐ '+t)));bm.after(sm);const lmc=liveMapCard(chain,a);if(lmc)bm.after(lmc);o.append(ck);
  if(p&&p.baseToken){lastScan={name:String(p.baseToken.name||'Token').slice(0,30),sym:String(p.baseToken.symbol||'token').slice(0,12),score:r.score,lab,conf:r.conf,chain,nbad:bad.length,ngood:good.length,nunk:unch.length,bad:bad.slice(0,5).map(f=>({t:f.title,e:f.ev,s:f.status}))};if(window.chatNew)chatNew()}
- if(r.score>=60&&!tipSeen()){tipMark();const tp=el('div','tipline'),tl=el('a','tl','♥ Tip'),dx=el('button',null,'✕');tl.href='#tip';dx.setAttribute('aria-label','Dismiss');dx.onclick=()=>tp.remove();tp.append(el('span',null,'This scan flagged serious risks. Did it help?'),tl,dx);sm.after(tp)}
  if(p&&p.baseToken){snap={a,chain,name:String(p.baseToken.name||'Token').slice(0,30),sym:String(p.baseToken.symbol||'').slice(0,12),score:r.score,conf:r.conf,lab,col,nbad:bad.length,ngood:good.length,nunk:unch.length,liq:n(p.liquidity&&p.liquidity.usd),mc:mcapOf(p,ext),fdv:n(p.fdv),vol:n(p.volume&&p.volume.h24),ch24:n(p.priceChange&&p.priceChange.h24),top:bad.slice(0,3).map(f=>f.title),img:imgs[0]||'',ts:Date.now(),hc:(ext&&ext.cnt&&!ext.cnt.more)?ext.cnt.count:null,t10:(ext&&ext.hol&&ext.hol.holders&&ext.hol.holders.length)?ext.hol.holders.filter(h=>!(h.is_contract==='1'||h.tag)).reduce((z,h)=>z+(+h.percent||0),0)*100:null};hnew=hkey(snap);const prevS=hget().find(x=>x&&hkey(x)===hkey(snap));sinceCard(prevS,snap,o,c);if(window._cmp&&window._cmp.a!==snap.a)compareCard(window._cmp,snap,o,c);hsave(snap);wUpdate(snap);wsync()}
  tradeCard(p,chain,o);
  if(p){const fm=el('div','card');fm.append(el('h3',null,'FOMO meter'));
@@ -1539,7 +1522,7 @@ function quiz(){const c=$('qz');c.replaceChildren();if(!deck.length)qreset();
  c.append(row)}
 quiz();
 /* scan history + compare */
-const HK='ts-hist',HC={'var(--mint)':1,'var(--amb)':1,'var(--red)':1};let sel=[],hnew='',tipMem=false;const tipSeen=()=>{try{return sessionStorage.getItem('ts-tip')==='1'}catch{return tipMem}},tipMark=()=>{tipMem=true;try{sessionStorage.setItem('ts-tip','1')}catch{}};
+const HK='ts-hist',HC={'var(--mint)':1,'var(--amb)':1,'var(--red)':1};let sel=[],hnew='';
 const hget=()=>{try{const v=JSON.parse(localStorage.getItem(HK)||'[]');return Array.isArray(v)?v:[]}catch{return[]}};
 const hset=v=>{try{localStorage.setItem(HK,JSON.stringify(v))}catch{}};
 const hkey=x=>(x.chain||'')+':'+x.a;
@@ -1795,7 +1778,7 @@ const KB=[
 {k:['chain','chains','supported','solana','ethereum','base','bnb','bsc','arbitrum','polygon','optimism','avalanche','robinhood','network'],a:'Supported: Ethereum, BNB Chain, Solana, Base, Arbitrum, Optimism, Polygon, Avalanche and Robinhood Chain. Leave the picker on Auto-detect, or choose the chain yourself if the same address exists on more than one.'},
 {k:['wallet','connect','seed','private key','phrase','privacy','login','account','sign in'],a:'You never need to. TOKENSCOPE is read-only and never asks for a wallet connection, seed phrase or private key. If any site asks for those, leave. Recent scans are saved only in your own browser.'},
 {k:['address','contract address','where do i find','find the token','paste','ca'],a:'Copy the contract address from the token’s page on DexScreener or CoinGecko, or from the project’s official site, not from a random DM. Paste it in the scan box and tap Scan token. Double-check it, because scammers copy names and logos.'},
-{k:['free','cost','pay','subscription','tip','donate','donation','support','money'],a:'TOKENSCOPE is free. If it helped you, there is an optional tip box near the bottom. Open the menu and tap Tips to jump there. No pressure, the tool works the same either way.'},
+{k:['free','cost','pay','subscription','tip','donate','donation','support','money'],a:'TOKENSCOPE is free to use, with no account, subscription or payment. There is no tip or donation option.'},
 {k:['history','recent','compare','side by side','previous','last scans'],a:'Your last 8 scans appear under the scan box. Tap one to rescan it, or tap + Compare on two of them to see them side by side. They are stored only in this browser.'},
 {k:['download','card','image','share','save result','screenshot'],a:'On any result, tap Share result card to share or save a JPG image with the score, top concerns and a Bubblemaps link.'},
 {k:['chart','candle','candles','timeframe','price chart','1h','24h','7d','30d'],a:'The chart has 1H, 6H, 24H, 7D and 30D tabs and a Line or Candles switch. Hover or touch it to see price and time. Data comes from GeckoTerminal and can be delayed or incomplete.'},
@@ -1803,7 +1786,7 @@ const KB=[
 {k:['age','new token','new pair','launched','brand new'],a:'Very new pairs carry extra risk because there is little history and rugs often happen early. The Token age check flags how recently the pair was created.'},
 {k:['buys','sells','pressure','volume','wash','fake volume','transactions'],a:'Transaction pressure compares buys and sells from 5 minutes to 24 hours. A heavy one-sided flow, or huge volume compared to liquidity, can point to hype or manipulation. It is a hint, not proof.'},
 {k:['watchlist','watch list','favorites','favourite','save token','star'],a:'Tap ☆ Watch on any result to save the token in this browser. The Watchlist under the scan box shows its saved risk score, the live price, and a warning if liquidity has dropped a lot since you saved it. Tap Rescan to check it again.'},
-{k:['phantom','solflare','solana pay'],a:'The tip box near the bottom shows the Solana address. Pick an amount (or Any), then tap Open in wallet app on a phone to use Phantom, Solflare or another Solana wallet, or copy the address. Tips are optional.'},{k:['check my wallet','my wallet','my tokens','airdrop','spam token'],a:'Use Check my wallet, below the scan box. Paste your public Solana wallet address (never a seed phrase) and it lists your tokens with a quick market risk check, shows tokens with no market (often airdrop spam), and lets you tap Scan on any of them for the full check.'},
+{k:['check my wallet','my wallet','my tokens','airdrop','spam token'],a:'Use Check my wallet, below the scan box. Paste your public Solana wallet address (never a seed phrase) and it lists your tokens with a quick market risk check, shows tokens with no market (often airdrop spam), and lets you tap Scan on any of them for the full check.'},
 {k:['hi','hello','hey','yo','sup','thanks','thank you','thx','good morning'],a:'Hi! Ask me about red flags, what a score means, or how to use the scanner. After a scan, tap “Explain this scan” and I’ll break it down.'}];
 const shortT=t=>{const x=String(t||'').split('. ')[0];return x.length>110?x.slice(0,107)+'…':x};
 const scanRe=/(\bthis (scan|token|coin|result|one)\b|\bmy (scan|token|coin|result)\b|\bthe (scan|result)\b|\bwhy\b.*\b(score|high|low|risky|red|flag)|\bexplain (this|it|the (scan|result))|\bsummar|\bconcerns?\b|\bwhat.*\b(next|check next|wrong|worry)|\bshould i\b|\bis it (safe|ok|okay|legit|a scam|a rug)|\bscam or\b)/i;
@@ -1976,6 +1959,32 @@ async function tsSession(force){
   catch(e){tsClear();return null}
   finally{try{if(wid!=null&&window.turnstile)window.turnstile.remove(wid)}catch(e){}if(box)box.remove();tsPend=null}})();
  return tsPend}
+/* Self-test: open the site with ?tsdemo=1 to watch the bot check and the proxy run, step by step. */
+(function(){
+ if(!/[?&]tsdemo=1(&|$)/.test(location.search))return;
+ const go=()=>{
+  if(!TS_SITEKEY||!HELIUS_PROXY)return;
+  const box=document.createElement('div');
+  box.style.cssText='position:fixed;left:10px;right:10px;bottom:10px;max-width:360px;z-index:47;background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:14px;padding:12px 14px;font-size:13.5px;line-height:1.5;box-shadow:0 14px 40px -16px rgba(0,0,0,.5)';
+  const title=document.createElement('b');title.textContent='Bot check test';
+  const x=document.createElement('button');x.type='button';x.className='ghost';x.textContent='Close';x.style.cssText='float:right;padding:4px 10px;font-size:12.5px';x.onclick=()=>box.remove();
+  const log=document.createElement('div'),w=document.createElement('div');w.style.marginTop='8px';
+  box.append(x,title,log,w);document.body.append(box);
+  const say=s=>{const d=document.createElement('div');d.textContent=s;log.append(d)};
+  let step=1;
+  (async()=>{try{
+   say('Loading Turnstile…');await tsLoad();
+   const tok=await new Promise((res,rej)=>{const to=setTimeout(()=>rej(new Error('no answer after 40 seconds')),40000);
+    window.turnstile.render(w,{sitekey:TS_SITEKEY,appearance:'always',callback:z=>{clearTimeout(to);res(z)},'error-callback':c=>{clearTimeout(to);rej(new Error('widget error '+(c||'')))}})});
+   say('Step 1 OK: Cloudflare accepted this browser ✓');
+   step=2;const r=await fetch(HELIUS_PROXY.replace(/\/$/,'')+'/session',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token:tok})});
+   if(!r.ok){const hint={403:' (bot check rejected: check TURNSTILE_SECRET and the allowed hostname)',404:' (the proxy has no TURNSTILE_SECRET or SESSION_SECRET)',429:' (too many passes from this IP, try again in an hour)'}[r.status]||'';throw new Error('proxy answered HTTP '+r.status+hint)}
+   const d=await r.json();tsSess=d.session;tsExp=Number(d.exp)||Date.now()+25*60000;try{localStorage.setItem('ts-session',JSON.stringify({s:tsSess,e:tsExp}))}catch(e){}
+   say('Step 2 OK: the proxy issued a pass ✓');
+   step=3;await rpc('getTokenSupply',['EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v']);
+   say('Step 3 OK: Helius answered through the proxy ✓');say('Everything works.')}
+  catch(e){say('✗ Step '+step+' failed: '+((e&&e.message)||e))}})()};
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go()})();
 async function rpc(method,params){await rpcSlot();try{let refreshed=false;for(let att=0;att<3;att++){const ses=await tsSession(false);const ctl=new AbortController(),t=setTimeout(()=>ctl.abort(),9000);
  try{const hd={'Content-Type':'application/json'};if(ses)hd['X-TS-Session']=ses;
   const r=await fetch(HELIUS_PROXY,{method:'POST',headers:hd,body:JSON.stringify({jsonrpc:'2.0',id:1,method,params}),signal:ctl.signal});
@@ -2448,22 +2457,18 @@ hrender();wrender();wLoad(false);
 ['Ethereum','Solana','BNB Chain','Base','Arbitrum','Optimism','Polygon','Avalanche','Robinhood Chain','Ethereum','Solana','BNB Chain','Base','Arbitrum','Optimism','Polygon','Avalanche','Robinhood Chain'].forEach(t=>{const s=el('span');s.append(el('b',null,'◆ '),document.createTextNode(t));$('mqi').append(s)});
 [['◎','Honeypot & taxes','Can it be sold, and what do buys and sells cost.'],['⚿','Contract powers','Minting, hidden owner, pausing, blacklists, proxies.'],['≋','Liquidity','Depth of the main pool and reported LP locks.'],['▤','Holder concentration','Top-10 share of supply for EVM tokens, from GoPlus.'],['⇅','Transaction pressure','Buys versus sells across 5 minutes to 24 hours.'],['⏱','Token age','Very new pairs carry extra risk.'],['✓','Listings & verification','Jupiter verified status (Solana) and CoinGecko listing by contract.'],['⛁','Liquidity markets','Every DEX pool and CoinGecko-tracked market, with each one’s share.']].forEach(([i,t,d])=>{const f=el('div','fc');f.append(el('div','n',i),el('h3',null,t),el('p',null,d));$('chk').append(f)});
 [['Honeypot','A token you can buy but not sell. Detection is a simulation and can be wrong.'],['Mint authority','The ability to create more tokens, which can dilute holders. Revoked means it cannot be used again.'],['Freeze authority','On Solana, lets a creator freeze token accounts so holders cannot move tokens.'],['Liquidity lock','Locked liquidity cannot be pulled by the creator until the lock ends. Having a pool is not the same as being locked.'],['Holder concentration','When a few wallets hold most supply, one sale can crash the price. Pools and contracts can look like whales.'],['Bundled buying','Several wallets buying in the same launch moment, sometimes funded by one source. Not analyzed in this version.']].forEach(([t,x])=>{const d=el('details','q');d.append(el('summary',null,t),el('p',null,x));$('gl').append(d)});
-$('tc').onclick=()=>{const b=$('tc'),t=$('tw').textContent;navigator.clipboard.writeText(t).then(()=>{b.textContent='Copied. Thank you!';toast('Address copied')}).catch(()=>{b.textContent='Press and hold the address to copy'});setTimeout(()=>b.textContent='Copy Solana address',2400)};
 
 (function(){const nv=document.querySelector('nav.top'),hb=$('hb'),sc=$('scrim'),set=o=>{nv.classList.toggle('open',o);hb.setAttribute('aria-expanded',o);sc.classList.toggle('on',o)};
  hb.onclick=()=>set(!nv.classList.contains('open'));sc.onclick=()=>set(false);
  document.querySelectorAll('#menu a').forEach(a=>a.addEventListener('click',()=>set(false)));
  addEventListener('keydown',e=>{if(e.key==='Escape')set(false)});
  {const mq=matchMedia('(min-width:1040px)'),fn=()=>set(false);if(mq.addEventListener)mq.addEventListener('change',fn);else if(mq.addListener)mq.addListener(fn)}})();
-(function(){const ids=['scanbox','trending','how','checks','learn','quiz','faq','tip'],links=[...document.querySelectorAll('#menu a')];let cur='';
+(function(){const ids=['scanbox','trending','how','checks','learn','quiz','faq'],links=[...document.querySelectorAll('#menu a')];let cur='';
  function spy(){let act=ids[0];ids.forEach(i=>{const e=document.getElementById(i);if(e&&e.getBoundingClientRect().top<=140)act=i});
   if(innerHeight+scrollY>=document.documentElement.scrollHeight-4)act=ids[ids.length-1];
   if(act!==cur){cur=act;links.forEach(a=>{const on=a.getAttribute('href')==='#'+act;a.classList.toggle('on',on);})}}
  addEventListener('scroll',spy,{passive:true});addEventListener('resize',spy);spy()})();
 
-(function(){const AD=$('tw').textContent.trim(),btns=[...document.querySelectorAll('.tamts button')],to=$('to');if(!btns.length)return;
- const set=i=>{btns.forEach((b,k)=>b.setAttribute('aria-pressed',String(k===i)));const a=btns[i].dataset.a;to.href='solana:'+AD+'?'+(a?'amount='+a+'&':'')+'label=TOKENSCOPE'};
- btns.forEach((b,i)=>b.onclick=()=>set(i));set(0)})();
 $('s').onclick=scan;$('a').onkeydown=e=>{if(e.key==='Enter')scan()};
 $('p').onclick=async()=>{try{$('a').value=await navigator.clipboard.readText()}catch{$('a').focus()}};
 document.querySelectorAll('[data-ch]').forEach(b=>b.onclick=()=>{$('c').value=b.dataset.ch;scrollTo({top:0,behavior:'smooth'});$('a').focus()});
@@ -2602,13 +2607,14 @@ b.onclick=()=>{const t=document.getElementById('scanbox')||document.body;t.scrol
  document.addEventListener('pointerdown',e=>{if(!box.contains(e.target)&&e.target!==inp)close()});
  inp.addEventListener('focus',()=>{if(items.length&&!isAddr(inp.value.trim())&&inp.value.trim().length>=2){place();box.hidden=false}});
 })();</script><dialog id="tsldlg" aria-label="Legal information"><div class="lh"><div class="lt" role="tablist"><button type="button" role="tab" data-tab="privacy">Privacy</button><button type="button" role="tab" data-tab="terms">Terms</button><button type="button" role="tab" data-tab="storage">Cookies &amp; storage</button></div><button type="button" class="lx" id="tslx" aria-label="Close">✕</button></div><div class="lb" id="tslbody" tabindex="0"></div></dialog>
-<div id="tslnote" role="region" aria-label="Privacy notice" hidden><p>No cookies or analytics of our own. Your settings and scan history stay on this device.</p><div><button type="button" class="ghost" data-legal="storage">Details</button><button type="button" class="go" id="tslok">Got it</button></div></div>
+<div id="tslnote" role="region" aria-label="Privacy notice" hidden><p>No cookies or analytics of our own.</p><div><button type="button" class="ghost" data-legal="storage">Details</button><button type="button" class="ghost" id="tslok" aria-label="Dismiss">✕</button></div></div>
 <script>
 /* ---------- privacy, terms, cookies & storage ---------- */
 (function(){
  /* EDIT THESE before publishing. EMAIL='' hides the contact line. A COUNTRY in [brackets] hides the governing-law sentence. */
  const OWNER='Bruce Wayne',EMAIL='',COUNTRY='[your country]';
  const UPDATED='9 November 2026';
+ const SHOW_NOTICE=false; /* true = show the small privacy notice bar on first visit */
  const dlg=document.getElementById('tsldlg'),body=document.getElementById('tslbody');
  if(!dlg||!body)return;
  const ph=v=>v.charAt(0)==='['?'<mark class="ph">'+v+'</mark>':v;
@@ -2637,7 +2643,6 @@ ${(typeof TS_SITEKEY!=='undefined'&&TS_SITEKEY)?'<li><b>Bot protection.</b> To b
 <h4>No warranty, limited liability</h4><p>The site is provided “as is” and “as available”, without warranties of any kind. To the extent the law allows, ${O} is not liable for any loss or damage, including financial loss, that comes from using or relying on this site, its results or its chat assistant. Nothing here limits liability that the law does not allow to be limited.</p>
 <h4>Chat assistant</h4><p>The assistant answers from a built-in guide and your latest scan. It is not a live AI, it can be wrong, and it can’t give financial advice.</p>
 <h4>Third-party services</h4><p>Data and embedded content come from third parties such as DexScreener, GoPlus, GeckoTerminal, CoinGecko, Jupiter, Helius and Bubblemaps. We don’t control them, and we are not affiliated with them or with any token you scan. Names and trademarks belong to their owners.</p>
-<h4>Tips</h4><p>Tips are voluntary and go straight to the wallet address shown. Blockchain transactions can’t be reversed, so tips can’t be refunded. Check the address before you send. A tip gives no extra features or rights.</p>
 <h4>Acceptable use</h4><p>Please don’t abuse the service: no large-scale automated scraping, no attempts to get around rate limits, and no interference with the site or its backend. We may limit or block access to protect it.</p>
 <h4>Changes and governing law</h4><p>We may change the site or these terms at any time; the date above shows the latest version. ${HASC?'These terms are governed by the laws of '+C+', unless your local consumer law says otherwise.':''}</p>
 ${M?'<p>Contact: '+M+'</p>':''}`,
@@ -2653,7 +2658,7 @@ ${M?'<p>Contact: '+M+'</p>':''}`,
 <tr><td>ts-notice</td><td>Remembers that you closed the privacy notice</td></tr>
 ${(typeof TS_SITEKEY!=='undefined'&&TS_SITEKEY)?'<tr><td>ts-session</td><td>Your bot-check pass for the Solana features (valid 30 minutes)</td></tr>':''}
 <tr><td>ts-intro</td><td>This visit only: whether the intro has played</td></tr>
-<tr><td>ts-tip</td><td>This visit only: whether the tip reminder was shown</td></tr></table>
+</table>
 <p>Third-party content, such as the Bubblemaps map and Google Fonts, may set their own cookies or receive your IP address. See the Privacy tab and their policies.</p>
 <div class="wipe"><button type="button" class="ghost" id="tslwipe">Delete everything TOKENSCOPE saved on this device</button><p id="tslmsg" role="status"></p></div>`};
  const tabs=[...dlg.querySelectorAll('[data-tab]')];
@@ -2668,7 +2673,7 @@ ${(typeof TS_SITEKEY!=='undefined'&&TS_SITEKEY)?'<tr><td>ts-session</td><td>Your
   const m=document.getElementById('tslmsg');if(m)m.textContent='Deleted. Reloading…';setTimeout(()=>location.reload(),700)});
  const nb=document.getElementById('tslnote'),ok=document.getElementById('tslok');
  let seen=false;try{seen=localStorage.getItem('ts-notice')==='1'}catch(e){}
- if(nb&&!seen)setTimeout(()=>{nb.hidden=false},4500);
+ if(nb&&!seen&&SHOW_NOTICE)setTimeout(()=>{nb.hidden=false},4500);
  if(ok)ok.addEventListener('click',()=>{nb.hidden=true;try{localStorage.setItem('ts-notice','1')}catch(e){}});
 })();
 </script>
