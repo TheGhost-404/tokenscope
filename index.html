@@ -1954,9 +1954,33 @@ const HELIUS_PROXY='https://tokenscope-helius.theone2001100.workers.dev';/* leav
 let rpcBusy=0;const rpcWait=[];
 const rpcSlot=()=>new Promise(res=>{const go=()=>{if(rpcBusy<5){rpcBusy++;res()}else rpcWait.push(go)};go()});
 const rpcFree=()=>{rpcBusy--;const nx=rpcWait.shift();if(nx)nx()};
-async function rpc(method,params){await rpcSlot();try{for(let att=0;att<3;att++){const ctl=new AbortController(),t=setTimeout(()=>ctl.abort(),9000);
- try{const r=await fetch(HELIUS_PROXY,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({jsonrpc:'2.0',id:1,method,params}),signal:ctl.signal});
+/* Bot protection (Cloudflare Turnstile). Paste your Turnstile SITE key between the quotes to switch it on; leave '' to keep it off. */
+let TS_SITEKEY='0x4AAAAAAF71aCHw45NOZLB7';
+let tsSess=null,tsExp=0,tsPend=null;
+function tsClear(){tsSess=null;tsExp=0;try{localStorage.removeItem('ts-session')}catch(e){}}
+function tsLoad(){return new Promise((res,rej)=>{if(window.turnstile)return res();const s=document.createElement('script');s.src='https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';s.async=true;s.onload=()=>res();s.onerror=()=>rej(new Error('bot check unavailable'));document.head.append(s)})}
+async function tsSession(force){
+ if(!TS_SITEKEY||!HELIUS_PROXY)return null;
+ if(!force&&!tsSess){try{const o=JSON.parse(localStorage.getItem('ts-session')||'null');if(o&&typeof o.s==='string'&&o.e>Date.now()+60000){tsSess=o.s;tsExp=o.e}}catch(e){}}
+ if(!force&&tsSess&&Date.now()<tsExp-60000)return tsSess;
+ if(tsPend)return tsPend;
+ tsPend=(async()=>{let box=null,wid=null;
+  try{await tsLoad();
+   const tok=await new Promise((res,rej)=>{box=document.createElement('div');box.style.cssText='position:fixed;left:12px;bottom:12px;z-index:45';document.body.append(box);
+    const to=setTimeout(()=>rej(new Error('bot check timed out')),25000);
+    wid=window.turnstile.render(box,{sitekey:TS_SITEKEY,appearance:'interaction-only',callback:x=>{clearTimeout(to);res(x)},'error-callback':()=>{clearTimeout(to);rej(new Error('bot check failed'))}})});
+   const r=await fetch(HELIUS_PROXY.replace(/\/$/,'')+'/session',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token:tok})});
+   if(!r.ok)throw new Error('HTTP '+r.status);const d=await r.json();
+   if(!d||typeof d.session!=='string')throw new Error('no session');
+   tsSess=d.session;tsExp=Number(d.exp)||Date.now()+25*60000;try{localStorage.setItem('ts-session',JSON.stringify({s:tsSess,e:tsExp}))}catch(e){}return tsSess}
+  catch(e){tsClear();return null}
+  finally{try{if(wid!=null&&window.turnstile)window.turnstile.remove(wid)}catch(e){}if(box)box.remove();tsPend=null}})();
+ return tsPend}
+async function rpc(method,params){await rpcSlot();try{let refreshed=false;for(let att=0;att<3;att++){const ses=await tsSession(false);const ctl=new AbortController(),t=setTimeout(()=>ctl.abort(),9000);
+ try{const hd={'Content-Type':'application/json'};if(ses)hd['X-TS-Session']=ses;
+  const r=await fetch(HELIUS_PROXY,{method:'POST',headers:hd,body:JSON.stringify({jsonrpc:'2.0',id:1,method,params}),signal:ctl.signal});
   if(r.status===429&&att<2){await new Promise(z=>setTimeout(z,450*(att+1)));continue}
+  if(r.status===401&&TS_SITEKEY&&!refreshed&&att<2){refreshed=true;tsClear();continue}
   if(!r.ok)throw new Error('HTTP '+r.status);const d=await r.json();if(d&&d.error)throw new Error(d.error.message||'RPC error');return d&&d.result}finally{clearTimeout(t)}}}finally{rpcFree()}}
 async function heliusHolders(mint){
  const [sup,big]=await Promise.all([rpc('getTokenSupply',[mint]),rpc('getTokenLargestAccounts',[mint])]);
@@ -2599,6 +2623,7 @@ b.onclick=()=>{const t=document.getElementById('scanbox')||document.body;t.scrol
 <li><b>Check my wallet.</b> The public wallet address you paste is sent through our Cloudflare Worker to Helius to read public token balances. This page does not save it.</li>
 <li><b>Bubblemaps map.</b> When a map is shown, it is an embedded page from Bubblemaps. Their servers receive the token address and your IP address and may set their own cookies. See their privacy policy.</li>
 <li><b>Fonts.</b> Fonts load from Google Fonts, so Google receives your IP address and browser details when the page loads.</li>
+${(typeof TS_SITEKEY!=='undefined'&&TS_SITEKEY)?'<li><b>Bot protection.</b> To block automated abuse, Solana holder and wallet features use Cloudflare Turnstile. It loads from Cloudflare and checks your browser, and Cloudflare receives network signals such as your IP address.</li>':''}
 <li><b>Hosting and security.</b> Our hosting provider and Cloudflare process your IP address to serve the site and block abuse. Our Worker uses your IP address only for a short-lived rate limit kept in memory, and does not store it.</li></ul>
 <h4>Public data we store</h4><p>A background job on our Worker scans public tokens and stores public blockchain data, such as token addresses and risk scores. This is not data about visitors.</p>
 <h4>Why we process this data</h4><p>To run, secure and improve the scanner (in GDPR terms, our legitimate interests).</p>
@@ -2626,6 +2651,7 @@ ${M?'<p>Contact: '+M+'</p>':''}`,
 <tr><td>ts-watch</td><td>Your watchlist</td></tr>
 <tr><td>ts-best</td><td>Your best quiz streak</td></tr>
 <tr><td>ts-notice</td><td>Remembers that you closed the privacy notice</td></tr>
+${(typeof TS_SITEKEY!=='undefined'&&TS_SITEKEY)?'<tr><td>ts-session</td><td>Your bot-check pass for the Solana features (valid 30 minutes)</td></tr>':''}
 <tr><td>ts-intro</td><td>This visit only: whether the intro has played</td></tr>
 <tr><td>ts-tip</td><td>This visit only: whether the tip reminder was shown</td></tr></table>
 <p>Third-party content, such as the Bubblemaps map and Google Fonts, may set their own cookies or receive your IP address. See the Privacy tab and their policies.</p>
